@@ -40,6 +40,11 @@ public class DefaultMemberService implements MemberService {
     return memberDao.findByEmailAndPassword(paramMap);
   }
 
+  @Override
+  public Member get(String email) {
+    return memberDao.findByEmail(email);
+  }
+
   @Transactional
   @Override
   public void update(Member member) {
@@ -56,16 +61,6 @@ public class DefaultMemberService implements MemberService {
     } else {
       throw new RuntimeException("회원이 존재하지 않습니다.");
     }
-  }
-
-  @Override
-  public int emailChk(String email) {
-    return memberDao.emailChk(email);
-  }
-
-  @Override
-  public Member get(String email) {
-    return memberDao.findByEmail(email);
   }
 }
 

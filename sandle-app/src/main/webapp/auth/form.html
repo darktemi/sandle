@@ -14,7 +14,8 @@
 
     <form id="login-form" action="login" method="post">
 
-      
+      <!-- 종현 -->
+      <!-- name="usertype" value="member" 체크-->
       <input
         type="email"
         placeholder="사용자 이메일 주소 입력해주세요."
@@ -30,7 +31,8 @@
       <label class="Remember"
         ><input type="checkbox" name="remember" />이메일 기억</label
       >
-      <button type="submit">로그인</button>
+      <button id="btn-login" type="submit">로그인</button>
+
       <div class="Social">
         <button type="submit" class="google-btn">
           <i class="fa fa-google" aria-hidden="true"></i> Login with Google
@@ -57,6 +59,7 @@
       </div>
     </form>
 
+    <!-- 종현 -->
     <script>
       document.querySelector('input[name="email"]').value = getCookie("email");
 
@@ -84,7 +87,7 @@
           })
           .then((result) => {
             if (result.status == "success") {
-              alert("로그인 success!");
+              alert("로그인 성공!");
               location.href = "../";
             } else {
               alert("로그인 실패!");

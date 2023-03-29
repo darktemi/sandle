@@ -9,6 +9,7 @@
     <result column="name" property="name"/>
     <result column="tel" property="tel"/>
     <result column="email" property="email"/>
+    <result column="id" property="id"/>
     <result column="photo" property="photo"/>
     <result column="nickname" property="nickname"/>
     <result column="post_no" property="postNo"/>
@@ -22,16 +23,17 @@
 
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyProperty="no" keyColumn="member_id">
-    insert into hms_member(name, tel, email, photo, password, nickname, post_no, basic_address, detail_address, status_message, authority, birth)
-    values(#{name}, #{tel}, #{email}, #{photo}, sha2(#{password},256), #{nickname}, #{postNo}, #{basicAddress}, #{detailAddress}, #{statusMessage}, #{authority}, #{birth})
+    insert into hms_member(name, tel, email, id, photo, password, nickname, post_no, basic_address, detail_address, status_message, authority, birth)
+    values(#{name}, #{tel}, #{email}, #{id}, #{photo}, sha2(#{password},256), #{nickname}, #{postNo}, #{basicAddress}, #{detailAddress}, #{statusMessage}, #{authority}, #{birth})
   </insert>
 
-  <select id="findAll" resultMap="memberMap">
+  <select id="findAll" resultMap="memberMap" parameterType="string">
     select 
       member_id, 
       name,
       tel,
       email,
+      id,
       photo,
       nickname,
       post_no,
@@ -43,6 +45,14 @@
       authority
     from 
       hms_member
+      <if test="keyword != '' and keyword != null">
+    where
+      name like(concat('%', #{keyword}, '%'))
+      or email like(concat('%', #{keyword}, '%'))
+      or tel like(concat('%', #{keyword}, '%'))
+      or id like(concat('%', #{keyword}, '%'))
+      or nickname like(concat('%', #{keyword}, '%'))
+    </if>
     order by 
       member_id desc
   </select>
@@ -53,6 +63,7 @@
       name,
       tel,
       email,
+      id,
       photo,
       nickname,
       post_no,
@@ -68,12 +79,50 @@
       member_id=#{no}
   </select>
   
+  <!-- 종현 -->
+  <!-- email & password 정보를 토대로 정보 불러오기  -->
+  <!-- id & password 정보를 토대로 정보 불러오기  -->
+  <select id="findByEmailAndPassword" parameterType="map" resultMap="memberMap">
+    select
+      member_id, 
+      name, 
+      tel,
+      email, 
+      id,
+      photo,
+      nickname, 
+      post_no, 
+      basic_address, 
+      detail_address, 
+      birth, 
+      status_message, 
+      created_date,
+      authority
+    from 
+      hms_member
+    where 
+      email = #{email}
+      <!-- or id = #{id} -->
+      and password = sha2(#{password},256)
+  </select> 
+
+  <!-- 종현: 되는지 체크 -->
   <update id="update" parameterType="member">
     update hms_member set
-      name=#{name},
-      email=#{email},
-      pwd=sha2(#{password},256),
-      tel=#{tel}
+      name=#{name}, 
+      tel=#{tel},
+      email=#{email}, 
+      id=#{id},
+      password=sha2(#{password},256), 
+      photo=#{Photo},
+      nickname=#{nickname}, 
+      post_no=#{postNo}, 
+      basic_address=#{basicAddress}, 
+      detail_address=#{detailAddress}, 
+      birth=#{birth}, 
+      status_message=#{statusMessage}, 
+      created_date,
+      authority=#{authority}
     where member_id=#{no}
   </update>
   
@@ -81,12 +130,6 @@
     delete from hms_member
     where member_id=#{no}
   </delete>
-  
-    <!-- 아이디 중복 체크 -->
-  <select id="emailChk" resultType="int" parameterType="string">
-    SELECT COUNT(*) FROM hms_member
-    WHERE email = #{email}
-  </select>
 </mapper>
 
 

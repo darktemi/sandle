@@ -1,5 +1,5 @@
 showInput();
-getMembers();
+getQnas();
 
 const html = document.querySelector("#tr-template").innerHTML;
 const templateEngine = Handlebars.compile(html);
@@ -33,66 +33,57 @@ document.querySelector("input[name='keyword']").onkeyup = (e) => {
 };
 
 document.querySelector("#btn-search").onclick = () => {
-  getMembers(keyword);
+  getQnas(keyword);
 };
 
-function getMembers(keyword) {
+function getQnas(keyword) {
   let qs = "";
   if (keyword) {
     qs = `?keyword=${keyword}`;
   }
 
-  fetch("../members" + qs)
+  fetch("../qnas" + qs)
     .then((response) => {
       return response.json();
     })
     .then((result) => {
-      document.querySelector("#member-table > tbody").innerHTML =
+      document.querySelector("#qna-table > tbody").innerHTML =
         templateEngine(result.data);
     });
 }
 
-function getMember(e) {
+function getQna(e) {
   let no = e.currentTarget.getAttribute("data-no");
 
-  fetch("../members/" + no)
+  fetch("../qnas/" + no)
     .then((response) => {
       return response.json();
     })
     .then((result) => {
       if (result.status == "failure") {
-        alert("사용자를 조회할 수 없습니다.");
+        alert("게시글을 조회할 수 없습니다.");
         return;
       }
 
       let member = result.data;
-      console.log(member);
-      document.querySelector("#m-no").value = member.no;
-      document.querySelector("#m-name").value = member.name;
-      document.querySelector("#m-tel").value = member.tel;
-      document.querySelector("#m-email").value = member.email;
-      document.querySelector("#m-id").value = member.id;
-      document.querySelector("#m-photo").value = member.photo;
-      document.querySelector("#m-nickname").value = member.nickname;
-      document.querySelector("#m-postNo").value = member.postNo;
-      document.querySelector("#m-basicAddress").value = member.basicAddress;
-      document.querySelector("#m-detailAddress").value = member.detailAddress;
-      document.querySelector("#m-birth").value = member.birth;
-      document.querySelector("#m-statusMessage").value = member.statusMessage;
-      document.querySelector("#m-createdDate").innerHTML = member.createdDate;
-      document.querySelector("#m-authority").value = member.authority;
+      console.log(student);
+      document.querySelector("#q-no").value = qna.no;
+      document.querySelector("#m-no").value = qna.memberNo;
+      document.querySelector("#q-title").value = qna.title;
+      document.querySelector("#q-response").value = qna.response;
+      document.querySelector("#q-createdDate").innerHTML = qna.createdDate;
 
       showEdit();
     });
 }
 
 document.querySelector("#btn-insert").onclick = () => {
-  const form = document.querySelector("#member-form");
+  const form = document.querySelector("#qna-form");
   const formData = new FormData(form);
 
   let json = JSON.stringify(Object.fromEntries(formData));
 
-  fetch("../members", {
+  fetch("../qnas", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
