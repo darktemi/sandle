@@ -13,6 +13,11 @@ import bitcamp.util.RestResult;
 import bitcamp.util.RestStatus;
 import jakarta.servlet.http.HttpSession;
 
+
+//AuthController 빨간불 들어오면 아래 두개 import
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
