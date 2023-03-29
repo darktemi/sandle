@@ -8,4 +8,3 @@
  */
 
 rootProject.name = 'sandle-app'
-include('app-server')
