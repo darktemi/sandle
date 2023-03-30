@@ -94,6 +94,10 @@ video {
   vertical-align: baseline;
 }
 
+* {
+  outline: none;
+}
+
 details,
 figcaption,
 figure,

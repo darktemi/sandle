@@ -4,24 +4,25 @@ body {
 * {
   box-sizing: border-box;
 }
-h1 {
-  text-align: center;
-}
 form {
-  border: 1px solid rgb(182, 180, 180);
   padding: 20px;
   width: 600px;
   margin-inline: auto;
 }
 input {
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #28544b;
   padding: 5px 10px;
   height: 45px;
   margin: 0px 0px 20px;
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 17px;
+  outline: none;
+}
+
+a {
+  outline: none;
 }
 button {
   margin: 10px auto 30px;
@@ -29,11 +30,12 @@ button {
   display: table;
   font-size: 20px;
   padding: 10px 30px;
-  background-color: #4caf50;
+  background-color: #28544b;
   border: none;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
+  outline: none;
 }
 button:hover {
   opacity: 0.8;
@@ -79,9 +81,15 @@ input[type="checkbox"] {
   background-color: #666;
   border-radius: 0px 0px 4px 4px;
 }
-@media (max-width: 1000px) {
+@media (max-width: 400px) {
   form {
     width: 100%;
     margin-left: 0px;
   }
+}
+
+#logo {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
