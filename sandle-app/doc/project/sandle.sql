@@ -280,6 +280,7 @@ CREATE TABLE hms_member (
   name           VARCHAR(50)  NOT NULL COMMENT '이름', -- 이름
   tel            VARCHAR(30)  NOT NULL COMMENT '전화번호', -- 전화번호
   email          VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
+  id             VARCHAR(10)  NOT NULL COMMENT '아이디', -- 아이디
   photo  VARCHAR(255) NULL     COMMENT '프로필사진', -- 프로필사진
   password       VARCHAR(64)  NOT NULL COMMENT '비밀번호', -- 비밀번호
   nickname       VARCHAR(50)  NOT NULL COMMENT '닉네임', -- 닉네임
@@ -303,6 +304,7 @@ ALTER TABLE hms_member
 -- 회원 유니크 인덱스
 CREATE UNIQUE INDEX UIX_hms_member
   ON hms_member ( -- 회원
+    id ASC,       -- 아이디
     email ASC,    -- 이메일
     nickname ASC  -- 닉네임
   );
@@ -515,6 +517,3 @@ ALTER TABLE hms_photo
   REFERENCES hms_board ( -- 게시판
   board_id -- 게시판번호
   );
-  
-  alter table hms_member
-  add constraint hms_member_uk unique (email);

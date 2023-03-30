@@ -62,12 +62,15 @@ public class DefaultMemberService implements MemberService {
       throw new RuntimeException("회원이 존재하지 않습니다.");
     }
   }
+<<<<<<< HEAD
 
   @Override
   public int emailChk(String email) {
     return memberDao.emailChk(email);
   }
 
+=======
+>>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67
 }
 
 

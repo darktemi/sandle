@@ -64,7 +64,7 @@ function getMember(e) {
     })
     .then((result) => {
       if (result.status == "failure") {
-        alert("회원을 조회할 수 없습니다.");
+        alert("사용자를 조회할 수 없습니다.");
         return;
       }
 
@@ -233,11 +233,11 @@ document.querySelector("#btn-delete").onclick = () => {
       if (result.status == "success") {
         location.reload();
       } else {
-        alert("회원 삭제 실패!");
+        alert("사용자 삭제 실패!");
       }
     })
     .catch((exception) => {
-      alert("회원 삭제 중 오류 발생!");
+      alert("사용자 삭제 중 오류 발생!");
       console.log(exception);
     });
 };
@@ -293,6 +293,7 @@ function toQueryStringFromEntries3(entries) {
 
   return str;
 }
+<<<<<<< HEAD:sandle-app/src/main/webapp/member/member.js
 
 document.querySelector("#id-button").onclick = () => {
   let id = document.querySelector("#m-email").value;
@@ -373,3 +374,5 @@ document.querySelector("#m-password").onkeyup = () => {
     pwcon.style.display = "none";
   }
 };
+=======
+>>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67:sandle-app/src/main/webapp/member/index.js
