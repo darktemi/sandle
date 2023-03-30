@@ -7,18 +7,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./form.css">
+    <link rel="stylesheet" href="./form.css" />
   </head>
   <body>
     <h1>Welcome to Sandle Login</h1>
 
     <form id="login-form" action="login" method="post">
-
-      
       <input
         type="email"
         placeholder="사용자 이메일 주소 입력해주세요."
-        name="email" value=""
+        name="email"
+        value=""
         required
       />
       <input
@@ -30,29 +29,33 @@
       <label class="Remember"
         ><input type="checkbox" name="remember" />이메일 기억</label
       >
-      <button type="submit">로그인</button>
+
+      <button id="btn-login" type="submit">로그인</button>
+
       <div class="Social">
         <button type="submit" class="google-btn">
           <i class="fa fa-google" aria-hidden="true"></i> Login with Google
         </button>
+
         <button type="submit" class="facebook-btn">
           <i class="fa fa-facebook" aria-hidden="true"></i> Login with Facebook
         </button>
-      </button>
-      <button type="submit" class="naver-btn">
-        <i class="naver" aria-hidden="true"></i> Login with Naver
-      </button>
-    </button>
-    <button type="submit" class="kakao-btn">
-      <i class="kakao" aria-hidden="true"></i> Login with Kakao
-    </button>
+
+        <button type="submit" class="naver-btn">
+          <i class="naver" aria-hidden="true"></i> Login with Naver
+        </button>
+
+        <button type="submit" class="kakao-btn">
+          <i class="kakao" aria-hidden="true"></i> Login with Kakao
+        </button>
       </div>
+
       <div class="bottom-container">
         <div class="row">
           <div class="col">
-            <a href="#" style="color:white" class="btn">Sign up</a>
-            <br>
-            <a href="#" style="color:white" class="btn">Forgot password?</a>
+            <a href="#" style="color: white" class="btn">Sign up</a><br />
+            <a href="#" style="color: white" class="btn">Forgot password?</a>
+          </div>
         </div>
       </div>
     </form>
@@ -85,7 +88,7 @@
           .then((result) => {
             if (result.status == "success") {
               alert("로그인 success!");
-              location.href = "../";
+              location.href = "../index.html";
             } else {
               alert("로그인 실패!");
               document.querySelector('input[name="email"]').value = "";

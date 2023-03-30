@@ -68,8 +68,6 @@ thead,
 tr,
 th,
 td,
-article,
-aside,
 canvas,
 details,
 embed,
@@ -96,8 +94,6 @@ video {
   vertical-align: baseline;
 }
 
-article,
-aside,
 details,
 figcaption,
 figure,
@@ -151,15 +147,6 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-input,
-select,
-textarea {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-}
-
 /* Basic */
 
 html {
@@ -170,10 +157,6 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
-}
-
-body {
-  background: #252122;
 }
 
 body.is-preload *,
@@ -190,7 +173,6 @@ body.is-preload *:after {
 }
 
 body,
-input,
 textarea,
 select {
   font-family: "Source Sans Pro";
@@ -198,6 +180,23 @@ select {
   color: #5d5d5d;
   font-size: 14pt;
   line-height: 1.75em;
+}
+
+input {
+  box-shadow: 3px 3px 3px 3px;
+  border-radius: 10px;
+}
+
+#m-password,
+#m-name,
+#m-nickname,
+#m-name,
+#m-basicAddress,
+#m-detailAddress {
+  width: 400px;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 strong,
@@ -1547,7 +1546,7 @@ form input[type="password"],
 form select,
 form textarea {
   -webkit-appearance: none;
-  display: block;
+  display: inline-block;
   border: 0;
   padding: 0.75em 1em;
   font-size: 1em;
@@ -1555,14 +1554,6 @@ form textarea {
   border: solid 1px #dddddd;
   background: #fff;
   width: 100%;
-}
-
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form input[type="password"]:focus,
-form select:focus,
-form textarea:focus {
-  box-shadow: inset 0px 0px 1px 1px #43bff0;
 }
 
 form textarea {

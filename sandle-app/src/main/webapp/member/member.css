@@ -1,55 +1,32 @@
 aside {
   /*border: 1px solid red;*/
-  box-sizing: border-box; 
-  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
 }
 
 article {
   /*border: 1px solid black;*/
-  display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   margin-left: 270px;
-  margin-top: 50px;  
-}
-
-#member-table {
-	margin-top: 20px;
-}
-
-#student-table > tbody > tr:hover { 
-  background-color: navy;
-  color: white;
-}
-
-.invisible { 
-  display: none;
-}
-
-.sign-input {
-  width: 400px;
-  height: 50px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 50px;
 }
 
 #head {
   font-size: 50px;
   font-weight: 900;
+  position: relative;
 }
 
 #head-next {
   margin-left: 20px;
   font-weight: 700;
+  position: relative;
 }
 
-input {
-  box-shadow: 3px 3px 3px 3px;
-  border-radius: 10px;
-}
-
-#m-id {
+#m-email {
   width: 265px;
   margin-right: 20px;
 }
@@ -58,7 +35,7 @@ input {
   font-size: 20px;
 }
 
-#btn-insert{
+#btn-insert {
   margin-left: 1px;
   margin-top: 10px;
   padding-left: 55px;
@@ -66,7 +43,7 @@ input {
   margin-right: 10px;
 }
 
-#btn-cancel{
+#btn-cancel {
   margin-top: 10px;
   padding-left: 55px;
   padding-right: 55px;
@@ -81,5 +58,13 @@ input {
   font-size: 20px;
   height: 50px;
 }
-.olmessagef {color: red; font-style: Italic;}
-.olmessaget {color: blue; font-style: Italic;}
+#id-msg1 {
+  color: red;
+}
+#id-msg2 {
+  color: blue;
+}
+
+.id-msg {
+  display: none;
+}

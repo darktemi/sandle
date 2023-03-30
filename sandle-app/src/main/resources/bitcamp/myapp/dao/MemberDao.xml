@@ -68,6 +68,49 @@
       member_id=#{no}
   </select>
   
+    <select id="findByEmailAndPassword" parameterType="map" resultMap="memberMap">
+    select
+      member_id,
+      name,
+      tel,
+      email,
+      photo,
+      nickname,
+      post_no,
+      basic_address,
+      detail_address,
+      status_message,
+      authority,
+      birth,
+      created_date 
+    from 
+      hms_member
+    where 
+      email = #{email}
+      and password = sha2(#{password},256)
+  </select>
+  
+  <select id="findByEmail" parameterType="string" resultMap="memberMap">
+    select
+      member_id,
+      name,
+      tel,
+      email,
+      photo,
+      nickname,
+      post_no,
+      basic_address,
+      detail_address,
+      status_message,
+      authority,
+      birth,
+      created_date 
+    from 
+      hms_member
+    where 
+      email = #{email}
+  </select>
+  
   <update id="update" parameterType="member">
     update hms_member set
       name=#{name},

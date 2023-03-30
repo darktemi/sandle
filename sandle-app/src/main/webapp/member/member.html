@@ -7,7 +7,8 @@
       rel="stylesheet"
       href="../node_modules/bootstrap/dist/css/bootstrap.css"
     />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="member.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
 >    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -41,7 +42,7 @@
     </aside>
 
     <article>
-      <form id="member-form" action="update" method="post">
+      <form id="member-form" name = "member-form" action="update" method="post">
         <div id="head">
           <p>회원가입</p>
         </div>
@@ -54,15 +55,16 @@
           </div>
           <div>
             <b>이메일</b><br>
-              <input class="sign-input" id="m-email" type="text" placeholder="이메일을 입력해주세요" name="email" /></td>
+              <input class="sign-input" id="m-email" type="email" minlength="6" placeholder="이메일을 입력해주세요" name="email" /></td>
               <button id = "id-button" type="button" class="input btn btn-success btn-lg btn-block">중복확인</button>
-              <!-- <span id="id-msg1" display="none" font-color="red">"ID가 중복입니다!"</span>
-              <span id="id-msg2" display="none">"사용가능한 ID입니다."</span>
-              <span id="id-msg3" display="none">"ID를 입력하세요!"</span> -->
+              <div class="id-msg" id="id-msg1">"이메일이 중복입니다!"</div>
+              <div class="id-msg" id="id-msg2">"사용가능한 이메일입니다."</div>
+              <div class="id-msg" id="id-msg3">"이메일을 입력하세요!"</div>
           </div>
           <div>
             <b>비밀번호</b><br>
             <input class="sign-input" id="m-password" type="password" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함(8~20자))" name="password" />
+            <div class="id-msg" id="pw-msg">"영문, 숫자 조합으로 8-20자리 입력해주세요."</div>
           </div>
             <div>
             <b>이름</b><br>
@@ -82,12 +84,12 @@
           </div>
           <div>
             <b>우편번호</b><br>
-            <input class="sign-input" id="m-postNo" type="text" name="postNo" readonly />
+            <input class="sign-input" id="m-postNo" type="text" name="postNo" />
             <input type="button" id="find-button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
           </div>
           <div>
             <b>기본주소</b><br>
-            <input class="sign-input" id="m-basicAddress" type="text" name="basicAddress" readonly />
+            <input class="sign-input" id="m-basicAddress" type="text" name="basicAddress" />
           </div>
           <div>
             <b>상세주소</b><br>
@@ -121,12 +123,11 @@
 
     <script id="tr-template" type="text/x-handlebars-template">
       {{#each this}}
-        <tr data-no="{{no}}" onclick="getSmember(event)">
+        <tr data-no="{{no}}" onclick="getmember(event)">
           <td>{{no}}</td>
           <td>{{name}}</td>
           <td>{{tel}}</td>
           <td>{{email}}</td>
-          <td>{{id}}</td>
           <td>{{photo}}</td>
           <td>{{nickname}}</td>
           <td>{{postNo}}</td>
@@ -142,7 +143,7 @@
 
     <script src="../node_modules/handlebars/dist/handlebars.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="index.js"></script>
+    <script src="member.js"></script>
   </body>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

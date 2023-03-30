@@ -1,6 +1,9 @@
 showInput();
 getMembers();
 
+let signState = false;
+//let emailState = false;
+console.log(signState);
 const html = document.querySelector("#tr-template").innerHTML;
 const templateEngine = Handlebars.compile(html);
 
@@ -71,7 +74,6 @@ function getMember(e) {
       document.querySelector("#m-name").value = member.name;
       document.querySelector("#m-tel").value = member.tel;
       document.querySelector("#m-email").value = member.email;
-      document.querySelector("#m-id").value = member.id;
       document.querySelector("#m-photo").value = member.photo;
       document.querySelector("#m-nickname").value = member.nickname;
       document.querySelector("#m-postNo").value = member.postNo;
@@ -91,33 +93,95 @@ document.querySelector("#btn-insert").onclick = () => {
   const formData = new FormData(form);
 
   let json = JSON.stringify(Object.fromEntries(formData));
-
-  fetch("../members", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: json,
-  })
-    .then((response) => {
-      return response.json();
+  check();
+  if (signState) {
+    fetch("../members", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: json,
     })
-    .then((result) => {
-      if (result.status == "success") {
-        location.reload();
-      } else {
-        alert("입력 실패!");
-        console.log(result.data);
-      }
-    })
-    .catch((exception) => {
-      alert("입력 중 오류 발생!");
-      console.log(exception);
-    });
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        if (result.status == "success") {
+          location.href = "../index.html";
+        } else {
+          alert("입력 실패!");
+          console.log(result.data);
+        }
+      })
+      .catch((exception) => {
+        alert("입력 중 오류 발생!");
+        console.log(exception);
+      });
+  } else {
+    alert("중복을 확인해 주세요");
+  }
 };
 
+function check() {
+  var chk = document.querySelector("#member-form");
+
+  if (chk.email.value == "") {
+    alert("이메일을 입력해주십시오");
+    chk.email.focus();
+    return false;
+  }
+
+  if (chk.password.value == "") {
+    alert("비밀번호를 입력해주십시오");
+    chk.password.focus();
+
+    return false;
+  }
+
+  if (chk.name.value == "") {
+    alert("이름을 입력해주십시오");
+    chk.name.focus();
+    return false;
+  }
+
+  if (chk.nickname.value == "") {
+    alert("닉네임을 입력해주십시오");
+    chk.nickname.focus();
+    return false;
+  }
+
+  if (chk.tel.value == "") {
+    alert("전화번호를 입력해주십시오");
+    chk.tel.focus();
+    return false;
+  }
+
+  if (chk.postNo.value == "") {
+    alert("우편번호를 입력해주십시오");
+    chk.postNo.focus();
+    return false;
+  }
+
+  if (chk.basicAddress.value == "") {
+    alert("기본주소를 입력해주십시오");
+    chk.basicAddress.focus();
+    return false;
+  }
+
+  if (chk.detailAddress.value == "") {
+    alert("상세주소를 입력해주십시오");
+    chk.detailAddress.focus();
+    return false;
+  }
+  if (chk.birth.value == "") {
+    alert("생년월일을 입력해주십시오");
+    chk.birth.focus();
+    return false;
+  }
+}
+
 document.querySelector("#btn-update").onclick = () => {
-  const form = document.querySelector("#smember-form");
+  const form = document.querySelector("#member-form");
   const formData = new FormData(form);
 
   // FormData ==> Query String
@@ -179,7 +243,8 @@ document.querySelector("#btn-delete").onclick = () => {
 };
 
 document.querySelector("#btn-cancel").onclick = () => {
-  showInput();
+  // showInput();
+  location.href = "../index.html";
 };
 
 // entries ==> query string
@@ -237,17 +302,74 @@ document.querySelector("#id-button").onclick = () => {
       return response.json();
     })
     .then((result) => {
+      const con1 = document.querySelector("#id-msg1");
+      const con2 = document.querySelector("#id-msg2");
+      const con3 = document.querySelector("#id-msg3");
+      const box1 = document.querySelector("#m-email");
+
       if (result == 0) {
-        alert("사용 가능한 이메일 입니다.");
+        con2.style.display = "block";
+        con1.style.display = "none";
+        con3.style.display = "none";
+        box1.style.borderColor = "black";
+        box1.style.boxShadow = "5px 5px 5px black";
+        signState = true;
+        //console.log(signState);
+        // alert("회원가입가능요");
       } else if (result == 1) {
-        alert("이미 회원 가입된 이메일 입니다.");
+        con1.style.display = "block";
+        con2.style.display = "none";
+        con3.style.display = "none";
+        box1.style.borderColor = "red";
+        box1.style.boxShadow = "5px 5px 5px red";
+        // alert("중복임");
       } else {
-        alert("이메일을 입력하세요");
+        con3.style.display = "block";
+        con1.style.display = "none";
+        con2.style.display = "none";
+        box1.style.borderColor = "black";
+        box1.style.boxShadow = "5px 5px 5px black";
+        // alert("아이디입력해")
       }
+
       console.log(result);
       if (result.status == "failure") {
         alert("조회할 수 없습니다.");
         return;
       }
     });
+};
+
+let pwd = document.querySelector("#m-password");
+document.querySelector("#m-password").onkeyup = () => {
+  const regPass = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+  const pwcon = document.querySelector("#pw-msg");
+  if (!regPass.test(pwd)) {
+    pwcon.style.display = "block";
+  } else {
+    pwcon.style.display = "none";
+  }
+};
+
+document.querySelector("#m-password").onkeyup = () => {
+  var pw = document.querySelector("#m-password").value;
+  var num = pw.search(/[0-9]/g);
+  var eng = pw.search(/[a-z]/gi);
+  var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+  const pwcon = document.querySelector("#pw-msg");
+
+  if (pw.length < 10 || pw.length > 20) {
+    pwcon.style.display = "block";
+  } else if (pw.search(/\s/) != -1) {
+    pwcon.style.display = "block";
+  } else if (
+    (num < 0 && eng < 0) ||
+    (eng < 0 && spe < 0) ||
+    (spe < 0 && num < 0)
+  ) {
+    pwcon.style.display = "block";
+  } else {
+    pwcon.style.display = "none";
+  }
 };

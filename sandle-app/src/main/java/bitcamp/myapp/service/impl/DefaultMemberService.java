@@ -40,6 +40,11 @@ public class DefaultMemberService implements MemberService {
     return memberDao.findByEmailAndPassword(paramMap);
   }
 
+  @Override
+  public Member get(String email) {
+    return memberDao.findByEmail(email);
+  }
+
   @Transactional
   @Override
   public void update(Member member) {
@@ -63,10 +68,6 @@ public class DefaultMemberService implements MemberService {
     return memberDao.emailChk(email);
   }
 
-  @Override
-  public Member get(String email) {
-    return memberDao.findByEmail(email);
-  }
 }
 
 
