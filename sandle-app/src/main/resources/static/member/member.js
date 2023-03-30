@@ -22,7 +22,12 @@ document.querySelector("#btn-insert").onclick = () => {
     })
     .then((result) => {
       if (result.status == "success") {
-        alert("가입을 축하합니다.");
+        Swal.fire({
+          title: "Error!",
+          text: "가입을 축하합니다.",
+          icon: "error",
+          confirmButtonText: "Cool",
+        });
         location.href = "../index.html";
       } else {
         alert("입력 실패!");
