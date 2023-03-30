@@ -42,12 +42,12 @@ public class MemberController {
         .setData(memberService.list(keyword));
   }
 
-  @GetMapping("{no}")
-  public Object view(@PathVariable int no) {
-    return new RestResult()
-        .setStatus(RestStatus.SUCCESS)
-        .setData(memberService.get(no));
-  }
+  //  @GetMapping("{no}")
+  //  public Object view(@PathVariable int no) {
+  //    return new RestResult()
+  //        .setStatus(RestStatus.SUCCESS)
+  //        .setData(memberService.get(no));
+  //  }
 
   @PutMapping("{no}")
   public Object update(
@@ -69,5 +69,10 @@ public class MemberController {
     memberService.delete(no);
     return new RestResult()
         .setStatus(RestStatus.SUCCESS);
+  }
+
+  @GetMapping("{email}")
+  public int emailChk(@PathVariable String email) {
+    return memberService.emailChk(email);
   }
 }

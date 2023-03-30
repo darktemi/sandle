@@ -13,12 +13,6 @@
     <h1>Welcome to Sandle Login</h1>
 
     <form id="login-form" action="login" method="post">
-<<<<<<< HEAD
-=======
-
-      <!-- 종현 -->
-      <!-- name="usertype" value="member" 체크-->
->>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67
       <input
         type="email"
         placeholder="사용자 이메일 주소 입력해주세요."
@@ -35,10 +29,7 @@
       <label class="Remember"
         ><input type="checkbox" name="remember" />이메일 기억</label
       >
-<<<<<<< HEAD
 
-=======
->>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67
       <button id="btn-login" type="submit">로그인</button>
 
       <div class="Social">
@@ -69,7 +60,6 @@
       </div>
     </form>
 
-    <!-- 종현 -->
     <script>
       document.querySelector('input[name="email"]').value = getCookie("email");
 
@@ -97,13 +87,8 @@
           })
           .then((result) => {
             if (result.status == "success") {
-<<<<<<< HEAD
               alert("로그인 success!");
               location.href = "../index.html";
-=======
-              alert("로그인 성공!");
-              location.href = "../";
->>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67
             } else {
               alert("로그인 실패!");
               document.querySelector('input[name="email"]').value = "";

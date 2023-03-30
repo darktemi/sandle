@@ -1,27 +1,19 @@
 aside {
   /*border: 1px solid red;*/
   box-sizing: border-box;
-<<<<<<< HEAD:sandle-app/src/main/webapp/member/member.css
   position: relative;
   width: 100%;
-=======
-  display: inline-block;
->>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67:sandle-app/src/main/webapp/member/index.css
 }
 
 article {
   /*border: 1px solid black;*/
-<<<<<<< HEAD:sandle-app/src/main/webapp/member/member.css
   justify-content: center;
   align-items: center;
-=======
->>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67:sandle-app/src/main/webapp/member/index.css
   box-sizing: border-box;
   margin-left: 270px;
   margin-top: 50px;
 }
 
-<<<<<<< HEAD:sandle-app/src/main/webapp/member/member.css
 #head {
   font-size: 50px;
   font-weight: 900;
@@ -74,13 +66,5 @@ article {
 }
 
 .id-msg {
-=======
-#student-table > tbody > tr:hover {
-  background-color: navy;
-  color: white;
-}
-
-.invisible {
->>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67:sandle-app/src/main/webapp/member/index.css
   display: none;
 }

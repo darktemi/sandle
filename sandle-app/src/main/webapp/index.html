@@ -6,16 +6,7 @@
 -->
 <html>
   <head>
-    <title>SANDLE MAIN PAGE</title>
-    <!-- 종현 -->
-    <style>
-      /* .login {
-        display: none;
-      }
-      .logout {
-        display: none;
-      } */
-    </style>
+    <title>SANDLE - 산들산들</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -30,21 +21,8 @@
         <!-- Logo -->
         <h1><a href="index.html">SANDLE</a></h1>
 
-<<<<<<< HEAD
         <div id="login"><a href="auth/form.html">LOGIN</a></div>
         <div id="sign-up"><a href="member/member.html">SIGN UP</a></div>
-=======
-        <!-- 종현 -->
-        <div id="login">
-          <a href="auth/form.html">LOGIN</a>
-        </div>
-        <!-- <div id="logout">
-          <a href="app/auth/logout" onclick="logout(); return false;">
-            LOGOUT(<span id="username"></span>)</a
-          >
-        </div> -->
-        <div id="sign-up"><a href="#">SIGN UP</a></div>
->>>>>>> d8716f18ca9b11899b8441571fd7cf89fcd3be67
         <!-- Nav -->
         <nav id="nav">
           <ul>
@@ -212,38 +190,5 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <!-- 종현 -->
-    <script>
-      fetch("auth/user")
-        .then((response) => {
-          return response.json();
-        })
-        .then((result) => {
-          if (result.status == "success") {
-            document.querySelector("#username").innerHTML = result.data.name;
-            document.querySelector("#logout").classList.remove("logout");
-          } else {
-            document.querySelector("#login").classList.remove("login");
-          }
-        })
-        .catch((exception) => {
-          alert("로그인 사용자 정보 조회 오류!");
-        });
-
-      function logout() {
-        fetch("auth/logout")
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            alert("로그아웃 성공!");
-            location.reload();
-          })
-          .catch((exception) => {
-            console.log(exception);
-          });
-      }
-    </script>
   </body>
 </html>
