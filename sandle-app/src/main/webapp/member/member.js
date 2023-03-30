@@ -359,6 +359,7 @@ document.querySelector("#m-password").onkeyup = () => {
   var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
   const pwcon = document.querySelector("#pw-msg");
+  0;
 
   if (pw.length < 10 || pw.length > 20) {
     pwcon.style.display = "block";
