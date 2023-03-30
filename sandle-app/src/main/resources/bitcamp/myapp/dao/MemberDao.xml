@@ -9,8 +9,7 @@
     <result column="name" property="name"/>
     <result column="tel" property="tel"/>
     <result column="email" property="email"/>
-    <result column="photo" property="photo"/>
-    <result column="nickname" property="nickname"/>
+    <result column="profile_photo" property="profilePhoto"/>
     <result column="post_no" property="postNo"/>
     <result column="basic_address" property="basicAddress"/>
     <result column="detail_address" property="detailAddress"/>
@@ -22,8 +21,8 @@
 
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyProperty="no" keyColumn="member_id">
-    insert into hms_member(name, tel, email, photo, password, nickname, post_no, basic_address, detail_address, status_message, authority, birth)
-    values(#{name}, #{tel}, #{email}, #{photo}, sha2(#{password},256), #{nickname}, #{postNo}, #{basicAddress}, #{detailAddress}, #{statusMessage}, #{authority}, #{birth})
+    insert into hms_member(name, tel, email, profile_photo, password, nickname, post_no, basic_address, detail_address, status_message, authority, birth)
+    values(#{name}, #{tel}, #{email}, #{profilePhoto}, sha2(#{password},256), #{nickname}, #{postNo}, #{basicAddress}, #{detailAddress}, #{statusMessage}, #{authority}, #{birth})
   </insert>
 
   <select id="findAll" resultMap="memberMap">
@@ -32,7 +31,7 @@
       name,
       tel,
       email,
-      photo,
+      profile_photo,
       nickname,
       post_no,
       basic_address,
@@ -53,7 +52,7 @@
       name,
       tel,
       email,
-      photo,
+      profile_photo,
       nickname,
       post_no,
       basic_address,
@@ -74,7 +73,7 @@
       name,
       tel,
       email,
-      photo,
+      profile_photo,
       nickname,
       post_no,
       basic_address,
@@ -96,7 +95,7 @@
       name,
       tel,
       email,
-      photo,
+      profile_photo,
       nickname,
       post_no,
       basic_address,
@@ -126,9 +125,13 @@
   </delete>
   
     <!-- 아이디 중복 체크 -->
-  <select id="emailChk" resultType="int" parameterType="string">
-    SELECT COUNT(*) FROM hms_member
-    WHERE email = #{email}
+  <select id="idCheck" parameterType="String" resultType="int">
+    SELECT COUNT(email) FROM hms_member WHERE email= #{email}
+  </select>
+
+      <!-- 닉네임 중복 체크 -->
+  <select id="nickCheck" parameterType="String" resultType="int">
+    SELECT COUNT(nickname) FROM hms_member WHERE nickname= #{nickname}
   </select>
 </mapper>
 

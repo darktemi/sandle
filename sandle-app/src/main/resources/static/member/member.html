@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>sandle 회원</title>
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    <!-- <link rel="stylesheet" href="main.css" /> -->
+    <link rel="stylesheet" href="member.css" />
+    <style>
+      .id_ok{
+      color:#28544b;
+      display: none;
+      }
+      .id_already{
+      color:red; 
+      display: none;
+      }
+      .id_length{
+      color:red; 
+      display: none;
+      }
+      .id_null{
+      color:red; 
+      display: none;
+      }
+      .ni_ok{
+        color:#28544b;
+      display: none;
+      }
+      .ni_already{
+        color:red; 
+      display: none;
+      }
+      </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <article>
+      <form id="member-form" action="update" method="post">
+
+          <div class="edit">
+
+            <input class="sign-input" id="m-no" type="text" name="no" readonly />
+          </div>
+          <div class="b-email">
+            <b>이메일</b><br>
+              <input id="email" type="email" placeholder="이메일을 입력해주세요" name="email" oninput="checkId()"/>
+              <span class="id_ok">사용 가능한 아이디입니다.</span>
+              <span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>
+              <span class="id_length">6자 이상 입력해주세요.</span>
+              <span class="id_null">아이디를 입력해주세요</span>
+          </div>
+          <div class="b-password">
+            <b>비밀번호</b><br>
+            <input class="pw" id="m-password" type="password" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함(8~20자))" name="password" onchange="check_pw()"/>
+          </div>
+          <div class="b-password-chk">
+            <b>비밀번호 확인</b><br>
+            <input class="pw" id="m-password-chk" type="password" placeholder="비밀번호 입력" name="passwordChk" onchange="check_pw()"/><span id="check"></span>
+          </div>
+            <div class="b-name">
+            <b>이름</b><br>
+            <input class="sign-input" id="m-name" type="text" placeholder="이름을 입력해주세요" name="name" />
+            </div>
+            <div class="b-nickname">
+              <b>닉네임</b><br>
+              <input class="sign-input" id="nickname" type="text" placeholder="닉네임을 입력해주세요" name="nickname" oninput="checkNick()"/>
+              <span class="ni_ok">사용 가능한 닉네임입니다.</span>
+              <span class="ni_already">누군가 이 닉을 사용하고 있어요.</span>
+            </div>
+          <div class="b-tel">
+            <b>전화</b><br>
+            <input class="sign-input" id="m-tel" type="tel" oninput="hypenTel(this)" maxlength="13" placeholder="휴대폰 번호(숫자를 입력하세요.)" name="tel" />
+          </div>
+          <div class="b-postNo">
+            <b>우편번호</b><br>
+            <input class="sign-input" id="m-postNo" type="text" name="postNo" readonly />
+            <input type="button" id="find-button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+          </div>
+          <div class="b-basicAddress">
+            <b>기본주소</b><br>
+            <input class="sign-input" id="m-basicAddress" type="text" name="basicAddress" readonly />
+          </div>
+          <div class="b-detailAddress">
+            <b>상세주소</b><br>
+            <input class="sign-input" id="m-detailAddress" type="text" name="detailAddress" />
+          </div>
+          <div class="b-birth">
+            <b>생년월일</b><br>
+            <input class="sign-input" id="m-birth" type="date" name="birth" />
+          </div>
+
+
+        <div>
+          <button id="btn-insert" type="button" class="input btn btn-success btn-lg btn-block">가입하기</button>
+          <button id="btn-cancel" type="reset" class="input btn btn-secondary btn-lg btn-block">가입취소</button>
+        </div>
+      </form>
+    </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="member.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</html>

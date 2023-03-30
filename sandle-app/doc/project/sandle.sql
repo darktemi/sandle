@@ -280,8 +280,7 @@ CREATE TABLE hms_member (
   name           VARCHAR(50)  NOT NULL COMMENT '이름', -- 이름
   tel            VARCHAR(30)  NOT NULL COMMENT '전화번호', -- 전화번호
   email          VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
-  id             VARCHAR(10)  NOT NULL COMMENT '아이디', -- 아이디
-  photo  VARCHAR(255) NULL     COMMENT '프로필사진', -- 프로필사진
+  profile_photo  VARCHAR(255) NULL     COMMENT '프로필사진', -- 프로필사진
   password       VARCHAR(64)  NOT NULL COMMENT '비밀번호', -- 비밀번호
   nickname       VARCHAR(50)  NOT NULL COMMENT '닉네임', -- 닉네임
   post_no        VARCHAR(10)  NOT NULL COMMENT '우편번호', -- 우편번호
@@ -289,7 +288,7 @@ CREATE TABLE hms_member (
   detail_address VARCHAR(255) NULL     COMMENT '상세주소', -- 상세주소
   status_message VARCHAR(255) NULL     COMMENT '상태메세지', -- 상태메세지
   authority      VARCHAR(10)  NULL     COMMENT '권한', -- 권한
-  birth          DATE         NOT NULL COMMENT '생년월일', -- 생년월일
+  birth          DATE         NULL COMMENT '생년월일', -- 생년월일
   created_date   DATE         NOT NULL DEFAULT now() COMMENT '가입일' -- 가입일
 )
 COMMENT '회원';
@@ -304,7 +303,6 @@ ALTER TABLE hms_member
 -- 회원 유니크 인덱스
 CREATE UNIQUE INDEX UIX_hms_member
   ON hms_member ( -- 회원
-    id ASC,       -- 아이디
     email ASC,    -- 이메일
     nickname ASC  -- 닉네임
   );
