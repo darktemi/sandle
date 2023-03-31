@@ -13,6 +13,18 @@
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      .login {
+        display: none;
+      }
+      .sign-up {
+        display: none;
+      }
+
+      .default_logo {
+        display: none;
+      }
+    </style>
   </head>
   <body class="homepage is-preload">
     <div id="page-wrapper">
@@ -21,8 +33,19 @@
         <!-- Logo -->
         <h1><a href="index.html">SANDLE</a></h1>
 
-        <div id="login"><a href="auth/login_form.html">LOGIN</a></div>
-        <div id="sign-up"><a href="member/member.html">SIGN UP</a></div>
+        <div class="login" id="login">
+          <a href="auth/login_form.html">LOGIN</a>
+        </div>
+
+        <div class="sign-up" id="sign-up">
+          <a href="member/member.html">SIGN UP</a>
+        </div>
+
+        <div class="default_logo" id="default_logo">
+          <a href="#"><img src="/sandle/images/default_logo.jpg" /></a>
+          <span id="email"></span>
+        </div>
+
         <!-- Nav -->
         <nav id="nav">
           <ul>
@@ -190,5 +213,27 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      fetch("auth/user")
+        .then((response) => {
+          return response.json();
+        })
+        .then((result) => {
+          console.log(result);
+          if (result.status === "success") {
+            document.querySelector("#email").innerHTML = result.data.email;
+            document
+              .querySelector(".default_logo")
+              .classList.remove("default_logo");
+          } else {
+            document.querySelector(".login").classList.remove("login");
+            document.querySelector(".sign-up").classList.remove("sign-up");
+          }
+        })
+        .catch((exception) => {
+          console.log(exception);
+          alert("로그인 사용자 정보 조회 오류!");
+        });
+    </script>
   </body>
 </html>

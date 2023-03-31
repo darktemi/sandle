@@ -2172,15 +2172,29 @@ ul.social li a.fa-google-plus:hover {
 }
 
 #login,
+#default_logo,
 #sign-up {
   float: right;
   margin-right: 15px;
 }
 
+#default_logo {
+  position: relative;
+  right: 0;
+  width: 400px;
+}
+
+#email {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  position: relative;
+}
+
 /* Nav */
 
 #nav {
-  margin: 2.5em 0 0 0;
+  margin: 5em 0 0 0;
 }
 
 #nav > ul {

@@ -34,8 +34,7 @@ public class AuthController {
       String password,
       HttpSession session) {
 
-    Member member = null;
-    member = memberService.get(email, password);
+    Member member = memberService.get(email, password);
 
     if (member != null) {
       session.setAttribute("loginUser", member);
