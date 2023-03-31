@@ -34,6 +34,20 @@
 
       <button id="btn-login" type="submit">로그인</button>
 
+      <div
+        class="fb-login-button"
+        data-size="large"
+        data-button-type="login_with"
+        data-layout="default"
+        data-auto-logout-link="false"
+        data-use-continue-as="false"
+        data-width=""
+        scope="public_profile,email"
+        onlogin="checkLoginState();"
+      >
+        Login with Facebook
+      </div>
+
       <div class="Social">
         <button type="submit" class="google-btn">
           <i class="fa fa-google" aria-hidden="true"></i> Login with Google
@@ -42,12 +56,6 @@
         <button type="submit" class="facebook-btn">
           <i class="fa fa-facebook" aria-hidden="true"></i> Login with Facebook
         </button>
-
-        <fb:login-button
-          id="btn-login"
-          scope="public_profile,email"
-          onlogin="checkLoginState()"
-        ></fb:login-button>
 
         <button type="submit" class="naver-btn">
           <i class="naver" aria-hidden="true"></i> Login with Naver
