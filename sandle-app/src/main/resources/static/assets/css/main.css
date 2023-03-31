@@ -2185,16 +2185,15 @@ ul.social li a.fa-google-plus:hover {
 }
 
 #email {
-  margin-left: 20px;
-  margin-bottom: 20px;
-  padding-top: 10px;
-  position: relative;
+  margin-left: 55px;
+  margin-top: 13px;
+  position: absolute;
 }
 
 /* Nav */
 
 #nav {
-  margin: 5em 0 0 0;
+  margin: 3em 0 0 0;
 }
 
 #nav > ul {
