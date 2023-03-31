@@ -209,11 +209,6 @@ b {
   font-weight: 400;
 }
 
-i,
-em {
-  font-style: italic;
-}
-
 sub {
   position: relative;
   top: 0.5em;
@@ -229,7 +224,6 @@ sup {
 blockquote {
   border-left: solid 0.75em #dddddd;
   padding: 1em 0 1em 1.5em;
-  font-style: italic;
 }
 
 h1,
@@ -1633,7 +1627,6 @@ header {
 
 header > p {
   display: block;
-  font-style: italic;
   margin: 0.5em 0 0 0;
   padding-bottom: 0.5em;
 }
@@ -2172,16 +2165,28 @@ ul.social li a.fa-google-plus:hover {
 }
 
 #login,
+#logout,
 #default_logo,
 #sign-up {
   float: right;
-  margin-right: 15px;
+  margin-right: 30px;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+#logout {
+  margin-top: 11px;
 }
 
 #default_logo {
   position: relative;
   right: 0;
-  width: 400px;
+  width: 550px;
+}
+
+a {
+  text-decoration-line: none;
+  color: #28544b;
 }
 
 #email {
@@ -2204,7 +2209,6 @@ ul.social li a.fa-google-plus:hover {
 
 #nav > ul > li {
   display: inline-block;
-  font-style: italic;
   margin: 10px 0.35em 0 0.35em;
 }
 
@@ -2242,7 +2246,6 @@ ul.social li a.fa-google-plus:hover {
   background-color: #fff;
   background-color: fff(34, 30, 31, 0.98);
   padding: 1.25em 1.5em 1.25em 1.5em;
-  font-style: italic;
   color: #28544b !important;
   font-weight: 1000;
   min-width: 13em;
@@ -2722,7 +2725,6 @@ ul.social li a.fa-google-plus:hover {
     text-rendering: auto;
     line-height: 1;
     text-transform: none !important;
-    font-family: "Font Awesome 5 Free";
     font-weight: 900;
   }
 

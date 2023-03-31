@@ -30,6 +30,7 @@ document.querySelector("#btn-login").onclick = () => {
         alert("로그인 실패!");
         document.querySelector('input[name="email"]').value = "";
         document.querySelector('input[name="password"]').value = "";
+        location.reload();
       }
     })
     .catch((exception) => {

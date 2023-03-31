@@ -14,13 +14,9 @@
     />
     <link rel="stylesheet" href="assets/css/main.css" />
     <style>
-      .login {
-        display: none;
-      }
-      .sign-up {
-        display: none;
-      }
-
+      .login,
+      .logout,
+      .sign-up,
       .default_logo {
         display: none;
       }
@@ -35,6 +31,17 @@
 
         <div class="login" id="login">
           <a href="auth/login_form.html">LOGIN</a>
+        </div>
+
+        <div>
+          <a
+            class="logout"
+            id="logout"
+            href="sandle/auth/logout"
+            onclick="logout(); return false;"
+          >
+            LOGOUT</a
+          >
         </div>
 
         <div class="sign-up" id="sign-up">
@@ -225,6 +232,7 @@
             document
               .querySelector(".default_logo")
               .classList.remove("default_logo");
+            document.querySelector(".logout").classList.remove("logout");
           } else {
             document.querySelector(".login").classList.remove("login");
             document.querySelector(".sign-up").classList.remove("sign-up");
@@ -234,6 +242,19 @@
           console.log(exception);
           alert("로그인 사용자 정보 조회 오류!");
         });
+
+      function logout() {
+        fetch("auth/logout")
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            location.reload();
+          })
+          .catch((exception) => {
+            console.log(exception);
+          });
+      }
     </script>
   </body>
 </html>

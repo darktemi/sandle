@@ -24,7 +24,7 @@ document.querySelector("#btn-insert").onclick = () => {
       if (result.status == "success") {
         Swal.fire({
           title: "Error!",
-          text: "가입을 축하합니다.",
+          text: "가입 완료!",
           icon: "error",
           confirmButtonText: "Cool",
         });
