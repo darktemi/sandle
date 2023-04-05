@@ -108,6 +108,7 @@ button:hover {
   color: #ffffff;
   box-shadow: 2px 2px 2px 2px #000000;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #btn-insert:active,
