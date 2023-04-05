@@ -63,7 +63,7 @@ select {
 #default_logo {
   position: relative;
   right: 0;
-  width: 450px;
+  width: 480px;
 }
 
 a {
@@ -73,8 +73,8 @@ a {
 }
 
 #userEmail {
-  margin-left: 55px;
-  margin-top: 11px;
+  margin-left: 50px;
+  margin-top: 10px;
   position: absolute;
 }
 
@@ -258,7 +258,6 @@ a {
   position: absolute;
   right: 5%;
   margin-top: 180px;
-  border: 1px white solid;
 }
 
 #git {

@@ -24,7 +24,12 @@ document.querySelector("#btn-login").onclick = () => {
     })
     .then((result) => {
       if (result.status == "success") {
-        alert("로그인 success!");
+        Swal.fire({
+          title: "제목",
+          text: "내용",
+          icon: "success",
+          confirmButtonText: "확인",
+        });
         location.href = "../index.html";
       } else {
         alert("로그인 실패!");
