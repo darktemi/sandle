@@ -1,6 +1,7 @@
 form {
-  width: 400px;
+  width: 375px;
   margin-inline: auto;
+  margin-bottom: 50px;
   text-align: center;
 }
 input {
@@ -30,7 +31,6 @@ button {
 
 .Remember {
   float: left;
-  margin-left: 20px;
 }
 
 button:hover {
@@ -41,6 +41,7 @@ input[type="checkbox"] {
   height: 16px;
   width: 16px;
   margin-right: 5px;
+  accent-color: #28544b;
 }
 
 .Social button.google-btn,
