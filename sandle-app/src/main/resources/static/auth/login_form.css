@@ -1,18 +1,17 @@
 form {
-  padding: 20px;
-  width: 600px;
+  width: 400px;
   margin-inline: auto;
+  text-align: center;
 }
 input {
-  width: 100%;
+  width: 350px;
   border: 1px solid #28544b;
   padding: 5px 10px;
-  height: 45px;
-  margin: 0px 0px 20px;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 17px;
-  outline: none;
+  height: 30px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 2px #000000;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
 button {
@@ -28,14 +27,20 @@ button {
   cursor: pointer;
   outline: none;
 }
+
+.Remember {
+  float: left;
+  margin-left: 20px;
+}
+
 button:hover {
   opacity: 0.8;
 }
+
 input[type="checkbox"] {
   height: 16px;
   width: 16px;
   margin-right: 5px;
-  float: left;
 }
 
 .Social button.google-btn,
