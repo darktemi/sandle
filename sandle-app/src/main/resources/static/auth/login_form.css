@@ -1,9 +1,3 @@
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-* {
-  box-sizing: border-box;
-}
 form {
   padding: 20px;
   width: 600px;
@@ -21,9 +15,6 @@ input {
   outline: none;
 }
 
-a {
-  outline: none;
-}
 button {
   margin: 10px auto 30px;
   width: 100%;
