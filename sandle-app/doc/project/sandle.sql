@@ -72,7 +72,7 @@ CREATE TABLE hms_comment (
   board_id     INTEGER      NOT NULL COMMENT '게시판번호', -- 게시판번호
   member_id    INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
   content      VARCHAR(255) NOT NULL COMMENT '내용', -- 내용
-  created_date DATE         NOT NULL DEFAULT now() COMMENT '작성일' -- 작성일
+  created_date DATETIME     NOT NULL DEFAULT now() COMMENT '작성일' -- 작성일
 )
 COMMENT '댓글';
 
@@ -92,7 +92,7 @@ CREATE TABLE hms_qna (
   member_id    INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
   title        VARCHAR(255) NOT NULL COMMENT '문의제목', -- 문의제목
   response     VARCHAR(255) NOT NULL COMMENT '답변', -- 답변
-  created_date DATE         NOT NULL DEFAULT now() COMMENT '등록일' -- 등록일
+  created_date DATETIME     NOT NULL DEFAULT now() COMMENT '등록일' -- 등록일
 )
 COMMENT 'QnA';
 
@@ -128,10 +128,10 @@ CREATE TABLE hms_mountain_info (
   region_id        INTEGER      NOT NULL COMMENT '지역번호', -- 지역번호
   mountain_name    VARCHAR(50)  NOT NULL COMMENT '산이름', -- 산이름
   height           VARCHAR(50)  NOT NULL COMMENT '산높이', -- 산높이
-  photo            VARCHAR(255) NOT NULL COMMENT '사진', -- 사진
+  photo            VARCHAR(255) NULL     COMMENT '사진', -- 사진
   address          VARCHAR(255) NOT NULL COMMENT '주소', -- 주소
-  sunrise          DATE         NOT NULL COMMENT '일출시간', -- 일출시간
-  sunset           DATE         NOT NULL COMMENT '일몰시간' -- 일몰시간
+  sunrise          DATETIME     NULL     COMMENT '일출시간', -- 일출시간
+  sunset           DATETIME     NULL     COMMENT '일몰시간' -- 일몰시간
 )
 COMMENT '산';
 
@@ -153,7 +153,7 @@ CREATE TABLE hms_board (
   title             VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
   content           VARCHAR(255) NOT NULL COMMENT '내용', -- 내용
   tag               VARCHAR(50)  NOT NULL COMMENT '태그명', -- 태그명
-  created_date      DATE         NOT NULL DEFAULT now() COMMENT '작성일' -- 작성일
+  created_date      DATETIME     NOT NULL DEFAULT now() COMMENT '작성일' -- 작성일
 )
 COMMENT '게시판';
 
@@ -288,8 +288,8 @@ CREATE TABLE hms_member (
   detail_address VARCHAR(255) NULL     COMMENT '상세주소', -- 상세주소
   status_message VARCHAR(255) NULL     COMMENT '상태메세지', -- 상태메세지
   authority      VARCHAR(10)  NULL     COMMENT '권한', -- 권한
-  birth          DATE         NULL COMMENT '생년월일', -- 생년월일
-  created_date   DATE         NOT NULL DEFAULT now() COMMENT '가입일' -- 가입일
+  birth          DATE         NOT NULL COMMENT '생년월일', -- 생년월일
+  created_date   DATETIME     NOT NULL DEFAULT now() COMMENT '가입일' -- 가입일
 )
 COMMENT '회원';
 

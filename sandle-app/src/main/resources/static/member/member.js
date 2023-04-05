@@ -22,12 +22,7 @@ document.querySelector("#btn-insert").onclick = () => {
     })
     .then((result) => {
       if (result.status == "success") {
-        Swal.fire({
-          title: "Error!",
-          text: "가입 완료!",
-          icon: "error",
-          confirmButtonText: "Cool",
-        });
+        alert("가입 완료!");
         location.href = "../index.html";
       } else {
         alert("입력 실패!");
@@ -44,52 +39,6 @@ document.querySelector("#btn-cancel").onclick = () => {
   location.href = "../index.html";
 };
 
-// entries ==> query string
-function toQueryStringFromEntries(entries) {
-  let qs = "";
-  for (let [key, value] of entries) {
-    if (qs.length > 0) {
-      qs += "&";
-    }
-    qs += encodeURIComponent(key) + "=" + encodeURIComponent(value);
-  }
-  return qs;
-}
-
-function toQueryStringFromEntries2(entries) {
-  let arr = [];
-  for (let entry of entries) {
-    arr.push(entry);
-  }
-
-  //console.log(arr);
-
-  let arr2 = arr.map(
-    (x) => `${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`
-  );
-  //console.log(arr2);
-
-  let str = arr2.join("&");
-  //console.log(str);
-
-  return str;
-}
-
-function toQueryStringFromEntries3(entries) {
-  let arr = [...entries];
-
-  //console.log(arr);
-
-  let arr2 = arr.map(
-    (x) => `${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`
-  );
-  //console.log(arr2);
-
-  let str = arr2.join("&");
-  //console.log(str);
-
-  return str;
-}
 /*****************************************************************************주소찾기*********/
 function sample6_execDaumPostcode() {
   new daum.Postcode({
@@ -261,4 +210,33 @@ function check_pw() {
       document.getElementById("check").style.color = "red";
     }
   }
+}
+
+fetch("../auth/user")
+  .then((response) => {
+    return response.json();
+  })
+  .then((result) => {
+    console.log(result);
+    if (result.status === "success") {
+      document.querySelector("#userEmail").innerHTML = result.data.email;
+      document.querySelector(".default_logo").classList.remove("default_logo");
+      document.querySelector(".logout").classList.remove("logout");
+    } else {
+      document.querySelector(".login").classList.remove("login");
+      document.querySelector(".sign-up").classList.remove("sign-up");
+    }
+  });
+
+function logout() {
+  fetch("../auth/logout")
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      location.reload();
+    })
+    .catch((exception) => {
+      console.log(exception);
+    });
 }
