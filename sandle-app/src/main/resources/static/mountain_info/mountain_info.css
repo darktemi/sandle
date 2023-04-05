@@ -1,8 +1,15 @@
 /* container */
 
-#container {
+#main-container {
   text-align: center;
-  border: 1px black solid;
+}
+
+#container {
+  display: inline-block;
+  text-align: center;
+  width: 900px;
+  height: 700px;
+  padding-top: 30px;
 }
 
 #map {
@@ -10,35 +17,32 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
-  border: 1px black solid;
   min-width: 400px;
-  min-height: 600px;
+  min-height: 630px;
   max-width: 400px;
-  max-height: 600px;
+  max-height: 630px;
   display: inline-block;
-  margin-left: 400px;
+  margin-top: 20px;
 }
 
 #tabs {
-  border: 1px black solid;
   min-width: 393px;
-  min-height: 600px;
+  min-height: 623px;
   max-width: 393px;
-  max-height: 600px;
+  max-height: 623px;
   float: right;
-  margin-right: 500px;
 }
 
-#tabs > ul {
-  width: auto;
+#main-mountain_info {
+  text-align: center;
 }
 
 #mountain_detail_title {
-  position: relative;
-  text-align: center;
-  border: 1px black solid;
-  min-height: 50px;
-  min-width: 50px;
+  display: inline-block;
+  text-align: left;
+  border-top: 1px #28544b solid;
+  min-width: 1100px;
+  max-width: 1100px;
 }
 
 #mountain_detail_info {
@@ -46,11 +50,17 @@
 }
 
 #accordion {
+  font-size: 20px;
   display: inline-block;
-  min-width: 1330px;
-  min-height: auto;
+  height: auto;
+  min-width: 1100px;
+  max-width: 1100px;
+  margin-bottom: 50px;
 }
 
+h3 > input {
+  width: 150px;
+}
 /* footer */
 
 #footer {
