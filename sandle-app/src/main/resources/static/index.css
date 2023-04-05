@@ -3,6 +3,12 @@
   outline: none;
 }
 
+a {
+  text-decoration-line: none;
+  outline: none;
+  color: #28544b;
+}
+
 #row > div > p {
   font-size: 18px;
   font-weight: 500;
@@ -56,25 +62,20 @@ select {
   font-size: 20px;
 }
 
-#logout {
-  margin-top: 11px;
+#login,
+#logout,
+#sign-up {
+  margin-top: 13px;
 }
 
 #default_logo {
-  position: relative;
-  right: 0;
+  float: right;
   width: 480px;
-}
-
-a {
-  text-decoration-line: none;
-  outline: none;
-  color: #28544b;
 }
 
 #userEmail {
   margin-left: 50px;
-  margin-top: 10px;
+  margin-top: 13px;
   position: absolute;
 }
 
