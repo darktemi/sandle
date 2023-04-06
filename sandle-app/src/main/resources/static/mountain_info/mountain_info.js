@@ -67,7 +67,7 @@ fetch("../auth/user")
   .then((result) => {
     console.log(result);
     if (result.status === "success") {
-      document.querySelector("#email").innerHTML = result.data.email;
+      document.querySelector("#userEmail").innerHTML = result.data.email;
       document.querySelector(".default_logo").classList.remove("default_logo");
       document.querySelector(".logout").classList.remove("logout");
     } else {
@@ -77,7 +77,7 @@ fetch("../auth/user")
   });
 
 function logout() {
-  fetch("auth/logout")
+  fetch("../auth/logout")
     .then((response) => {
       return response.json();
     })
