@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SANDLE - 산들산들</title>
     <meta charset="utf-8" />
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
+    name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <title>산들산들 - 산 정보</title>
     <link rel="stylesheet" href="mountain_info.css" />
-    <link rel="stylesheet" href="../index.css" />
-    <link rel="icon" href="../assets/images/default_logo.jpg" />
-    <link
-      rel="stylesheet"
-      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
-    />
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   </head>
 
   <body>
     <!-- Header -->
     <header id="header">
-      <h1><a href="../index.html">SANDLE</a></h1>
+      <h1><a href="/sandle/index.html">SANDLE</a></h1>
 
       <div id="login" class="login">
-        <a href="../auth/login_form.html">LOGIN</a>
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
       </div>
 
       <div>
@@ -37,12 +36,12 @@
       </div>
 
       <div id="sign-up" class="sign-up">
-        <a href="../member/member.html">SIGN UP</a>
+        <a href="/sandle/member/member.html">SIGN UP</a>
       </div>
 
-      <div id="default_logo" class="default_logo">
-        <span id="userEmail"></span>
-        <a href="#"><img src="../assets/images/default_logo.jpg" /></a>
+      <div class="default_logo" id="default_logo">
+        <a href="/sandle/userPage/userPage.html"><span id="userEmail"></span></a>
+        <a href="/sandle/userPage/userPage.html"><img src="/sandle/assets/images/default_logo.jpg" /></a>
       </div>
     </header>
 
@@ -50,7 +49,7 @@
     <nav id="nav">
       <ul>
         <li class="current">
-          <a href="../index.html">산들 소개</a>
+          <a href="/sandle/index.html">산들 소개</a>
           <ul>
             <ol>
               산들 소개
@@ -61,7 +60,7 @@
         </li>
 
         <li>
-          <a href="../mountain_info/mountain_info.html">전국 등산로 정보</a>
+          <a href="/sandle/mountain_info/mountain_info.html">전국 등산로 정보</a>
         </li>
 
         <li>
@@ -71,7 +70,7 @@
               산악 소식
             </ol>
             <li><a href="#">공지 사항</a></li>
-            <li><a href="#">산들 뉴스</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
             <li><a href="#">지역 행사 정보</a></li>
             <li><a href="#">이벤트</a></li>
           </ul>
@@ -82,7 +81,7 @@
             <ol>
               커뮤니티
             </ol>
-            <li><a href="#">포토 피드</a></li>
+            <li><a href="/sandle/photofeed/photofeed.html">포토 피드</a></li>
             <li><a href="#">맛집 피드</a></li>
             <li><a href="#">등산 일지</a></li>
             <li><a href="#">1:1 문의</a></li>
@@ -242,12 +241,10 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="../assets/js/jquery.dropotron.min.js"></script>
-    <script src="../assets/js/browser.min.js"></script>
-    <script src="../assets/js/breakpoints.min.js"></script>
-    <script src="../assets/js/util.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
     <script src="mountain_info.js"></script>
   </body>
 </html>

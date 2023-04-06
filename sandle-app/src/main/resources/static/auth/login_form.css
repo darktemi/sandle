@@ -1,11 +1,11 @@
 form {
-  width: 375px;
+  width: 450px;
   margin-inline: auto;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-align: center;
 }
 input {
-  width: 350px;
+  width: 420px;
   border: 1px solid #28544b;
   padding: 5px 10px;
   height: 30px;
@@ -24,7 +24,7 @@ button {
   background-color: #28544b;
   border: none;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   outline: none;
 }

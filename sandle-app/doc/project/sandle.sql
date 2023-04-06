@@ -240,7 +240,7 @@ ALTER TABLE hms_diary
 CREATE TABLE hms_course_info (
   course_info_id   INTEGER     NOT NULL COMMENT '등산코스번호', -- 등산코스번호
   mountain_info_id INTEGER     NOT NULL COMMENT '산번호', -- 산번호
-  course_name      VARCHAR(50) NOT NULL COMMENT '등산코드이름', -- 등산코드이름
+  course_name      VARCHAR(50) NOT NULL COMMENT '등산코스이름', -- 등산코스이름
   length           VARCHAR(50) NOT NULL COMMENT '등산코스길이', -- 등산코스길이
   time             VARCHAR(50) NOT NULL COMMENT '소요시간', -- 소요시간
   level            VARCHAR(50) NOT NULL COMMENT '난이도' -- 난이도
@@ -342,6 +342,14 @@ ALTER TABLE hms_photo
   PRIMARY KEY (
   photo_id -- 사진번호
   );
+  
+-- 뉴스
+  CREATE TABLE news (
+  title VARCHAR(100) NOT NULL,
+  content VARCHAR(1000) NOT NULL,
+  image2 VARCHAR(200) NOT NULL,
+  link VARCHAR(500) NOT NULL,
+);
 
 ALTER TABLE hms_photo
   MODIFY COLUMN photo_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '사진번호';

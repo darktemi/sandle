@@ -21,8 +21,28 @@ input {
   margin-bottom: 30px;
 }
 
+#email {
+  width: 230px;
+}
+
+#m-password,
+#m-tel {
+  width: 330px;
+}
+
 #m-birth {
   width: 97%;
+  font-size: 20px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.ni_no {
+  font-size: 15px;
 }
 
 .b-email,
@@ -40,7 +60,7 @@ input {
   max-width: 530px;
   max-height: 90px;
   left: 50%;
-  font-size: 18px;
+  font-size: 20px;
 
   background: #ffffff;
   mix-blend-mode: normal;
@@ -51,7 +71,7 @@ input {
 }
 
 ::placeholder {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .b-password,

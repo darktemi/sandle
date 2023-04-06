@@ -23,7 +23,7 @@ document.querySelector("#btn-insert").onclick = () => {
     .then((result) => {
       if (result.status == "success") {
         alert("가입 완료!");
-        location.href = "../index.html";
+        location.href = "/sandle/index.html";
       } else {
         alert("입력 실패!");
         console.log(result.data);
@@ -36,7 +36,7 @@ document.querySelector("#btn-insert").onclick = () => {
 };
 
 document.querySelector("#btn-cancel").onclick = () => {
-  location.href = "../index.html";
+  location.href = "/sandle/index.html";
 };
 
 /*****************************************************************************주소찾기*********/
@@ -210,33 +210,4 @@ function check_pw() {
       document.getElementById("check").style.color = "red";
     }
   }
-}
-
-fetch("../auth/user")
-  .then((response) => {
-    return response.json();
-  })
-  .then((result) => {
-    console.log(result);
-    if (result.status === "success") {
-      document.querySelector("#userEmail").innerHTML = result.data.email;
-      document.querySelector(".default_logo").classList.remove("default_logo");
-      document.querySelector(".logout").classList.remove("logout");
-    } else {
-      document.querySelector(".login").classList.remove("login");
-      document.querySelector(".sign-up").classList.remove("sign-up");
-    }
-  });
-
-function logout() {
-  fetch("../auth/logout")
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      location.reload();
-    })
-    .catch((exception) => {
-      console.log(exception);
-    });
 }

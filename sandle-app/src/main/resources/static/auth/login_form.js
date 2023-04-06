@@ -25,7 +25,7 @@ document.querySelector("#btn-login").onclick = () => {
     .then((result) => {
       if (result.status == "success") {
         alert("로그인 success!");
-        location.href = "../index.html";
+        location.href = '/sandle/index.html';
       } else {
         alert("로그인 실패!");
         document.querySelector('input[name="email"]').value = "";
@@ -89,7 +89,7 @@ function facebookLogin(accessToken) {
     .then((result) => {
       if (result.status == "success") {
         console.log("페이스북 로그인 성공!");
-        location.href = "../";
+        location.href = "/sandle/";
       } else {
         alert("페이스북 로그인 실패!");
       }
