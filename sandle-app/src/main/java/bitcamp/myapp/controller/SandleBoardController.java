@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import bitcamp.myapp.service.SandleBoardService;
 import bitcamp.myapp.vo.SandleBoard;
+import bitcamp.util.RestResult;
+import bitcamp.util.RestStatus;
 
 @RestController
 @RequestMapping("/sandleboards")
@@ -29,5 +31,11 @@ public class SandleBoardController {
     //          .setStatus(RestStatus.FAILURE)
     //          .setErrorCode(ErrorCode.rest.NO_DATA);
     //    }
+  }
+  @GetMapping
+  public Object list() {
+    return new RestResult()
+        .setStatus(RestStatus.SUCCESS)
+        .setData(sandleBoardService.list());
   }
 }

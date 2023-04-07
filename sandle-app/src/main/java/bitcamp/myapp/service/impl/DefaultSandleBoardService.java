@@ -1,5 +1,6 @@
 package bitcamp.myapp.service.impl;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import bitcamp.myapp.dao.SandleBoardDao;
@@ -18,5 +19,9 @@ public class DefaultSandleBoardService implements SandleBoardService{
     //      boardDao.increaseViewCount(no);
     //    }
     return b;
+  }
+  @Override
+  public List<SandleBoard> list() {
+    return sandleBoardDao.findAll();
   }
 }
