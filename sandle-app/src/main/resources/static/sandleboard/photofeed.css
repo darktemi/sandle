@@ -310,8 +310,8 @@ select {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 600px;
-  height: 400px;
+  width: 850px;
+  height: 600px;
   padding: 10px;
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -339,18 +339,20 @@ select {
   width: 30px;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  padding-right: 5px;
 }
 
 #session2-2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 280px;
+  width: 400px;
 }
 
 #session2-3 {
-  width: 255px;
+  width: 350px;
+  padding-left: 30px;
 }
 
 #session2-4 {
@@ -368,8 +370,8 @@ select {
 
 #photo {
   /* border: 1px solid black; */
-  height: 320px;
-  width: 250px;
+  height: 520px;
+  width: 400px;
   border-radius: 30px;
   margin-bottom: 18px;
   background-repeat: no-repeat;
@@ -381,15 +383,21 @@ select {
 #modal-content-creater {
   /* border: 1px solid black; */
   height: 160px;
+  margin-bottom: 10px;
 }
 
-#modal-content-comment {
+#comment {
   /* border: 1px solid black; */
-  height: 170px;
+  height: 300px;
+  max-height: 300px;
+  overflow: auto;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
+  margin-bottom: 10px;
 }
-
+#comment::-webkit-scrollbar {
+  display: none;
+}
 
 
 #user-info {
@@ -415,6 +423,7 @@ select {
   height: 50px;
   text-align: right;
   padding-right: 30px;
+  margin-bottom: 10px;
   color: black;
   font-size: 10px;
   font-weight: bold;
@@ -442,10 +451,16 @@ select {
   margin-bottom: 7px;
 }
 
-#insert-input {
-  width: 200px;
-  height: 20px;
+#modal-content-insert {
+  text-align: left;
+}
+
+
+#comment-insert {
+  width: 330px;
+  height: 30px;
   border-radius: 30px;
+  padding-left: 20px;
 }
 
 #modal-user-image {
@@ -463,3 +478,31 @@ select {
   cursor: pointer;
 }
 
+#comment > div{
+  text-align: left;
+  padding-left: 5px;
+  color: black;
+  font-size: 15px;
+}
+
+  
+#cmt-nickname {
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+#cmt-image{
+  width: 30px;
+  height: 30px;
+}
+
+.cmt-x-logo{
+  width: 10px;
+  height: 10px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+#cmt-content {
+  padding-left: 50px;
+}

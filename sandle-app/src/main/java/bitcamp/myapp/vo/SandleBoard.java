@@ -1,6 +1,7 @@
 package bitcamp.myapp.vo;
 
 import java.sql.Date;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import lombok.Data;
@@ -18,4 +19,8 @@ public class SandleBoard {
       shape = Shape.STRING,
       pattern = "yyyy-MM-dd")
   private Date createdDate;
+
+  private int viewCount;
+  private Member writer;
+  private List<Comment> comments;
 }

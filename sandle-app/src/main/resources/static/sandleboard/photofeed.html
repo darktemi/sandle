@@ -15,6 +15,7 @@
   <script src="../assets/js/jquery.dropotron.min.js"></script>
   <script src="../assets/js/breakpoints.min.js"></script>
   <script src="../assets/js/util.js"></script>
+  <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 </head>
 
 <body>
@@ -92,42 +93,8 @@
 
 
   <!-- photofeed -->
-  <div class="container">
+  <div class="container"></div>
 
-
-
-    <!-- <div class="photo-a" id="photo-ex1" style="background-image: url('../assets/photofeed_images/KakaoTalk_20230311_155709246.jpg')"
-      onclick=ggggg()>
-        
-      </div> -->
-
-
-
-  </div>
-  <!-- <div class ="container">
-    <div class="item">
-      <div class="photo-a"   style="background-image: url('../assets/photofeed_images/m2.jpg')">
-
-      </div>
-    </div>
-    <div class="item">
-      <div class="photo-a"   style="background-image: url('../assets/photofeed_images/m3.jpg')">
-
-      </div>
-    </div>
-  </div>
-  <div class ="container">
-    <div class="item">
-      <div class="photo-a"   style="background-image: url('../assets/photofeed_images/m4.jpg')">
-
-      </div>
-    </div>
-    <div class="item">
-      <div class="photo-a"   style="background-image: url('../assets/photofeed_images/m5.jpg')">
-
-      </div>
-    </div>
-  </div> -->
 
   <!-- ---------------------------------------------Modal area------------------------------ -->
 
@@ -138,7 +105,7 @@
       </div>
       <div id="session2">
         <div class="session2-s" id="session2-1">
-          <img src="../assets/photofeed_images/arrow-left.png" width="30px" height="30px" class="arrow-i" />
+          <!-- <img src="../assets/photofeed_images/arrow-left.png" width="30px" height="30px" class="arrow-i" /> -->
         </div>
         <div class="session2-s" id="session2-2">
           <div id="photo">
@@ -166,17 +133,17 @@
 
               </div>
             </div>
-            <div id="modal-content-comment">
-
+            <div id="comment">
+              
             </div>
             <div id="modal-content-insert">
-              <input type="text" id="insert-input" placeholder="댓글을 작성하세요.">
+              <input type="text" id="comment-insert" placeholder="댓글을 작성하세요.">
             </div>
           </div>
 
         </div>
         <div class="session2-s" id="session2-4">
-          <img src="../assets/photofeed_images/arrow-right.png" width="30px" height="30px" class="arrow-i" />
+          <!-- <img src="../assets/photofeed_images/arrow-right.png" width="30px" height="30px" class="arrow-i" id="arrow-right"/> -->
         </div>
       </div>
     </div>
@@ -185,28 +152,17 @@
   <script id="image-template" type="text/x-handlebars-template">
     {{#each this}}
     <div class="item">
-    <div class="photo-a" id="photo-ex1" data-no="{{no}}" onclick="getSandleBoard(event)" style="background-image: url({{photo}})"
-    ></div>
-  </div>
+      <div class="photo-a" id="photo-ex1" data-no="{{no}}" onclick="getSandleBoard(event)" style="background-image: url({{photo}})">
+      </div>
+    </div>
     {{/each}}
-  </script>
-
-  <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    </script>
   <script>
-    const html = document.querySelector("#image-template").innerHTML;
-    const templateEngine = Handlebars.compile(html);
-    fetch("../sandleboards")
-      .then((response) => {
-        return response.json();
-      })
-      .then((result) => {
-        console.log(result);
-        document.querySelector(".container").innerHTML = templateEngine(result.data);
-        console.log(result.data[1].photo);
-      });
+
 
   </script>
 </body>
-<script src="photofeed.js"></script>
 
+<script src="photofeed.js"></script>
+  
 </html>
