@@ -124,11 +124,11 @@ function checkNick() {
       $(".ni_already").css("display", "none");
       $(".ni_no").css("display", "inline-block");
       return;
-    } else {
-      axios
-        .get("../users/nickCheck", { params: { nickname: nickname } })
-        .then(function (response) {
-          const cnt = response.data;
+    } else
+      $.ajax({
+        url: "../users/nickCheck?nickname=" + nickname,
+        type: "get",
+        success: function (cnt) {
           if (cnt == 0) {
             $(".ni_ok").css("display", "inline-block");
             $(".ni_already").css("display", "none");
@@ -138,11 +138,11 @@ function checkNick() {
             $(".ni_already").css("display", "inline-block");
             $(".ni_no").css("display", "none");
           }
-        })
-        .catch(function (error) {
+        },
+        error: function () {
           alert("에러입니다");
-        });
-    }
+        },
+      });
   }
 }
 

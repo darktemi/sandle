@@ -54,11 +54,19 @@ fetch("auth/user")
     console.log(result);
     if (result.status === "success") {
       document.querySelector("#userEmail").innerHTML = result.data.email;
-      document.querySelector(".default_logo").classList.remove("default_logo");
+      document.querySelector(".profilePhoto").classList.remove("profilePhoto");
       document.querySelector(".logout").classList.remove("logout");
     } else {
       document.querySelector(".login").classList.remove("login");
       document.querySelector(".sign-up").classList.remove("sign-up");
+    }
+    if (result.data.profilePhoto) {
+      document.querySelector(
+        "#u-photo"
+      ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${result.data.profilePhoto}?type=f&w=40&h=40&faceopt=true&ttype=jpg`;
+    } else {
+      document.querySelector("#u-photo").src =
+        "/sandle/assets/images/default_logo.jpg";
     }
   });
 

@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="list.css" />
     <link rel="stylesheet" href="/sandle/index.css" />
     <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   </head>
 
   <body>
@@ -31,13 +37,11 @@
         <a href="/sandle/member/member.html">SIGN UP</a>
       </div>
 
-      <div class="default_logo" id="default_logo">
-        <a href="/sandle/userPage/userPage.html"
-          ><span id="userEmail"></span
-        ></a>
-        <a href="/sandle/userPage/userPage.html"
-          ><img src="/sandle/assets/images/default_logo.jpg"
-        /></a>
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
       </div>
     </header>
 
@@ -136,6 +140,17 @@
       </div>
     </section>
 
+    <div id="accordion">
+      <h3>Section 1</h3>
+      <div></div>
+      <h3>Section 2</h3>
+      <div></div>
+      <h3>Section 3</h3>
+      <div></div>
+      <h3>Section 4</h3>
+      <div></div>
+    </div>
+
     <!-- Footer -->
     <footer id="footer">
       <div id="footer-title">
@@ -174,7 +189,6 @@
     </script>
 
     <script src="../node_modules/handlebars/dist/handlebars.js"></script>
-    <script src="/sandle/assets/js/jquery.min.js"></script>
     <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
     <script src="/sandle/assets/js/breakpoints.min.js"></script>
     <script src="/sandle/assets/js/util.js"></script>
@@ -183,6 +197,10 @@
       const template = Handlebars.compile(
         document.querySelector("#tr-template").innerHTML
       );
+
+      $(function () {
+        $("#accordion").accordion();
+      });
 
       fetch("../notices")
         .then((response) => {

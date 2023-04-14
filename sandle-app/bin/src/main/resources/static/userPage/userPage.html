@@ -32,13 +32,11 @@
         <a href="/sandle/member/member.html">SIGN UP</a>
       </div>
 
-      <div class="default_logo" id="default_logo">
-        <a href="/sandle/userPage/userPage.html"
-          ><span id="userEmail"></span
-        ></a>
-        <a href="/sandle/userPage/userPage.html"
-          ><img src="/sandle/assets/images/default_logo.jpg"
-        /></a>
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
       </div>
     </header>
 
@@ -119,7 +117,7 @@
           <div class="b-profilePhoto">
             <b>프로필 사진</b><br />
             <td>
-              <a id="u-photo-origin"><img id="u-photo" class="edit" /></a>
+              <a id="u-photo-origin"><img id="u-photo" /></a>
             </td>
           </div>
           <input id="profile-photo" type="file" name="profilePhoto" />

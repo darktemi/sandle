@@ -40,13 +40,12 @@ select {
 .login,
 .logout,
 .sign-up,
-.default_logo {
+.profilePhoto {
   display: none;
 }
 
 #login,
 #logout,
-#default_logo,
 #sign-up {
   float: right;
   margin-right: 30px;
@@ -60,13 +59,15 @@ select {
   margin-top: 13px;
 }
 
-#default_logo {
+#profilePhoto {
   float: right;
-  width: 480px;
+  width: 560px;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 #userEmail {
-  margin-left: 50px;
+  margin-left: 20px;
   margin-top: 13px;
   position: absolute;
 }
