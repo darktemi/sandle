@@ -205,7 +205,9 @@ area {
 }
 
 #mountain_detail_list > input {
+  background-color: white;
   text-align: center;
+  border: none;
   font-size: 20px;
   font-weight: 600;
   color: #28544b;
@@ -213,41 +215,47 @@ area {
   margin-bottom: 10px;
 }
 
-#m-no {
+#m-no,
+#m-no-acco {
   width: 80px;
-  border: 1px red solid;
 }
 
-#c-no {
+#c-no,
+#c-no-acco {
   width: 90px;
-  margin-right: 40px;
-  border: 1px red solid;
 }
 
-#courseName {
-  width: 200px;
-  margin-right: 50px;
-  border: 1px red solid;
+#courseName,
+#courseName-acco {
+  width: 350px;
 }
 
-#m-name {
+#courseName-acco {
+  margin-left: 10px;
+}
+
+#m-name,
+#m-name-acco {
   width: 100px;
-  border: 1px red solid;
 }
 
-#address {
-  width: 20px;
-  border: 1px red solid;
+#address,
+#address-acco {
+  width: 280px;
 }
 
-#height {
-  width: 110px;
-  border: 1px red solid;
+#height,
+#height-acco {
+  width: 80px;
 }
 
-#level {
-  width: 110px;
-  border: 1px red solid;
+#height-acco {
+  margin-left: 5px;
+}
+
+#level,
+#level-acco {
+  width: 80px;
 }
 
 #detail > input {
@@ -270,46 +278,6 @@ area {
 
 #detail {
   text-align: left;
-}
-
-#m-no-acco {
-  width: 50px;
-  border: 1px red solid;
-  margin-right: 20px;
-}
-
-#c-no-acco {
-  width: 50px;
-  border: 1px red solid;
-}
-
-#courseName-acco {
-  width: 350px;
-  border: 1px red solid;
-}
-
-#m-name-acco {
-  width: 100px;
-  border: 1px red solid;
-}
-
-#address-acco {
-  width: 280px;
-  border: 1px red solid;
-}
-
-#height-acco {
-  width: 70px;
-  border: 1px red solid;
-}
-
-#level-acco {
-  width: 80px;
-  border: 1px red solid;
-}
-
-#main-mountain_info input[value="주소"] {
-  width: 320px;
 }
 
 #mountain_detail_info {
