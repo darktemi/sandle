@@ -53,10 +53,12 @@ public class UserPageController {
   @PutMapping("{no}")
   public Object update(
       @PathVariable int no,
-      @RequestBody Member member) {
+      @RequestBody Member member,
+      HttpSession session) {
 
     log.debug(member);
     member.setNo(no);
+    session.setAttribute("loginUser", member);
 
     memberService.update(member);
     return new RestResult()
@@ -64,8 +66,15 @@ public class UserPageController {
   }
 
   @GetMapping("/nickCheck")
-  public int nickCheck(@RequestParam("nickname") String nickname) {
+  public int nickCheck(@RequestParam("nickname") String nickname, HttpSession session) {
+
+    Member loginUser = (Member) session.getAttribute("loginUser");
+
     System.out.println("nickname##########" + nickname);
+
+    if (loginUser.getNickname().equals(nickname)) {
+      return 0;
+    }
     int cnt = memberService.nickCheck(nickname);
     return cnt;
   }

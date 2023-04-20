@@ -92,7 +92,7 @@
       <div class="up">
         <div class="user-photo-profile">
           <div>
-            <a id="m-photo-origin"><img id="m-photo" class="edit" /></a>
+            <img id="m-photo" />
           </div>
           <button class="change-profile-photo-btn">프로필 사진 변경</button>
         </div>
@@ -114,12 +114,9 @@
             <b>번호</b><br />
             <input id="f-no" type="text" name="no" readonly />
           </div>
-          <div class="b-profilePhoto">
-            <b>프로필 사진</b><br />
-            <td>
-              <a id="u-photo-origin"><img id="u-photo" /></a>
-            </td>
-          </div>
+          <div class="b-profilePhoto"><b>프로필 사진</b><br /></div>
+          <img id="p-photo" />
+          <img id="selected-image" style="display: none" /><br />
           <input id="profile-photo" type="file" name="profilePhoto" />
           <button id="btn-profile" type="button">업로드</button>
         </form>
@@ -145,12 +142,12 @@
       </div>
     </div>
 
-    <script src="userPage.js"></script>
     <script src="modal.js"></script>
     <script src="/sandle/assets/js/jquery.min.js"></script>
     <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
     <script src="/sandle/assets/js/breakpoints.min.js"></script>
     <script src="/sandle/assets/js/util.js"></script>
+    <script src="userPage.js"></script>
     <script src="/sandle/navLogin.js"></script>
   </body>
 </html>

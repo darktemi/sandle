@@ -70,18 +70,12 @@ fetch("../auth/user")
       document.querySelector(
         "#u-photo"
       ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${result.data.profilePhoto}?type=f&w=40&h=40&faceopt=true&ttype=jpg`;
-      if (!document.querySelector("m-photo-origin")) {
-        return;
-      }
       document.querySelector(
         "#m-photo"
-      ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${member.profilePhoto}?type=f&w=200&h=200&faceopt=true&ttype=jpg`;
-    } else if (member.profilePhoto == null) {
+      ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${result.data.profilePhoto}?type=f&w=300&h=300&faceopt=true&ttype=jpg`;
+    } else if (!member.profilePhoto) {
       document.querySelector("#u-photo").src =
         "/sandle/assets/images/default_logo.jpg";
-      if (!document.querySelector("#m-photo")) {
-        return;
-      }
       document.querySelector("#m-photo").src =
         "/sandle/assets/images/default_logo.jpg";
     }
@@ -98,4 +92,43 @@ function logout() {
     .catch((exception) => {
       console.log(exception);
     });
+}
+
+Kakao.init("51570d908ff0ab2abce71614674d7123"); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+  Kakao.Auth.login({
+    success: function (response) {
+      Kakao.API.request({
+        url: "/v2/user/me",
+        success: function (response) {
+          console.log(response);
+
+          // location.href = "/sandle/index.html";
+        },
+        fail: function (error) {
+          console.log(error);
+        },
+      });
+    },
+    fail: function (error) {
+      console.log(error);
+    },
+  });
+}
+//카카오로그아웃
+function kakaoLogout() {
+  if (Kakao.Auth.getAccessToken()) {
+    Kakao.API.request({
+      url: "/v1/user/unlink",
+      success: function (response) {
+        console.log(response);
+      },
+      fail: function (error) {
+        console.log(error);
+      },
+    });
+    Kakao.Auth.setAccessToken(undefined);
+  }
 }

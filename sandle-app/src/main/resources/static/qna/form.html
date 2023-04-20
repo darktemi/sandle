@@ -182,7 +182,6 @@
             <li><a href="/sandle/notice/list.html">공지 사항</a></li>
             <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
             <li><a href="#">지역 행사 정보</a></li>
-            <li><a href="#">이벤트</a></li>
           </ul>
         </li>
         <li>
@@ -192,8 +191,6 @@
               커뮤니티
             </ol>
             <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
-            <li><a href="#">맛집 피드</a></li>
-            <li><a href="#">등산 일지</a></li>
             <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
           </ul>
         </li>
@@ -212,9 +209,13 @@
       <article>
         <form id="member-form" action="update" method="post">
           <div class="q-title">
-            <div>
+            <div style="display: none">
               <b>유저번호</b><br />
               <input id="f-member-id" type="text" name="memberId" readonly />
+            </div>
+            <div>
+              <b style="display: none">닉네임</b>
+              <input id="f-nickname" type="text" name="nickname" readonly />
             </div>
             <b>제목</b><br />
             <input
@@ -277,12 +278,13 @@
           console.log(result);
           if (result.status == "failure") {
             alert("회원을 조회할 수 없습니다.");
-            return;
+            location.href = "/sandle/auth/login_form.html";
           }
 
           let member = result.data;
           console.log(member);
           document.querySelector("#f-member-id").value = member.no;
+          document.querySelector("#f-nickname").value = member.nickname;
         });
 
       document.querySelector("#btn-insert").onclick = () => {

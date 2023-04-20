@@ -1,96 +1,3 @@
-/*
-  Dopetrope by HTML5 UP
-  html5up.net | @ajlkn
-  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-(function ($) {
-  var $window = $(window),
-    $body = $("body");
-
-  // Breakpoints.
-  breakpoints({
-    xlarge: ["1281px", "1680px"],
-    large: ["981px", "1280px"],
-    medium: ["737px", "980px"],
-    small: [null, "736px"],
-  });
-
-  // Play initial animations on page load.
-  $window.on("load", function () {
-    window.setTimeout(function () {
-      $body.removeClass("is-preload");
-    }, 100);
-  });
-
-  // Dropdowns.
-  $("#nav > ul").dropotron({
-    mode: "fade",
-    noOpenerFade: true,
-    alignment: "center",
-  });
-
-  // Nav.
-
-  // Title Bar.
-  $(
-    '<div id="titleBar">' + '<a href="#navPanel" class="toggle"></a>' + "</div>"
-  ).appendTo($body);
-
-  // Panel.
-  $('<div id="navPanel">' + "<nav>" + $("#nav").navList() + "</nav>" + "</div>")
-    .appendTo($body)
-    .panel({
-      delay: 500,
-      hideOnClick: true,
-      hideOnSwipe: true,
-      resetScroll: true,
-      resetForms: true,
-      side: "left",
-      target: $body,
-      visibleClass: "navPanel-visible",
-    });
-})(jQuery);
-
-// $(function () {
-//   $("#accordion").accordion();
-// });
-
-// $(function () {
-//   $("#tabs").tabs();
-// });
-
-fetch("../auth/user")
-  .then((response) => {
-    return response.json();
-  })
-  .then((result) => {
-    console.log(result);
-
-    if (result.status === "success") {
-      document.querySelector("#email").innerHTML = result.data.email;
-      document.querySelector(".default_logo").classList.remove("default_logo");
-      document.querySelector(".logout").classList.remove("logout");
-    } else {
-      document.querySelector(".login").classList.remove("login");
-      document.querySelector(".sign-up").classList.remove("sign-up");
-    }
-  });
-
-function logout() {
-  fetch("../auth/logout")
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      location.reload();
-    })
-    .catch((exception) => {
-      console.log(exception);
-    });
-}
-// ---------------------------------------------------
-
 // ----------------------------------------------------------------------------------body
 
 const $modal = $(".modal");
@@ -134,18 +41,16 @@ function getSandleBoard(e) {
       return response.json();
     })
     .then((result) => {
-      console.log(result);
       if (result.status == "failure") {
         alert("게시글을 조회할 수 없습니다.");
         location.href = "photofeed.html";
         return;
       }
-
+      console.log(result.data);
       let sandleLoginUser = result.data.loginUser;
 
       var img = document.createElement("img");
       let sandleboard = result.data.board;
-      document.querySelector("#title").innerHTML = sandleboard.title;
       document.querySelector("#content").innerHTML = sandleboard.content;
       document.querySelector("#tag").innerHTML = sandleboard.tag;
 
@@ -319,9 +224,23 @@ function inputComment() {
 }
 
 const $btnClosePopup = $("#x-circle");
+const $btnCloseInsert = $("#insert-x-circle");
+const $btnInsert = $("#board-plus");
+const $modal_insert = $(".modal-insert");
+
 $btnClosePopup.on("click", function () {
   $modal.css("display", "none");
   $body.css("overflow", "auto");
+});
+
+$btnCloseInsert.on("click", function () {
+  $modal_insert.css("display", "none");
+  $body.css("overflow", "auto");
+});
+
+$btnInsert.on("click", function () {
+  $modal_insert.css("display", "block");
+  $body.css("overflow", "hidden");
 });
 
 $("#sandle").on("click", function () {
@@ -409,4 +328,67 @@ document.querySelectorAll(".cmt-x-logo").forEach(function (element) {
     const replyNo = element.getAttribute("name");
     deleteComment(replyNo);
   });
+});
+
+const fileInput = document.getElementById("file-input");
+const selectedImage = document.getElementById("selected-image");
+const imagePlusIcon = document.getElementById("post-photo-icon");
+const plusText = document.getElementById("file-text");
+fileInput.addEventListener("change", function () {
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    selectedImage.src = URL.createObjectURL(file);
+    selectedImage.style.display = "block";
+    imagePlusIcon.style.display = "none";
+    plusText.style.display = "none";
+
+    // 파일 정보 출력
+    console.log(file);
+  };
+  reader.readAsDataURL(file);
+});
+
+const postClose = document.querySelector("#insert-x-circle");
+
+const closeModal = function () {
+  // 이미지 초기화
+  selectedImage.src = "";
+  selectedImage.style.display = "none";
+  imagePlusIcon.style.display = "block";
+  plusText.style.display = "block";
+};
+
+// 모달 닫기 버튼 클릭 시 closeModal() 함수 호출
+postClose.addEventListener("click", closeModal);
+
+const btnPost = document.getElementById("btn-post"); // 버튼 요소 가져오기
+
+btnPost.addEventListener("click", (event) => {
+  event.preventDefault(); // 기본 이벤트 방지
+  const form = document.querySelector("#photofeed-form");
+  const formData = new FormData(form);
+  console.log("확인");
+
+  fetch("../sandleboards/post", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      return response.json(); // 서버에서 새로운 댓글 목록을 가져오기 위해 json 형식으로 변환
+    })
+    .then((result) => {
+      if (result.status == "success") {
+        location.reload();
+      } else if (result.errorCode == "401") {
+        location.href = "../auth/login_form.html";
+      } else {
+        alert("입력 실패!");
+        console.log(result.data);
+      }
+    })
+    .catch((exception) => {
+      alert("입력 오류!");
+      console.error(exception); // 오류 처리
+    });
 });

@@ -106,6 +106,8 @@ ALTER TABLE hms_qna
 
 ALTER TABLE hms_qna
   MODIFY COLUMN qna_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '문의번호';
+  
+  ALTER TABLE hms_qna ADD nickname VARCHAR(255) NULL COMMENT '닉네임';
 
 -- 게시판좋아요
 CREATE TABLE hms_board_like (
@@ -131,8 +133,6 @@ CREATE TABLE hms_mountain_info (
   height           VARCHAR(50)  NOT NULL COMMENT '산높이', -- 산높이
   photo            VARCHAR(255) NULL     COMMENT '사진', -- 사진
   address          VARCHAR(255) NOT NULL COMMENT '주소', -- 주소
-  sunrise          DATETIME     NULL     COMMENT '일출시간', -- 일출시간
-  sunset           DATETIME     NULL     COMMENT '일몰시간' -- 일몰시간
 )
 COMMENT '산';
 

@@ -1,12 +1,13 @@
 /* Basic */
-* {
-  outline: none;
-}
-
 a {
   text-decoration-line: none;
   outline: none;
   color: #28544b;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 #row > div > p {

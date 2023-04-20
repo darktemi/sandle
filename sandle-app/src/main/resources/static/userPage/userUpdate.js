@@ -129,6 +129,7 @@ function checkNick() {
         url: "../users/nickCheck?nickname=" + nickname,
         type: "get",
         success: function (cnt) {
+          console.log(cnt);
           if (cnt == 0) {
             $(".ni_ok").css("display", "inline-block");
             $(".ni_already").css("display", "none");

@@ -1,4 +1,4 @@
-getMountainInfo();
+getMountainInfo(1);
 
 $(function () {
   $("#tabs").tabs();
@@ -6,6 +6,10 @@ $(function () {
 
 const template = Handlebars.compile(
   document.querySelector("#accordion-template").innerHTML
+);
+
+const template2 = Handlebars.compile(
+  document.querySelector("#accordion-template2").innerHTML
 );
 
 function getMountainInfo(keyword) {
@@ -20,21 +24,33 @@ function getMountainInfo(keyword) {
     })
     .then((result) => {
       console.log(result.data);
+      if ($(".accordion").hasClass("ui-accordion")) {
+        $(".accordion").accordion("destroy");
+      }
       $(".accordion").html(template(result.data));
-      $(".accordion").accordion();
+      $(".accordion").accordion({
+        collapsible: true,
+      });
       map();
     });
 }
 
 function getRegion(e) {
-  var regionId = e.target.getAttribute("data-regionId");
+  var regionId = e.target.getAttribute("regionId");
 
-  fetch("../mountainInfos/" + regionId)
+  fetch("../mountainInfos/region/" + regionId)
     .then((response) => {
       return response.json();
     })
     .then((result) => {
       console.log(result.data);
+      if ($(".accordion").hasClass("ui-accordion")) {
+        $(".accordion").accordion("destroy");
+      }
+      $(".accordion").html(template(result.data));
+      $(".accordion").accordion({
+        collapsible: true,
+      });
       if (regionId == 1) {
         seoulMap();
       } else if (regionId == 2) {
@@ -70,8 +86,26 @@ function getRegion(e) {
       } else if (regionId == 17) {
         jejuMap();
       }
-      $(".accordion").html(template(result.data));
-      $(".accordion").accordion();
+    });
+}
+
+function getAddress(e) {
+  var regionId = e.target.getAttribute("regionId");
+  var title = e.target.getAttribute("title");
+
+  fetch("../mountainInfos/region/" + regionId + "/" + title)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      console.log(result.data);
+      if ($(".accordion").hasClass("ui-accordion")) {
+        $(".accordion").accordion("destroy");
+      }
+      $(".accordion").html(template2(result.data));
+      $(".accordion").accordion({
+        collapsible: true,
+      });
     });
 }
 

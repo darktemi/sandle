@@ -70,7 +70,6 @@
             <li><a href="/sandle/notice/list.html">공지 사항</a></li>
             <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
             <li><a href="#">지역 행사 정보</a></li>
-            <li><a href="#">이벤트</a></li>
           </ul>
         </li>
         <li>
@@ -80,13 +79,18 @@
               커뮤니티
             </ol>
             <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
-            <li><a href="#">맛집 피드</a></li>
-            <li><a href="#">등산 일지</a></li>
             <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
           </ul>
         </li>
       </ul>
     </nav>
+
+    <div id="photo-head">
+      <div id="head-underline">
+        <span id="photo-head-photofeed">PHOTOFEED</span
+        ><img src="../assets/photofeed_images/board_plus.png" id="board-plus" />
+      </div>
+    </div>
 
     <!-- photofeed -->
     <div class="container"></div>
@@ -144,6 +148,62 @@
             <!-- <img src="../assets/photofeed_images/arrow-right.png" width="30px" height="30px" class="arrow-i" id="arrow-right"/> -->
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------Post modal area------------------------------ -->
+    <div class="modal-insert">
+      <div class="modal_body">
+        <form id="photofeed-form" enctype="multipart/form-data">
+          <div id="session1">
+            <img
+              src="../assets/photofeed_images/x-circle.png"
+              width="17px"
+              height="17px"
+              id="insert-x-circle"
+            />
+          </div>
+          <div id="post-area">
+            <div id="post-head">
+              <span id="post-font">게시물 작성</span>
+            </div>
+          </div>
+          <div id="post-substance">
+            <div id="post-image">
+              <div id="post-photo">
+                <label for="file-input">
+                  <img
+                    src="../assets/photofeed_images/post-photo-icon.png"
+                    id="post-photo-icon"
+                  />
+                </label>
+                <input
+                  id="file-input"
+                  type="file"
+                  style="display: none"
+                  name="files"
+                />
+                <a id="file-text" style="font-weight: bold">사진추가</a>
+                <img id="selected-image" style="display: none" />
+              </div>
+            </div>
+            <div id="post-contents">
+              <input
+                id="post-tag"
+                type="text"
+                name="tag"
+                placeholder="태그 작성란"
+              />
+              <input
+                id="post-write"
+                type="text"
+                name="content"
+                placeholder="코멘트를 작성해주세요."
+              />
+              <button id="btn-post" type="button">게시하기</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
 
