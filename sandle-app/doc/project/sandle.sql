@@ -242,6 +242,7 @@ CREATE TABLE hms_course_info (
   course_info_id   INTEGER     NOT NULL COMMENT '등산코스번호', -- 등산코스번호
   mountain_info_id INTEGER     NOT NULL COMMENT '산번호', -- 산번호
   course_name      VARCHAR(50) NOT NULL COMMENT '등산코스이름', -- 등산코스이름
+  course_path      VARCHAR(200) NOT NULL COMMENT '등산코스이름', -- 등산코스이름
   length           VARCHAR(50) NOT NULL COMMENT '등산코스길이', -- 등산코스길이
   time             VARCHAR(50) NOT NULL COMMENT '소요시간', -- 소요시간
   level            VARCHAR(50) NOT NULL COMMENT '난이도' -- 난이도

@@ -45,6 +45,4 @@ public class MountainInfoController {
         .setStatus(RestStatus.SUCCESS)
         .setData(mountainInfoService.get(regionId, title));
   }
-
-
 }

@@ -1,4 +1,4 @@
-getMountainInfo(1);
+getAll(1);
 
 $(function () {
   $("#tabs").tabs();
@@ -12,7 +12,7 @@ const template2 = Handlebars.compile(
   document.querySelector("#accordion-template2").innerHTML
 );
 
-function getMountainInfo(keyword) {
+function getAll(keyword) {
   let qs = "";
   if (keyword) {
     qs = `?keyword=${keyword}`;
@@ -108,6 +108,8 @@ function getAddress(e) {
       });
     });
 }
+
+function getMountainInfo() {}
 
 function map() {
   document.getElementById("map").style.display = "inline-block";

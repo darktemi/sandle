@@ -258,6 +258,10 @@ area {
   width: 80px;
 }
 
+#mountain_info_map {
+  cursor: pointer;
+}
+
 #detail > input {
   font-size: 18px;
   color: #28544b;
