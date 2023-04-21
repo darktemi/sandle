@@ -10,11 +10,6 @@ body {
   padding: 0;
 }
 
-#row > div > p {
-  font-size: 18px;
-  font-weight: 500;
-}
-
 body,
 textarea,
 select {

@@ -30,6 +30,7 @@ function getAll(keyword) {
       $(".accordion").html(template(result.data));
       $(".accordion").accordion({
         collapsible: true,
+        active: false,
       });
       map();
     });
@@ -50,6 +51,7 @@ function getRegion(e) {
       $(".accordion").html(template(result.data));
       $(".accordion").accordion({
         collapsible: true,
+        active: false,
       });
       if (regionId == 1) {
         seoulMap();
@@ -105,6 +107,7 @@ function getAddress(e) {
       $(".accordion").html(template2(result.data));
       $(".accordion").accordion({
         collapsible: true,
+        active: false,
       });
     });
 }
