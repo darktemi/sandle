@@ -10,6 +10,7 @@
     <result column="member_id" property="writerNo"/>
     <result column="cmt_content" property="commentContent"/>
     <result column="writer_email" property="nickname"/>
+    <result column="profile_photo" property="profilePhoto"/>
     <result column="created_date" property="createdDate"/>
   </resultMap>
 
@@ -43,10 +44,12 @@
     c.member_id, 
     c.comment_id,
     c.writer_email,
+    m.profile_photo,
     c.cmt_content,
     c.created_date
   FROM 
     hms_comment c
+    inner join hms_member m on c.member_id = m.member_id
   WHERE 
     board_id = #{no}
     ORDER BY created_date DESC
@@ -55,6 +58,11 @@
 <delete id="delete" parameterType="int">
     delete from hms_comment 
     where comment_id=#{no}
+</delete>
+
+<delete id="deleteBoard" parameterType="int">
+    delete from hms_comment 
+    where board_id=#{no}
 </delete>
 </mapper>
 
