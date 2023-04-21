@@ -37,10 +37,7 @@ public class SandleBoardController {
       MultipartFile files,
       HttpSession session) {
 
-
     Member loginUser = (Member) session.getAttribute("loginUser");
-
-
 
     sandleBoard.setWriterNo(loginUser.getNo());
     sandleBoard.setNickname(loginUser.getNickname());
@@ -59,7 +56,6 @@ public class SandleBoardController {
     //      boardFiles.add(boardFile);
     //    }
     sandleBoard.setAttachedFiles(new ArrayList<>());
-
 
     sandleBoardService.add(sandleBoard);
 
