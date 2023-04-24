@@ -45,7 +45,7 @@ INSERT INTO hms_course_info (course_info_id, mountain_info_id, course_name, cour
 (3, 8, '백련산 산책로 코스', '백련산 동문  동암사  남산  백련산 중턱  복자사  백련산 정상', '5.4km', '약 2시간 30분', '초급');
 
 INSERT INTO hms_course_info (course_info_id, mountain_info_id, course_name, course_path, length, time, level) VALUES 
-(9, 1, '안산둘레길', '안산역(4호선) → 안산성 → 선유구사(동문) → 노성기사거리 → 백운산성 → 남광수원지 → 도전봉 → 안산역(4호선)', '16.5km', '6시간', '초급');
+(1, 9, '안산둘레길', '안산역(4호선) → 안산성 → 선유구사(동문) → 노성기사거리 → 백운산성 → 남광수원지 → 도전봉 → 안산역(4호선)', '16.5km', '6시간', '초급');
 
 INSERT INTO hms_course_info (course_info_id, mountain_info_id, course_name, course_path, length, time, level) VALUES 
 (1, 10, '중앙능선코스', '인왕산입구→중앙능선→만물상→인왕산정상→인왕산입구', '6.5km', '3시간', '중급'), 
