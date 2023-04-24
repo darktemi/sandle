@@ -94,6 +94,7 @@ function getRegion(e) {
 function getAddress(e) {
   var regionId = e.target.getAttribute("regionId");
   var title = e.target.getAttribute("title");
+  var photo = e.target.getAttribute("photo");
 
   fetch("../mountainInfos/region/" + regionId + "/" + title)
     .then((response) => {
@@ -109,10 +110,31 @@ function getAddress(e) {
         collapsible: true,
         active: false,
       });
+
     });
 }
 
-function getMountainInfo() {}
+function getMountainInfo(e) {
+  const target = e.target.getElementById("mountainName");
+  console.log(target);
+
+  fetch("../mountainInfos/region/" + regionId + "/" + title)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      console.log(result.data);
+      if ($(".accordion").hasClass("ui-accordion")) {
+        $(".accordion").accordion("destroy");
+      }
+      $(".accordion").html(template(result.data));
+      $(".accordion").accordion({
+        collapsible: true,
+        active: false,
+      });
+      document.querySelector('#map').src = "/sandle/assets/mountain_info_images/1.jpg"
+    });
+}
 
 function map() {
   document.getElementById("map").style.display = "inline-block";

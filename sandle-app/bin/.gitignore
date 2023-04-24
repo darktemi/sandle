@@ -1,1 +1,4 @@
 /.gradle/
+/default/
+/generated-sources/
+/generated-test-sources/

@@ -93,7 +93,7 @@
     <!-- container -->
     <div id="main-container">
       <div id="container">
-        <div>
+        <div id="images">
           <!-- 전국 -->
           <img
             id="map"
@@ -4910,12 +4910,12 @@
           <input id="level-acco" value="{{level}}" disabled readonly />
         </div>
         <div id="detail-content">
+          <li>
           <a
             id="mountain_info_map"
             onclick="getMountainInfo(event)"
-            photo={{photo}}
-          ><li>
-              <ol>산 이름 : {{mountainName}}</ol>
+          >
+              <ol id="{{mountainName}}">산 이름 : {{mountainName}}</ol></a>
               <ol> 주 소 : {{address}}</ol>
               <ol> 높 이 : {{height}}</ol>
               <ol>코스 이름 : {{courseName}}</ol>
@@ -4924,7 +4924,6 @@
               <ol>소요 시간 : {{time}}</ol>
               <ol> 난 이 도 : {{level}}</ol>
             </li>
-          </a>
         </div>
       {{/each}}
     </script>
@@ -4946,12 +4945,12 @@
           <input id="level-acco" value="{{level}}" disabled readonly />
         </div>
         <div id="detail-content">
+          <li></li>
           <a
             id="mountain_info_map"
             onclick="getMountainInfo(event)"
-            photo="{{photo}}"
-          ><li>
-              <ol>산 이름 : {{mountainName}}</ol>
+          >
+              <ol id="{{mountainName}}">산 이름 : {{mountainName}}</ol></a>
               <ol> 주 소 : {{address}}</ol>
               <ol> 높 이 : {{height}}</ol>
               <ol>코스 이름 : {{courseName}}</ol>
@@ -4960,7 +4959,6 @@
               <ol>소요 시간 : {{time}}</ol>
               <ol> 난 이 도 : {{level}}</ol>
             </li>
-          </a>
         </div>
       {{/each}}
     </script>
