@@ -360,3 +360,31 @@ span::before {
   content: "*";
   color: red;
 }
+
+
+#search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#search-input {
+  width: 800px;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#search-button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #28544b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

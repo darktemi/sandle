@@ -59,3 +59,57 @@ loadNextPage();
 
 const nextButton = document.getElementById('next-button');
 nextButton.addEventListener('click', loadNextPage);
+
+
+
+// 축제 검색
+function search(keyword) {
+  const results = [];
+  data.forEach((element) => {
+    if (element.축제명.includes(keyword) || element.축제내용.includes(keyword)) {
+      results.push(element);
+    }
+  });
+  return results;
+}
+
+function showSearchResults(results) {
+  let str = '';
+  results.forEach((element) => {
+    str += '<div class="festival" style="width: 600px; max-width: 100%;">';
+    str += '<a class="festi-url" href="' + element.홈페이지주소 + '">' + element.축제명 + '</a>';
+    str += '<p>' + element.축제내용 + '</p>';
+    str += '<p>축제 시작일: ' + element.축제시작일자 + '</p>';
+    str += '<p>축제 종료일: ' + element.축제종료일자 + '</p>';
+    str += '</div>';
+  });
+  const container = document.getElementById('container');
+  container.innerHTML = str;
+}
+
+const searchButton = document.getElementById('search-button');
+searchButton.addEventListener('click', function () {
+  const keyword = document.getElementById('search-input').value;
+  const results = search(keyword);
+  if (results.length === 0) {
+    alert('검색 결과가 없습니다.');
+    location.reload();
+  } else {
+    showSearchResults(results);
+  }
+});
+
+const input = document.querySelector('#search-input');
+input.addEventListener('keydown', (event) => {
+  if (event.keyCode === 13) {
+    const searchText = input.value;
+    const results = search(searchText);
+    if (results.length === 0) {
+      alert('검색 결과가 없습니다.');
+      location.reload();
+    } else {
+      showSearchResults(results);
+    }
+  }
+});
+
