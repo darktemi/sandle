@@ -7,123 +7,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <link rel="stylesheet" href="form.css" />
     <link rel="stylesheet" href="/sandle/index.css" />
     <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
-    <style>
-      #head {
-        font-size: 30px;
-        font-weight: 900;
-        text-align: center;
-        color: #28544b;
-        margin: 0;
-      }
-
-      #head-next {
-        margin-left: 20px;
-        font-weight: 700;
-        text-align: center;
-        color: #28544b;
-        margin-bottom: 30px;
-      }
-
-      form {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #fff;
-        border-radius: 10px;
-        padding: auto;
-        margin-top: 40px;
-      }
-
-      input {
-        border: none;
-        outline: none;
-        width: 500px;
-        font-size: 20px;
-      }
-
-      textarea {
-        border: none;
-        outline: none;
-        width: 500px;
-        font-size: 20px;
-        height: 250px;
-      }
-
-      ::placeholder {
-        font-size: 15px;
-      }
-
-      .q-title {
-        max-height: 90px;
-      }
-
-      .q-content {
-        max-height: 300px;
-      }
-
-      .q-title,
-      .q-content {
-        margin-top: 30px;
-        position: relative;
-        transform: translateX(-50%);
-        max-width: 530px;
-        left: 50%;
-        font-size: 18px;
-
-        background: #ffffff;
-        mix-blend-mode: normal;
-        border-bottom: 3px solid #28544b;
-        box-shadow: 3px 3px 3px 3px;
-        border-radius: 10px;
-        padding: 5px 0 10px 10px;
-      }
-
-      #btns {
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      #btn-insert,
-      #btn-list {
-        box-shadow: 3px 3px 3px 3px #000000;
-        border-radius: 10px;
-        position: relative;
-        margin-top: 30px;
-        width: 120px;
-        height: 40px;
-        outline: none;
-        font-size: 20px;
-      }
-
-      #btn-insert {
-        border: none;
-        background-color: #28544b;
-        color: #ffffff;
-      }
-
-      #btn-list {
-        margin-left: 50px;
-      }
-
-      button:hover {
-        cursor: pointer;
-      }
-
-      #btn-insert:active {
-        background-color: white;
-        color: #28544b;
-        border: 1px #28544b solid;
-        box-shadow: 2px 2px 2px 2px #000000;
-      }
-
-      #btn-list:active {
-        background-color: #28544b;
-        color: white;
-        border: 1px #28544b solid;
-        box-shadow: 2px 2px 2px 2px #000000;
-      }
-    </style>
   </head>
 
   <body>
@@ -223,15 +109,13 @@
           <article>
             <form id="member-form" action="update" method="post">
               <div class="q-title">
-                <div style="display: none">
-                  <b>유저번호</b><br />
-                  <input
-                    id="f-member-id"
-                    type="text"
-                    name="memberId"
-                    readonly
-                  />
-                </div>
+                <input
+                  id="f-member-id"
+                  type="text"
+                  name="memberId"
+                  style="display: none"
+                  readonly
+                />
                 <div>
                   <b style="display: none">닉네임</b>
                   <input id="f-nickname" type="text" name="nickname" readonly />
@@ -288,58 +172,7 @@
         </footer>
 
         <!-- Scripts -->
-        <script>
-          fetch("../users/view")
-            .then((response) => {
-              return response.json();
-            })
-            .then((result) => {
-              console.log(result);
-              if (result.status == "failure") {
-                alert("회원을 조회할 수 없습니다.");
-                location.href = "/sandle/auth/login_form.html";
-              }
-
-              let member = result.data;
-              console.log(member);
-              document.querySelector("#f-member-id").value = member.no;
-              document.querySelector("#f-nickname").value = member.nickname;
-            });
-
-          document.querySelector("#btn-insert").onclick = () => {
-            const form = document.querySelector("#member-form");
-            const formData = new FormData(form);
-
-            let json = JSON.stringify(Object.fromEntries(formData));
-            console.log(json);
-
-            fetch("../qnas", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: json,
-            })
-              .then((response) => {
-                console.log(response);
-                return response.json();
-              })
-              .then((result) => {
-                console.log(result);
-                if (result.status == "success") {
-                  alert("게시 완료!");
-                  location.href = "/sandle/qna/list.html";
-                } else {
-                  alert("게시글 등록중 오류!");
-                  console.log(result.data);
-                }
-              })
-              .catch((exception) => {
-                alert("입력 중 오류 발생!");
-                console.log(exception);
-              });
-          };
-        </script>
+        <script src="form.js"></script>
         <script src="/sandle/assets/js/jquery.min.js"></script>
         <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
         <script src="/sandle/assets/js/breakpoints.min.js"></script>

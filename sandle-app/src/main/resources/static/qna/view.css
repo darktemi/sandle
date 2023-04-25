@@ -1,0 +1,122 @@
+#head {
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    color: #28544b;
+    margin: 0;
+  }
+
+  #head-next {
+    margin-left: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #28544b;
+    margin-bottom: 30px;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: auto;
+    margin-top: 40px;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    width: 500px;
+    font-size: 20px;
+  }
+
+  textarea {
+    border: none;
+    outline: none;
+    width: 500px;
+    font-size: 20px;
+    height: 250px;
+  }
+
+  ::placeholder {
+    font-size: 15px;
+  }
+
+  .q-title {
+    max-height: 90px;
+  }
+
+  .q-content,
+  .q-response {
+    max-height: 300px;
+  }
+
+  .q-title,
+  .q-content,
+  .q-response {
+    margin-top: 30px;
+    position: relative;
+    transform: translateX(-50%);
+    max-width: 530px;
+    left: 50%;
+    font-size: 18px;
+
+    background: #ffffff;
+    mix-blend-mode: normal;
+    border-bottom: 3px solid #28544b;
+    box-shadow: 3px 3px 3px 3px;
+    border-radius: 10px;
+    padding: 5px 0 10px 10px;
+  }
+
+  #btns {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  #btn-insert,
+  #btn-list,
+  #btn-update,
+  #btn-delete {
+    box-shadow: 3px 3px 3px 3px #000000;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 30px;
+    width: 120px;
+    height: 40px;
+    outline: none;
+    font-size: 20px;
+  }
+
+  #btn-insert,
+  #btn-update {
+    border: none;
+    background-color: #28544b;
+    color: #ffffff;
+  }
+
+  #btn-list,
+  #btn-update,
+  #btn-delete {
+    margin-left: 50px;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  #btn-insert:active,
+  #btn-update:active {
+    background-color: white;
+    color: #28544b;
+    border: 1px #28544b solid;
+    box-shadow: 2px 2px 2px 2px #000000;
+  }
+
+  #btn-list:active,
+  #btn-delete:active {
+    background-color: #28544b;
+    color: white;
+    border: 1px #28544b solid;
+    box-shadow: 2px 2px 2px 2px #000000;
+  }

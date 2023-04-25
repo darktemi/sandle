@@ -12,6 +12,7 @@ fetch("../users/view")
     let member = result.data;
     console.log(member);
     document.querySelector("#f-no").value = member.no;
+    document.querySelector("#f-profilePhoto").value = member.profilePhoto;
     document.querySelector("#email").value = member.email;
     document.querySelector("#m-name").value = member.name;
     document.querySelector("#nickname").value = member.nickname;
@@ -29,8 +30,10 @@ document.getElementById("btn-update").onclick = () => {
   let json = JSON.stringify(Object.fromEntries(formData));
   if (
     document.getElementById("m-password").value !=
-    document.getElementById("m-password-chk").value
+    document.getElementById("m-password-chk").value ||
+    document.getElementById("m-password").value == ""
   ) {
+    alert("비밀번호가 같지 않거나 다릅니다.")
     return;
   }
   fetch("../users/" + document.getElementById("f-no").value, {
