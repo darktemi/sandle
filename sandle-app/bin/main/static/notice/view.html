@@ -3,198 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <title>산들 - 공지사항</title>
-    <style>
-      .guest {
-        /*display: none;*/
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="view.css" />
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
   </head>
   <body>
-    <h1>공지사항</h1>
+    <!-- Header -->
+    <header id="header">
+      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
 
-    <div>
-      <form
-        id="board-form"
-        action="update"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <table border="1">
-          <tr>
-            <th>번호</th>
-            <td><input type="text" name="no" readonly /></td>
-          </tr>
-          <tr>
-            <th>제목</th>
-            <td><input type="text" name="title" /></td>
-          </tr>
-          <tr>
-            <th>내용</th>
-            <td><textarea name="content" rows="10" cols="60"></textarea></td>
-          </tr>
-          <tr>
-            <th>게시일</th>
-            <td><span id="f-created-date"></span></td>
-          </tr>
-        </table>
+      <div id="login" class="login">
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
+      </div>
 
-        <div>
-          <button id="btn-list" type="button">목록</button>
-          <button id="btn-update" type="button" class="guest">변경</button>
-          <button id="btn-delete" type="button" class="guest">삭제</button>
+      <div id="logout" class="logout">
+        <a href="sandle/auth/logout" onclick="logout(); return false;">
+          LOGOUT</a
+        >
+      </div>
+
+      <div id="sign-up" class="sign-up">
+        <a href="/sandle/member/member.html">SIGN UP</a>
+      </div>
+
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current">
+          <a href="/sandle/index.html">산들 소개</a>
+        </li>
+
+        <li>
+          <a href="/sandle/mountain_info/mountain_info.html"
+            >전국 등산로 정보</a
+          >
+        </li>
+
+        <li>
+          <a href="#">산악 소식</a>
+          <ul>
+            <ol>
+              산악 소식
+            </ol>
+            <li><a href="/sandle/notice/view.html">공지 사항</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li><a href="/sandle/festival/festival.html">지역 행사 정보</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">커뮤니티</a>
+          <ul>
+            <ol>
+              커뮤니티
+            </ol>
+            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
+            <li>
+              <a href="/sandle/userPage/userPage.html">마이페이지</a>
+            </li>
+            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- 공지사항 view -->
+    <main>
+      <div id="head">
+        <p>공지사항</p>
+      </div>
+
+      <div id="board-list">
+        <div class="container">
+          <div id="accordion"></div>
         </div>
-      </form>
-    </div>
+      </div>
+    </main>
+    <br />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+
+    <script id="tr-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <h3>{{createdDate}} | {{#if title}}{{title}}{{else}}제목없음{{/if}}</h3>
+        <div><p>{{content}}</p></div>
+      {{/each}}
+    </script>
 
     <script>
-      // http://localhost:8080/web/board/view.html?no=100
-      const values = location.href.split("?");
-      if (values.length == 1) {
-        alert("URL이 옳지 않습니다.");
-        location.href = "list.html";
-      }
+      // 템플릿으로 사용할 HTML을 준비한다.
+      const html = document.querySelector("#tr-template").innerHTML;
 
-      // no=100
-      const param = values[1].split("=");
-      if (param.length == 1 || param[0] != "no") {
-        alert("URL이 옳지 않습니다.");
-        location.href = "list.html";
-      }
+      // HTML을 가지고 템플릿 엔진을 생성한다.
+      const templateEngine = Handlebars.compile(html);
 
-      let no = parseInt(param[1]);
-      if (isNaN(no)) {
-        alert("URL이 옳지 않습니다.");
-        location.href = "list.html";
-      }
-
-      fetch("../boards/" + no)
+      fetch("../notices")
         .then((response) => {
           return response.json();
         })
         .then((result) => {
-          if (result.status == "failure") {
-            alert("게시글을 조회할 수 없습니다.");
-            location.href = "list.html";
-            return;
-          }
-
-          let board = result.data;
-          //console.log(board);
-          document.querySelector("input[name='no']").value = board.no;
-          document.querySelector("input[name='title']").value = board.title;
-          document.querySelector("textarea[name='content']").value =
-            board.content;
-          document.querySelector("input[name='tag']").value = board.tag;
-          document.querySelector("#f-created-date").innerHTML =
-            board.createdDate;
-          // document.querySelector("#f-writer-name").innerHTML =
-          //   board.writer.name;
-          // document.querySelector("#f-view-count").innerHTML = board.viewCount;
-
-          let ul = "";
-          board.attachedFiles.forEach((file) => {
-            console.log(file);
-            if (file.no == 0) return;
-            let html = `
-      <li id="li-${file.no}">
-        <a href="https://kr.object.ncloudstorage.com/bitcamp-bucket07/board/${file.filepath}">${file.originalFilename}</a>
-        [<a href="#" onclick="deleteFile(${board.no}, ${file.no}); return false;">삭제</a>]
-      </li>`;
-            ul += html;
+          const accordionContainer = document.querySelector("#accordion");
+          result.data.forEach((item) => {
+            const content = templateEngine(item);
+            accordionContainer.innerHTML += `
+        <h3>${item.createdDate} | ${item.title ? item.title : "제목없음"}</h3>
+        <div><p>${item.content}</p></div>
+      `;
           });
-          document.querySelector("#f-files").innerHTML = ul;
-
-          checkOwner(board.writer.no);
+          $("#accordion").accordion();
         });
-
-      function checkOwner(writerNo) {
-        fetch("../auth/user")
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            console.log(result);
-            if (result.status == "success") {
-              if (result.data.no == writerNo) {
-                document.querySelector("#btn-update").classList.remove("guest");
-                document.querySelector("#btn-delete").classList.remove("guest");
-              }
-            }
-          })
-          .catch((exception) => {
-            alert("로그인 사용자 정보 조회 중 오류 발생!");
-            console.log(exception);
-          });
-      }
-
-      function deleteFile(boardNo, fileNo) {
-        fetch("../boards/" + boardNo + "/files/" + fileNo, {
-          method: "DELETE",
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            if (result.status == "success") {
-              let li = document.querySelector("#li-" + fileNo);
-              document.querySelector("#f-files").removeChild(li);
-            } else {
-              alert("파일 삭제 실패!");
-            }
-          })
-          .catch((exception) => {
-            alert("파일 삭제 중 오류 발생!");
-            console.log(exception);
-          });
-      }
-
-      document.querySelector("#btn-list").onclick = function () {
-        location.href = "list.html";
-      };
-
-      document.querySelector("#btn-update").onclick = function () {
-        const form = document.querySelector("#board-form");
-        const formData = new FormData(form);
-
-        fetch("../boards/" + document.querySelector("input[name='no']").value, {
-          method: "PUT",
-          body: formData,
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            if (result.status == "success") {
-              location.href = "list.html";
-            } else {
-              alert("변경 실패!");
-            }
-          })
-          .catch((exception) => {
-            alert("변경 중 오류 발생!");
-            console.log(exception);
-          });
-      };
-
-      document.querySelector("#btn-delete").onclick = function () {
-        fetch("../boards/" + document.querySelector('input[name="no"]').value, {
-          method: "DELETE",
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            if (result.status == "success") {
-              location.href = "list.html";
-            } else {
-              alert("삭제 실패!");
-            }
-          })
-          .catch((exception) => {
-            alert("삭제 중 오류 발생!");
-            console.log(exception);
-          });
-      };
     </script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
   </body>
 </html>

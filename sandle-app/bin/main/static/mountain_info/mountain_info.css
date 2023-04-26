@@ -303,7 +303,7 @@ area {
 
 #accordion-form {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .accordion {
@@ -318,4 +318,30 @@ area {
   text-align: center;
   width: 150px;
   border: none;
+}
+
+.page {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#page-no {
+  cursor: pointer;
+  text-align: center;
+  font-size: 25px;
+  width: 40px;
+  border: none;
+  background-color: white;
+  color: #28544b;
+}
+
+#next-page {
+  cursor: pointer;
+  font-size: 20px;
+  width: 70px;
+  border: none;
+  margin-left: 10px;
+  background-color: white;
+  color: #28544b;
+  font-weight: 700;
 }

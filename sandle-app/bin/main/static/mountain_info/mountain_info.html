@@ -65,7 +65,7 @@
             <ol>
               산악 소식
             </ol>
-            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+            <li><a href="/sandle/notice/view.html">공지 사항</a></li>
             <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
             <li>
               <a href="/sandle/festival/festival.html">지역 행사 정보</a>
@@ -4865,6 +4865,7 @@
     <div id="accordion-form">
       <div class="accordion"></div>
     </div>
+    <div class="page"></div>
 
     <!-- Footer -->
     <footer id="footer">
@@ -4961,6 +4962,27 @@
                 {{level}}</ol>
             </li></a>
         </div>
+      {{/each}}
+    </script>
+
+    <script id="page-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <input
+          id="page-no"
+          type="button"
+          value="{{no}}"
+          onclick="getAll(1, {{no}})"
+          readonly
+        />
+        {{#ifCond no "==" 16}}
+          <input
+            id="next-page"
+            type="button"
+            value="다음>>"
+            onclick=""
+            readonly
+          />
+        {{/ifCond}}
       {{/each}}
     </script>
 

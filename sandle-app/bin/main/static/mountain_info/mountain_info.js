@@ -1,14 +1,52 @@
-getAll(1);
+getAll(1, 1);
 
 $(function () {
   $("#tabs").tabs();
 });
 
+// Handlebars
+
 const template = Handlebars.compile(
   document.querySelector("#accordion-template").innerHTML
 );
 
-function getAll(keyword) {
+const template2 = Handlebars.compile(
+  document.querySelector("#page-template").innerHTML
+);
+
+Handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
+  switch (operator) {
+    case "==":
+      return v1 == v2 ? options.fn(this) : options.inverse(this);
+    case "===":
+      return v1 === v2 ? options.fn(this) : options.inverse(this);
+    case "!=":
+      return v1 != v2 ? options.fn(this) : options.inverse(this);
+    case "!==":
+      return v1 !== v2 ? options.fn(this) : options.inverse(this);
+    case "<":
+      return v1 < v2 ? options.fn(this) : options.inverse(this);
+    case "<=":
+      return v1 <= v2 ? options.fn(this) : options.inverse(this);
+    case ">":
+      return v1 > v2 ? options.fn(this) : options.inverse(this);
+    case ">=":
+      return v1 >= v2 ? options.fn(this) : options.inverse(this);
+    case "&&":
+      return v1 && v2 ? options.fn(this) : options.inverse(this);
+    case "||":
+      return v1 || v2 ? options.fn(this) : options.inverse(this);
+    default:
+      return options.inverse(this);
+  }
+});
+
+// mountain_info
+
+function getAll(keyword, page) {
+  const perPage = 20;
+  const startIndex = (page - 1) * perPage;
+  const endIndex = startIndex + perPage;
   let qs = "";
   if (keyword) {
     qs = `?keyword=${keyword}`;
@@ -20,14 +58,22 @@ function getAll(keyword) {
     })
     .then((result) => {
       console.log(result.data);
+      const pageNo = result.data.map((item) => item.no);
+      console.log(pageNo);
+      const divs = [
+        ...new Set(pageNo.map((n) => Math.floor((n - 1) / 20 + 1))),
+      ].map((q) => ({ no: q })); // 20으로 나눈 몫 추출 후 중복값 제거 및 no : 숫자 형식으로 담기
+      console.log(divs);
+
       if ($(".accordion").hasClass("ui-accordion")) {
         $(".accordion").accordion("destroy");
       }
-      $(".accordion").html(template(result.data));
+      $(".accordion").html(template(result.data.slice(startIndex, endIndex)));
       $(".accordion").accordion({
         collapsible: true,
         active: false,
       });
+      $(".page").html(template2(divs));
       map();
     });
 }

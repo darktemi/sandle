@@ -1,183 +1,212 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SANDLE - 산들산들</title>
-  <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, user-scalable=no"
-  />
-  <link rel="stylesheet" href="view.css" />
-  <link rel="stylesheet" href="/sandle/index.css" />
-  <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
-</head>
+  <head>
+    <title>SANDLE - 산들산들</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="view.css" />
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+  </head>
 
-<body>
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, user-scalable=no"
-      />
-      <title>SANDLE - 산들산들</title>
-      <link rel="stylesheet" href="/sandle/index.css" />
-      <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
-    </head>
+  <body>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <title>SANDLE - 산들산들</title>
+        <link rel="stylesheet" href="/sandle/index.css" />
+        <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+      </head>
 
-    <body>
-  <!-- Header -->
-  <header id="header">
-    <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+      <body>
+        <!-- Header -->
+        <header id="header">
+          <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
 
-    <div id="login" class="login">
-      <a href="/sandle/auth/login_form.html">LOGIN</a>
-    </div>
-
-    <div id="logout" class="logout">
-      <a href="sandle/auth/logout" onclick="logout(); return false;">
-        LOGOUT</a
-      >
-    </div>
-
-    <div id="sign-up" class="sign-up">
-      <a href="/sandle/member/member.html">SIGN UP</a>
-    </div>
-
-    <div id="profilePhoto" class="profilePhoto">
-      <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-        <img id="u-photo" class="edit" />
-        <span id="userEmail"></span>
-      </a>
-    </div>
-  </header>
-
-  <!-- Nav -->
-  <nav id="nav">
-    <ul>
-      <li>
-        <a href="/sandle/index.html">산들 소개</a>
-      </li>
-
-      <li>
-        <a href="/sandle/mountain_info/mountain_info.html"
-          >전국 등산로 정보</a
-        >
-      </li>
-
-      <li>
-        <a href="#">산악 소식</a>
-        <ul>
-          <ol>
-            산악 소식
-          </ol>
-          <li><a href="/sandle/notice/list.html">공지 사항</a></li>
-          <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
-          <li>
-            <a href="/sandle/festival/festival.html">지역 행사 정보</a>
-          </li>
-        </ul>
-      </li>
-      <li class="current">
-        <a href="#">커뮤니티</a>
-        <ul>
-          <ol>
-            커뮤니티
-          </ol>
-          <li>
-            <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
-          </li>
-          <li>
-            <a href="/sandle/userPage/userPage.html">마이페이지</a>
-          </li>
-          <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-      <!-- 1:1 문의하기 -->
-      <main>
-        <div id="head">
-          <p>1:1 문의하기</p>
-        </div>
-        <div id="head-next">
-          <p>문의를 남겨주시면 자세히 안내드리겠습니다.</p>
-        </div>
-
-        <article>
-          <form id="member-form" action="update" method="post">
-            <div class="q-title">
-              <input id="f-no" type="text" name="no" style="display: none" readonly />
-              <input id="f-email" type="text" name="email" style="display: none" readonly />
-              <input id="f-member-id" type="text" name="memberId" style="display: none" readonly />
-              <input id="f-nickname" type="text" name="nickname" style="display: none" readonly />
-
-              <b>제목</b><br />
-              <input
-                id="qna-title"
-                type="text"
-                name="title"
-                placeholder="제목을 입력하세요."
-                maxlength="60"
-              />
-            </div>
-            <div class="q-content">
-              <b>문의내용</b><br />
-              <textarea
-                id="qna-content"
-                type="text"
-                placeholder="문의하실 내용을 기입해주세요."
-                name="content"
-              ></textarea>
-            </div>
-            <div class="q-response">
-              <b>답변</b><br />
-              <textarea id="qna-response" type="text" name="response" readonly ></textarea>
-            </div>
-            <div id="btns">
-              <button id="btn-list" type="button">목록</button>
-              <button id="btn-update" type="button">수정</button>
-              <button id="btn-delete" type="button">삭제</button>
-            </div>
-          </form>
-        </article>
-      </main>
-
-      <!-- Footer -->
-      <footer id="footer">
-        <div id="footer-title">
-          <p>SANDLE</p>
-        </div>
-
-        <div id="creater">
-          <div id="creater-name-email">
-            <h2>creater</h2>
-            팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
-            조원 : 안진수 | <a>email : </a><br />
-            조원 : 김종현 | <a>email : </a><br />
-            조원 : 이건형 | <a>email : </a><br />
-            조원 : 박경한 | <a>email : </a>
+          <div id="login" class="login">
+            <a href="/sandle/auth/login_form.html">LOGIN</a>
           </div>
-          <div id="creater-github">
-            <a href="#" id="git"></a>
-            <a href="#" id="git"></a>
-            <a href="#" id="git"></a>
-            <a href="#" id="git"></a>
-            <a href="#" id="git"></a>
-          </div>
-        </div>
-      </footer>
 
-      <!-- Scripts -->
-      <script src="/sandle/assets/js/jquery.min.js"></script>
-      <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
-      <script src="/sandle/assets/js/breakpoints.min.js"></script>
-      <script src="/sandle/assets/js/util.js"></script>
-      <script src="/sandle/navLogin.js"></script>
-      <script src="view.js"></script>
-    </body>
-  </html>
-</body>
+          <div id="logout" class="logout">
+            <a href="sandle/auth/logout" onclick="logout(); return false;">
+              LOGOUT</a
+            >
+          </div>
+
+          <div id="sign-up" class="sign-up">
+            <a href="/sandle/member/member.html">SIGN UP</a>
+          </div>
+
+          <div id="profilePhoto" class="profilePhoto">
+            <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+              <img id="u-photo" class="edit" />
+              <span id="userEmail"></span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li>
+              <a href="/sandle/index.html">산들 소개</a>
+            </li>
+
+            <li>
+              <a href="/sandle/mountain_info/mountain_info.html"
+                >전국 등산로 정보</a
+              >
+            </li>
+
+            <li>
+              <a href="#">산악 소식</a>
+              <ul>
+                <ol>
+                  산악 소식
+                </ol>
+                <li><a href="/sandle/notice/view.html">공지 사항</a></li>
+                <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+                <li>
+                  <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+                </li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="#">커뮤니티</a>
+              <ul>
+                <ol>
+                  커뮤니티
+                </ol>
+                <li>
+                  <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+                </li>
+                <li>
+                  <a href="/sandle/userPage/userPage.html">마이페이지</a>
+                </li>
+                <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- 1:1 문의하기 -->
+        <main>
+          <div id="head">
+            <p>1:1 문의하기</p>
+          </div>
+          <div id="head-next">
+            <p>문의를 남겨주시면 자세히 안내드리겠습니다.</p>
+          </div>
+
+          <article>
+            <form id="member-form" action="update" method="post">
+              <div class="q-title">
+                <input
+                  id="f-no"
+                  type="text"
+                  name="no"
+                  style="display: none"
+                  readonly
+                />
+                <input
+                  id="f-email"
+                  type="text"
+                  name="email"
+                  style="display: none"
+                  readonly
+                />
+                <input
+                  id="f-member-id"
+                  type="text"
+                  name="memberId"
+                  style="display: none"
+                  readonly
+                />
+                <input
+                  id="f-nickname"
+                  type="text"
+                  name="nickname"
+                  style="display: none"
+                  readonly
+                />
+
+                <b>제목</b><br />
+                <input
+                  id="qna-title"
+                  type="text"
+                  name="title"
+                  placeholder="제목을 입력하세요."
+                  maxlength="60"
+                />
+              </div>
+              <div class="q-content">
+                <b>문의내용</b><br />
+                <textarea
+                  id="qna-content"
+                  type="text"
+                  placeholder="문의하실 내용을 기입해주세요."
+                  name="content"
+                ></textarea>
+              </div>
+              <div class="q-response">
+                <b>답변</b><br />
+                <textarea
+                  id="qna-response"
+                  type="text"
+                  name="response"
+                  readonly
+                ></textarea>
+              </div>
+              <div id="btns">
+                <button id="btn-list" type="button">목록</button>
+                <button id="btn-update" type="button">수정</button>
+                <button id="btn-delete" type="button">삭제</button>
+              </div>
+            </form>
+          </article>
+        </main>
+
+        <!-- Footer -->
+        <footer id="footer">
+          <div id="footer-title">
+            <p>SANDLE</p>
+          </div>
+
+          <div id="creater">
+            <div id="creater-name-email">
+              <h2>creater</h2>
+              팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+              조원 : 안진수 | <a>email : </a><br />
+              조원 : 김종현 | <a>email : </a><br />
+              조원 : 이건형 | <a>email : </a><br />
+              조원 : 박경한 | <a>email : </a>
+            </div>
+            <div id="creater-github">
+              <a href="#" id="git"></a>
+              <a href="#" id="git"></a>
+              <a href="#" id="git"></a>
+              <a href="#" id="git"></a>
+              <a href="#" id="git"></a>
+            </div>
+          </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="/sandle/assets/js/jquery.min.js"></script>
+        <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+        <script src="/sandle/assets/js/breakpoints.min.js"></script>
+        <script src="/sandle/assets/js/util.js"></script>
+        <script src="/sandle/navLogin.js"></script>
+        <script src="view.js"></script>
+      </body>
+    </html>
+  </body>
 </html>
