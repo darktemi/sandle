@@ -13,6 +13,10 @@ const loadData = () => {
       return response.json();
     })
     .then((result) => {
+      if (result.status == "failure") {
+        alert("회원을 조회할 수 없습니다.");
+        location.href = "/sandle/auth/login_form.html";
+      }
       // console.log(result.data);
       const images = result.data.reverse();
       container.innerHTML += templateEngine(images);
@@ -42,7 +46,6 @@ function getSandleBoard(e) {
       var img = document.createElement("img");
       let sandleboard = result.data.board;
       document.querySelector("#content").value = sandleboard.content;
-      document.querySelector("#tag").value = sandleboard.tag;
       document.querySelector("#user-info-id").innerHTML = sandleboard.nickname;
 
       if (sandleboard.profilePhoto == null) {

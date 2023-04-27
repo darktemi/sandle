@@ -79,6 +79,7 @@ function getAll(keyword, page) {
 }
 
 function getRegion(e) {
+  document.querySelector(".page").style.display = "none";
   const regionId = e.target.getAttribute("regionId");
   document.getElementById("map").style.display = "none";
   document.getElementById("height_list").style.display = "none";
@@ -187,6 +188,7 @@ function getAddress(e) {
 }
 
 function getMountainInfo(e) {
+  document.querySelector(".page").style.display = "none";
   const photo = e.target.getAttribute("photo");
   const regionId = e.target.getAttribute("regionId");
   const title = e.target.getAttribute("title");

@@ -18,19 +18,10 @@ select {
 
 /* Header */
 
-#header {
-  position: relative;
-  background: #ffffff;
-  padding: 2em 0 3em 0;
-  text-align: center;
-  min-height: 70px;
-  max-height: 70px;
-}
-
-#header-title {
-  color: #28544b;
+#header-title > a {
   font-weight: 900;
-  font-size: 45px;
+  font-size: 60px;
+  padding-left: 10px;
 }
 
 .login,
@@ -52,19 +43,21 @@ select {
 #login,
 #logout,
 #sign-up {
-  margin-top: 13px;
+  margin-top: 58px;
 }
 
 #profilePhoto {
   float: right;
-  width: 560px;
+  width: 300px;
   font-weight: 700;
   font-size: 20px;
+  margin-top: 40px;
 }
 
 #userEmail {
   margin-left: 20px;
-  margin-top: 13px;
+  margin-top: 18px;
+  font-size: 20px;
   position: absolute;
 }
 
@@ -72,12 +65,14 @@ select {
 
 #nav {
   text-align: center;
+  display: inline-block;
+  margin-left: 30px;
 }
 
 #nav > ul {
   margin: 0;
-  background-color: #28544b;
-  min-height: 20px;
+  font-size: 23px;
+  font-weight: 700;
 }
 
 #nav > ul > li {
@@ -91,7 +86,6 @@ select {
 
 #nav > ul > li > a {
   border-radius: 5px;
-  color: #fff;
   text-decoration: none;
   padding: 0.2em 0.6em 0.2em 0.6em;
   outline: 0;
@@ -99,14 +93,14 @@ select {
 
 #nav > ul > li:hover > a,
 #nav > ul > li.active > a {
-  background: #fff;
-  color: #28544b;
+  background: #28544b;
+  color: white;
   font-weight: 700;
 }
 
 #nav > ul > li.current > a {
-  background: #fff;
-  color: #28544b;
+  background: #28544b;
+  color: white;
   font-weight: 700;
 }
 
@@ -120,8 +114,10 @@ select {
   background-color: fff(34, 30, 31, 0.98);
   padding: 1.2em 0.5em 1em 1em;
   color: #28544b;
+  font-size: 20px;
   font-weight: 1000;
-  min-width: 12em;
+  min-width: 15em;
+  min-height: 10em;
   box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.5);
   text-align: left;
   margin-top: -1.25em;
@@ -152,19 +148,6 @@ select {
 
 .dropotron.level-0 {
   margin-top: 2em;
-}
-
-.dropotron.level-0:before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 50%;
-  margin-left: -10px;
-  top: -9px;
-  border-left: solid 10px transparent;
-  border-right: solid 10px transparent;
-  border-bottom: solid 10px #28544b;
-  border-bottom-color: #28544b;
 }
 
 /* Intro */
@@ -398,8 +381,16 @@ h1 {
 .content_navi {
   width: 100%;
   height: 96px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.content_navi-2 {
+  width: 100%;
+  height: 96px;
   background-color: #fff;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 999;

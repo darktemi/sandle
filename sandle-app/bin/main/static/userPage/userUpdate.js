@@ -5,8 +5,8 @@ fetch("../users/view")
   .then((result) => {
     console.log(result);
     if (result.status == "failure") {
-      alert("xxxxxxx");
-      return;
+      alert("회원을 조회할 수 없습니다.");
+      location.href = "/sandle/auth/login_form.html";
     }
 
     let member = result.data;
@@ -30,10 +30,10 @@ document.getElementById("btn-update").onclick = () => {
   let json = JSON.stringify(Object.fromEntries(formData));
   if (
     document.getElementById("m-password").value !=
-    document.getElementById("m-password-chk").value ||
+      document.getElementById("m-password-chk").value ||
     document.getElementById("m-password").value == ""
   ) {
-    alert("비밀번호가 같지 않거나 다릅니다.")
+    alert("비밀번호가 같지 않거나 다릅니다.");
     return;
   }
   fetch("../users/" + document.getElementById("f-no").value, {
