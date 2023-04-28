@@ -12,10 +12,11 @@
     <result column="nickname" property="nickname"/>
     <result column="profile_photo" property="profilePhoto"/>
     <result column="member_id" property="writerNo"/>
+    <result column="view_cnt" property="viewCount"/>
     <result column="created_date" property="createdDate"/>
     
      <collection property="attachedFiles" ofType="boardfile">
-      <id column="boardfile_id" property="no"/>
+          <id column="photo_id" property="photoNo"/>
       <result column="filepath" property="filepath"/>
       <result column="photo" property="photo"/>
       <result column="origin_filename" property="originalFilename"/>
@@ -43,6 +44,7 @@ values (#{writerNo}, #{content}, #{tag})
       b.board_id, 
       b.content,
       b.tag,
+      b.view_cnt,
       b.created_date, 
       m.photo 
     from 
@@ -54,6 +56,7 @@ values (#{writerNo}, #{content}, #{tag})
     select 
       b.board_id, 
       b.content,
+      b.view_cnt,
       b.created_date, 
       m.photo 
     from 
@@ -69,8 +72,10 @@ select
       b.board_id, 
       b.content,      
       b.tag,
+      b.view_cnt,
       b.created_date, 
       m.photo,
+      m.photo_id,
       s.nickname,
       s.profile_photo,
       c.comment_id,
@@ -91,6 +96,12 @@ select
     where board_id=#{no}
 </delete>
 
+  <update id="increaseViewCount" parameterType="int">
+    update hms_board set
+      view_cnt = view_cnt + 1
+    where board_id=#{maumdaerohaedodoi}
+  </update>
+  
   <update id="updateBoard" parameterType="sandleBoard">
     update hms_board set 
       tag=#{tag}, 

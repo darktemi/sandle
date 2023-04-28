@@ -267,7 +267,9 @@ function getMountainInfo(e) {
     });
 
   document.getElementById("mountain-map").src =
-    "https://kr.object.ncloudstorage.com/sandle-images/mountain-map/" + photo;
+    "http://mcjpfbyigjei16837664.cdn.ntruss.com/mountain-map/" +
+    photo +
+    "?type=m&w=1000&h=1000&ttype=jpg";
 }
 
 function back() {

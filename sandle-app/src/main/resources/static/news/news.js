@@ -113,7 +113,7 @@ axios
 
             <nav id="nav">
               <ul>
-                <li class="current">
+                <li>
                   <a href="/sandle/index.html">산들 소개</a>
                 </li>
                 <li>
@@ -121,7 +121,7 @@ axios
                     >전국 등산로 정보</a
                   >
                 </li>
-                <li>
+                <li class="current">
                   <a href="#">산악 소식</a>
                   <ul>
                     <ol>

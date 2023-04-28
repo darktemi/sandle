@@ -5,26 +5,27 @@
   display: grid;
   margin-left: 80px;
   margin-top: 30px;
-  grid-template-columns: 380px 380px;
+  grid-template-columns: 450px 450px 450px;
   grid-template-rows: auto auto;
 }
 
 .item {
-  border: 1px solid black;
-  height: 380px;
-  width: 320px;
+  height: 390px;
+  width: 430px;
   /* margin: auto; */
   border-radius: 20px;
   position: relative;
-  margin-bottom: 10%;
+  /* margin-bottom: 10%; */
+  margin-top: -20px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .photo-a {
-  border: 1px solid black;
-  height: 350px;
-  width: 285px;
+  /* border: 1px solid black; */
+  border-radius: 3px;
+  height: 300px;
+  width: 430px;
   margin: auto;
-  border-radius: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -33,6 +34,10 @@
   background-position: center;
   background-size: cover;
   cursor: pointer;
+}
+
+.item:hover {
+  transform: scale(1.1);
 }
 
 .image-container {
@@ -44,6 +49,72 @@
   background-size: cover;
 }
 
+.view-container {
+  position: absolute;
+  /* border: 1px solid black; */
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.view-title {
+  /* border: 1px solid black; */
+  flex-grow: 1;
+  width: 98%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.view-like {
+  /* border: 1px solid black; */
+  flex-grow: 1;
+  width: 15%;
+}
+
+#view-heart {
+  color: red;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.view-like {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.view-like-count {
+  font-weight: bolder;
+  color: black;
+}
+
+.view-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 60%;
+  margin-left: 5px;
+  margin-top: 2px;
+
+  font-size: 16px;
+  color: rgb(153, 153, 153);
+  line-height: 28px;
+}
+
+.view-icon {
+  margin-top: 2px;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
 /* -----------------------------------------Modal area----------------------------- */
 .modal {
   position: fixed;
@@ -55,7 +126,7 @@
 
   display: none;
 
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-insert {
@@ -107,7 +178,7 @@
 }
 
 #session2-1 {
-  width: 30px;
+  width: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,12 +220,113 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* 이전/다음 버튼 스타일 */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  margin-right: 360px;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  margin-right: 425px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+#attach-img {
+  height: 520px;
+  width: 410px;
+  border-radius: 30px;
+
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#prev-btn {
+  margin-left: 25px;
+}
+
+#next-btn {
+  margin-right: 435px;
+}
+
+#insert-img {
+  height: 520px;
+  width: 400px;
+  border-radius: 30px;
+}
+
+#post-prev-btn {
+  margin-right: 330px;
+  margin-top: 2px;
+}
+
+#post-next-btn {
+  margin-right: 460px;
+  margin-top: 2px;
 }
 
 #modal-content-creater {
   /* border: 1px solid black; */
   height: 160px;
   margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 #comment {
@@ -182,7 +354,7 @@
 #user-info-content {
   display: flex;
   align-items: center;
-  width: 170px;
+  width: 270px;
   text-align: left;
   font-size: 15px;
   color: black;
@@ -246,11 +418,13 @@
 #cmt-nickname {
   font-weight: bold;
   padding-left: 10px;
+  margin-top: 3px;
 }
 
 #cmt-image {
   width: 30px;
   height: 30px;
+  margin-top: 3px;
 }
 
 .cmt-x-logo {
@@ -262,6 +436,7 @@
 
 #cmt-content {
   padding-left: 50px;
+  margin-top: 3px;
 }
 
 #board-plus {
@@ -275,7 +450,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 6%;
+  margin-bottom: 5%;
 }
 
 #photo-head-photofeed {
@@ -286,9 +462,10 @@
 #head-underline {
   display: flex;
   align-items: center;
-  width: 800px;
+  width: 1330px;
   height: 60px;
   border-bottom: 5px solid black;
+  margin-left: 50px;
 }
 
 #post-font {
@@ -378,6 +555,7 @@
   height: 40px;
   border-radius: 10px;
   margin-left: 200px;
+  cursor: pointer;
 }
 
 #post-tag::placeholder,
@@ -427,7 +605,13 @@
   padding-left: 20px;
 }
 
+.selected-image {
+  width: 373px;
+  height: 463px;
+}
+
 #selected-image {
+  z-index: 1;
   width: 373px;
   height: 463px;
 }
@@ -444,6 +628,7 @@
 .like-icon {
   color: gray;
   margin-right: 4px;
+  font-size: 30px;
 }
 
 .like-icon.active {
@@ -452,4 +637,102 @@
 
 .like-count {
   margin-left: 4px;
+}
+
+#board-date {
+  color: black;
+  margin-left: 90px;
+}
+
+.view-count {
+  display: flex;
+  align-items: center;
+  color: black;
+  margin-right: 30px;
+}
+
+#bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count-name {
+  margin-left: 180px;
+  color: black;
+}
+
+.mySlides {
+  position: relative;
+}
+
+/* 이전/다음 버튼 스타일 */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -10px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+  margin-left: 35px;
+}
+
+/* 다음 버튼 스타일 */
+.next {
+  margin-left: 330px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* 마우스를 버튼 위로 올렸을 때 스타일 */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 이미지 캡션 텍스트 스타일 */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* 이미지 페이드 애니메이션 스타일 */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }

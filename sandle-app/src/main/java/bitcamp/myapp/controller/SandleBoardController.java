@@ -2,6 +2,7 @@ package bitcamp.myapp.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import bitcamp.myapp.service.BoardLikeService;
 import bitcamp.myapp.service.ObjectStorageService;
 import bitcamp.myapp.service.SandleBoardService;
+import bitcamp.myapp.vo.BoardFile;
 import bitcamp.myapp.vo.Comment;
 import bitcamp.myapp.vo.Member;
 import bitcamp.myapp.vo.SandleBoard;
@@ -28,34 +31,40 @@ import jakarta.servlet.http.HttpSession;
 public class SandleBoardController {
 
   @Autowired private SandleBoardService sandleBoardService;
+  @Autowired private BoardLikeService boardLikeService;
   @Autowired private ObjectStorageService objectStorageService;
   private String bucketName = "sandle-images";
 
   @PostMapping("/post")
   public Object insert(
       SandleBoard sandleBoard,
-      MultipartFile files,
-      HttpSession session) {
+      List<MultipartFile> files,
+      HttpSession session) throws Exception {
 
     Member loginUser = (Member) session.getAttribute("loginUser");
-
     sandleBoard.setWriterNo(loginUser.getNo());
     sandleBoard.setNickname(loginUser.getNickname());
     System.out.println(files);
-    //    for (MultipartFile file : files) {
-    String filename = objectStorageService.uploadFile(bucketName, "photofeed/", files);
-    sandleBoard.setFileName(filename);
-    //      if (filename == null) {
-    //        continue;
-    //      }
-    //
-    //      BoardFile boardFile = new BoardFile();
-    //      boardFile.setOriginalFilename(file.getOriginalFilename());
-    //      boardFile.setFilepath(filename);
-    //      boardFile.setMimeType(file.getContentType());
-    //      boardFiles.add(boardFile);
-    //    }
-    sandleBoard.setAttachedFiles(new ArrayList<>());
+
+    List<BoardFile> boardFiles = new ArrayList<>();
+    for (MultipartFile file : files) {
+      String filename = objectStorageService.uploadFile(bucketName, "photofeed/", file);
+      System.out.println(file);
+      if (filename == null) {
+        continue;
+      }
+
+      //      sandleBoard.setFileName(filename);
+
+
+      BoardFile boardFile = new BoardFile();
+      //      boardFile.setOriginalFilename(file.getOriginalFilename());
+      boardFile.setPhoto(filename);
+      //      boardFile.setMimeType(file.getContentType());
+      boardFiles.add(boardFile);
+    }
+
+    sandleBoard.setAttachedFiles(boardFiles);
 
     sandleBoardService.add(sandleBoard);
 
@@ -76,11 +85,37 @@ public class SandleBoardController {
   }
 
   @GetMapping
-  public Object list() {
+  public Object list(HttpSession session) {
+    List<Object> boardList = new ArrayList<>();
+
+    for(SandleBoard b : sandleBoardService.list()) {
+      Map<String, Object> boardData = new HashMap<>();
+      boardData.put("board", b);
+      boardData.put("likeCount", boardLikeService.likeCount(b.getNo()));
+      boardList.add(boardData);
+    }
+
     return new RestResult()
         .setStatus(RestStatus.SUCCESS)
-        .setData(sandleBoardService.list());
+        .setData(boardList);
   }
+  //  @GetMapping
+  //  public Object list(HttpSession session) {
+  //    List<Object[]> boardList = new ArrayList<>();
+  //
+  //    for(SandleBoard b : sandleBoardService.list()) {
+  //      Object[] boardData = new Object[2];
+  //      boardData[0] = b;
+  //      boardData[1] = boardLikeService.likeCount(b.getNo());
+  //
+  //      boardList.add(boardData);
+  //    }
+  //
+  //    return new RestResult()
+  //        .setStatus(RestStatus.SUCCESS)
+  //        .setData(boardList);
+  //  }
+
 
   @GetMapping("/userBoard")
   public Object listUserBoard(HttpSession session) {

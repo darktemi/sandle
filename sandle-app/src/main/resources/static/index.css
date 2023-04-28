@@ -54,6 +54,11 @@ select {
   margin-top: 40px;
 }
 
+#u-photo,
+#m-photo {
+  border-radius: 100%;
+}
+
 #userEmail {
   margin-left: 20px;
   margin-top: 18px;
@@ -66,18 +71,19 @@ select {
 #nav {
   text-align: center;
   display: inline-block;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 #nav > ul {
   margin: 0;
   font-size: 23px;
   font-weight: 700;
+  width: 750px;
 }
 
 #nav > ul > li {
   display: inline-block;
-  margin: 6px 3em 5px 0em;
+  margin: 6px 1em 5px 0em;
 }
 
 #nav > ul > li > ul {
@@ -382,6 +388,7 @@ h1 {
   width: 100%;
   height: 96px;
   background-color: white;
+  border-bottom: 1px #28544b solid;
   position: sticky;
   top: 0;
   z-index: 999;
