@@ -66,6 +66,14 @@ fetch("../auth/user")
       document.querySelector(".login").classList.remove("login");
       document.querySelector(".sign-up").classList.remove("sign-up");
     }
+    if (!member.profilePhoto && document.querySelector("#u-photo")) {
+      document.querySelector("#u-photo").src =
+        "/sandle/assets/images/default_logo.jpg";
+    }
+    if (!member.profilePhoto && document.querySelector("#m-photo")) {
+      document.querySelector("#m-photo").src =
+        "/sandle/assets/images/default_logo.jpg";
+    }
     if (member.profilePhoto && document.querySelector("#u-photo")) {
       document.querySelector(
         "#u-photo"
@@ -75,14 +83,6 @@ fetch("../auth/user")
       document.querySelector(
         "#m-photo"
       ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${member.profilePhoto}?type=f&w=300&h=300&faceopt=true&ttype=jpg`;
-    }
-    if (!member.profilePhoto && document.querySelector("#u-photo")) {
-      document.querySelector("#u-photo").src =
-        "/sandle/assets/images/default_logo.jpg";
-    }
-    if (!member.profilePhoto && document.querySelector("#m-photo")) {
-      document.querySelector("#m-photo").src =
-        "/sandle/assets/images/default_logo.jpg";
     }
     if (member.email && document.querySelector("#f-email")) {
       document.querySelector("#f-email").value = member.email;

@@ -28,30 +28,30 @@ select {
 .logout,
 .sign-up,
 .profilePhoto {
-  display: none;
+  /* display: none; */
 }
 
 #login,
 #logout,
 #sign-up {
-  float: right;
-  margin-right: 30px;
   font-weight: 700;
   font-size: 20px;
-}
-
-#login,
-#logout,
-#sign-up {
-  margin-top: 58px;
 }
 
 #profilePhoto {
   float: right;
-  width: 300px;
+  width: auto;
   font-weight: 700;
   font-size: 20px;
   margin-top: 40px;
+  margin-right: 180px;
+}
+
+#profilePhoto:hover > a,
+#profilePhoto.active > a,
+#profilePhoto.current > a {
+  background: none !important;
+  color: #28544b !important;
 }
 
 #u-photo,
@@ -63,7 +63,6 @@ select {
   margin-left: 20px;
   margin-top: 18px;
   font-size: 20px;
-  position: absolute;
 }
 
 /* Nav */
@@ -71,19 +70,19 @@ select {
 #nav {
   text-align: center;
   display: inline-block;
-  margin-left: 10px;
 }
 
 #nav > ul {
   margin: 0;
   font-size: 23px;
   font-weight: 700;
-  width: 750px;
+  width: 1000px;
+  padding-left: 0 !important;
 }
 
 #nav > ul > li {
   display: inline-block;
-  margin: 6px 1em 5px 0em;
+  margin: 6px 0.2em 5px 0em;
 }
 
 #nav > ul > li > ul {

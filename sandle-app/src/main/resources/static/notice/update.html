@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>산들 - 공지사항 수정</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="/sandle/index.css" />
+    <title>산들 - 공지사항</title>
     <link rel="icon" href="/sandle/assets/images/profile_default_logo.png" />
+
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="../index.css" />
   </head>
   <body>
     <!-- Header  -->
@@ -13,9 +14,9 @@
       <div id="header-title">
         <a href="/sandle/index.html">SANDLE</a>
 
-        <nav id="nav">
+        <div id="nav">
           <ul>
-            <li>
+            <li class="current">
               <a href="/sandle/index.html">산들 소개</a>
             </li>
             <li>
@@ -23,7 +24,7 @@
                 >전국 등산로 정보</a
               >
             </li>
-            <li class="current">
+            <li>
               <a href="#">산악 소식</a>
               <ul>
                 <ol>
@@ -46,58 +47,110 @@
                   <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
                 </li>
                 <li>
-                  <a href="/sandle/userPage/userPage.html">마이페이지</a>
+                  <a href="/sandle/userPage/userPage.html" id="my-page"
+                    >마이페이지</a
+                  >
                 </li>
                 <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
               </ul>
             </li>
+
+            <li id="profilePhoto" class="profilePhoto">
+              <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+                <img id="u-photo" class="edit" />
+                <span id="userEmail"></span>
+              </a>
+              <ul>
+                <li>
+                  <div id="login" class="login">
+                    <a href="/sandle/auth/login_form.html">LOGIN</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="logout" class="logout">
+                    <a href="sandle/auth/logout" onclick="logout(); return false;">LOGOUT</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="sign-up" class="sign-up">
+                    <a href="/sandle/member/member.html">SIGN UP</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
           </ul>
-        </nav>
-        <div id="login" class="login">
-          <a href="/sandle/auth/login_form.html">LOGIN</a>
-        </div>
-        <div id="logout" class="logout">
-          <a href="sandle/auth/logout" onclick="logout(); return false;">
-            LOGOUT</a
-          >
-        </div>
-        <div id="sign-up" class="sign-up">
-          <a href="/sandle/member/member.html">SIGN UP</a>
-        </div>
-        <div id="profilePhoto" class="profilePhoto">
-          <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-            <img id="u-photo" class="edit" />
-            <span id="userEmail"></span>
-          </a>
         </div>
       </div>
     </div>
+    
     <!-- 공지사항 update -->
     <main class="notice">
       <div id="head">
         <p>공지사항</p>
       </div>
 
-      <div class="notice-inputbox">
+      <article>
         <form id="board-form" action="update" method="post">
-          <div class="notice-title">
-            <b>제목</b><br />
-            <input id="notice-title" type="text" name="title" value="" />
+          <div class="box">
+            <div class="tit">제목</div>
+            <div class="inputBox">
+              <input
+                id="notice-title"
+                type="text"
+                name="title"
+                maxlength="60"
+              />
+            </div>
           </div>
-          <div class="notice-content">
-            <b>공지내용</b><br />
-            <textarea id="notice-content" name="content"></textarea>
+          <div class="box">
+            <div class="tit">공지내용</div>
+            <div class="inputBox">
+              <textarea
+                id="notice-content"
+                type="text"
+                name="content"
+              ></textarea>
+            </div>
+          </div>
+          <div id="btns">
+            <button id="btn-list" type="button">목록</button>
+            <button id="btn-update" type="button">수정</button>
+            <button id="btn-delete" type="button">삭제</button>
           </div>
         </form>
-        <div id="btns">
-          <a href="list.html">
-            <button id="btn-list" type="button">목록</button>
-          </a>
-          <button id="btn-update" type="button">수정</button>
-          <button id="btn-delete" type="button">삭제</button>
+      </article>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
+
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+          조원 : 안진수 | <a>email : </a><br />
+          조원 : 김종현 | <a>email : </a><br />
+          조원 : 이건형 | <a>email : </a><br />
+          조원 : 박경한 | <a>email : </a>
+        </div>
+        <div id="creater-github">
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
         </div>
       </div>
-    </main>
+    </footer>
+
+    <script src="/sandle/assets/js/jquery.min.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
 
     <script src="../node_modules/axios/dist/axios.min.js"></script>
     <script>
@@ -150,11 +203,13 @@
             });
         }
       });
+
+      // 목록 버튼 클릭 시
+      document.querySelector("#btn-list").onclick = () => {
+        window.location.href = "list.html";
+      };
     </script>
-    <script src="/sandle/assets/js/jquery.min.js"></script>
-    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
-    <script src="/sandle/assets/js/breakpoints.min.js"></script>
-    <script src="/sandle/assets/js/util.js"></script>
-    <script src="/sandle/navLogin.js"></script>
+    
+    </script>
   </body>
 </html>

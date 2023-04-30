@@ -7,10 +7,87 @@
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <title>SANDLE - 산들산들</title>
-    <link rel="stylesheet" href="list.css" />
     <link rel="stylesheet" href="/sandle/index.css" />
-    <link rel="icon" href="/sandle/assets/images/profile_default_logo.png" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
     <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <style>
+      #head {
+        font-size: 30px;
+        font-weight: 900;
+        text-align: center;
+        color: black;
+        margin: 0;
+      }
+
+      .qna-index {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .qna-list {
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        margin-top: 50px;
+        width: 80%;
+        overflow: auto;
+        padding: 30px;
+      }
+
+      #qna-list-form {
+        float: left;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      #btns button {
+        float: right;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .qna-tbl-common {
+        margin-bottom: 30px;
+      }
+
+      .qna-tbl-common table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .qna-tbl-common th,
+      .qna-tbl-common td {
+        border: 1px solid #e5e5e5;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .qna-tbl-common th {
+        background-color: #f5f5f5;
+        color: #666;
+        font-weight: normal;
+      }
+
+      .icon-qna-new {
+        background-color: #007bff;
+        color: white;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 12px;
+        margin-left: 5px;
+        display: inline-block;
+      }
+    </style>
   </head>
 
   <body>
@@ -19,9 +96,9 @@
       <div id="header-title">
         <a href="/sandle/index.html">SANDLE</a>
 
-        <nav id="nav">
+        <div id="nav">
           <ul>
-            <li>
+            <li class="current">
               <a href="/sandle/index.html">산들 소개</a>
             </li>
             <li>
@@ -42,7 +119,7 @@
                 </li>
               </ul>
             </li>
-            <li class="current">
+            <li>
               <a href="#">커뮤니티</a>
               <ul>
                 <ol>
@@ -52,29 +129,38 @@
                   <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
                 </li>
                 <li>
-                  <a href="/sandle/userPage/userPage.html">마이페이지</a>
+                  <a href="/sandle/userPage/userPage.html" id="my-page"
+                    >마이페이지</a
+                  >
                 </li>
                 <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
               </ul>
             </li>
+
+            <li id="profilePhoto" class="profilePhoto">
+              <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+                <img id="u-photo" class="edit" />
+                <span id="userEmail"></span>
+              </a>
+              <ul>
+                <li>
+                  <div id="login" class="login">
+                    <a href="/sandle/auth/login_form.html">LOGIN</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="logout" class="logout">
+                    <a href="sandle/auth/logout" onclick="logout(); return false;">LOGOUT</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="sign-up" class="sign-up">
+                    <a href="/sandle/member/member.html">SIGN UP</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
           </ul>
-        </nav>
-        <div id="login" class="login">
-          <a href="/sandle/auth/login_form.html">LOGIN</a>
-        </div>
-        <div id="logout" class="logout">
-          <a href="sandle/auth/logout" onclick="logout(); return false;">
-            LOGOUT</a
-          >
-        </div>
-        <div id="sign-up" class="sign-up">
-          <a href="/sandle/member/member.html">SIGN UP</a>
-        </div>
-        <div id="profilePhoto" class="profilePhoto">
-          <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-            <img id="u-photo" class="edit" />
-            <span id="userEmail"></span>
-          </a>
         </div>
       </div>
     </div>
@@ -110,7 +196,7 @@
                 <th scope="col">닉네임</th>
                 <th scope="col">제목</th>
                 <th scope="col">날짜</th>
-                <th scope="col">처리상태</th>
+                <th scope="col">답변</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -136,10 +222,10 @@
           조원 : 박경한 | <a>email : </a>
         </div>
         <div id="creater-github">
-          <a href="https://github.com/darktemi" id="git"></a>
-          <a href="https://github.com/yubylee" id="git"></a>
-          <a href="https://github.com/jinsuahn" id="git"></a>
-          <a href="https://github.com/letsgojonny" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
           <a href="#" id="git"></a>
         </div>
       </div>
@@ -163,7 +249,33 @@
         </tr>
       {{/each}}
     </script>
-    <script src="list.js"></script>
+    <script>
+      getQna();
+
+      const template = Handlebars.compile(
+        document.querySelector("#qna-template").innerHTML
+      );
+
+      function getQna(keyword) {
+        let qs = "";
+        if (keyword) {
+          qs = `?keyword=${keyword}`;
+        }
+
+        fetch("../qnas" + qs)
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            console.log(result.data);
+            $("tbody").html(template(result.data));
+          });
+      }
+
+      document.getElementById("new-qna").addEventListener("click", () => {
+        location.href = "form.html";
+      });
+    </script>
     <script src="/sandle/assets/js/jquery.min.js"></script>
     <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
     <script src="/sandle/assets/js/breakpoints.min.js"></script>

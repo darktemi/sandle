@@ -173,7 +173,8 @@ axios
           </div>
         </div>
 
-          <h1 class="keyword">${keyword}<span>${currentDate}</span></h1><hr>
+          <h1 class="keyword">${keyword}<span>${currentDate}</span></h1><br>
+          <hr>
           ${newsHtml}
 
           <!-- Footer -->

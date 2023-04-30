@@ -64,13 +64,13 @@ fetch("auth/user")
       document.querySelector(".login").classList.remove("login");
       document.querySelector(".sign-up").classList.remove("sign-up");
     }
-    if (result.data.profilePhoto) {
+    if (result.status === "failure") {
+      document.querySelector("#u-photo").src =
+      "/sandle/assets/images/default_logo.jpg";
+    } else {
       document.querySelector(
         "#u-photo"
       ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${result.data.profilePhoto}?type=f&w=40&h=40&faceopt=true&ttype=jpg`;
-    } else {
-      document.querySelector("#u-photo").src =
-        "/sandle/assets/images/default_logo.jpg";
     }
   });
 

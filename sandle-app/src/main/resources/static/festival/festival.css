@@ -3,10 +3,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .festival {
+  width: 850px !important;
   text-align: left;
   margin-bottom: 40px;
   border: 1px solid gray;
@@ -52,7 +53,7 @@ hr {
 
 .festi-title {
   /* border: solid 1px red; */
-  width: 1280px; /* 원하는 크기로 설정 */
+  width: 880px; /* 원하는 크기로 설정 */
   margin: 0 auto; /* 가운데 정렬 */
   padding: 10px; /* 내부 여백 설정 */
   padding-top: 50px;
@@ -86,7 +87,7 @@ hr {
   align-items: center;
   color: black;
 }
-span::before {
+.festi-title > span::before {
   content: "*";
   color: red;
 }
