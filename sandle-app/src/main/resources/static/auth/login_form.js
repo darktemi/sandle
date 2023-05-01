@@ -15,7 +15,7 @@ document.querySelector("#btn-login").onclick = () => {
   const form = document.querySelector("#login-form");
   const formData = new FormData(form);
 
-  fetch("../login", {
+  fetch("./login", {
     method: "post",
     body: formData,
   })
