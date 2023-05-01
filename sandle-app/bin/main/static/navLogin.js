@@ -84,15 +84,21 @@ fetch("../auth/user")
         "#m-photo"
       ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${member.profilePhoto}?type=f&w=300&h=300&faceopt=true&ttype=jpg`;
     }
-    if (member.email && document.querySelector("#f-email")) {
-      document.querySelector("#f-email").value = member.email;
+
+    /* 문의글 관리자 답변 */
+    if (member.email == 'darktemi90@nate.com') {
+      document.getElementById("qna-response").removeAttribute("readonly");
     }
+
+    /* 마이페이지 */
     if (member.name && document.querySelector("#f-name")) {
       document.querySelector("#f-name").innerHTML = member.name;
     }
     if (member.nickname && document.querySelector("#f-nickname")) {
       document.querySelector("#f-nickname").innerHTML = member.nickname;
     }
+
+    /* 관리자 공지사항 등록 */
     if (
       document.getElementById("userEmail").textContent == "darktemi90@nate.com"
     ) {

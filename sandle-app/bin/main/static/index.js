@@ -66,6 +66,8 @@ fetch("/sandle/auth/user")
           "/sandle/assets/images/default_logo.jpg";
       }
       document.querySelector("#userEmail").innerHTML = result.data.email;
+      $("#userID").html(result.data.email);
+      $(".userID").css("display", "block");
       $(".logout").css("display", "block");
     } else {
       document.querySelector("#u-photo").src =

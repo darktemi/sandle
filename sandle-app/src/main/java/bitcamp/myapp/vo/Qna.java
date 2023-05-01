@@ -18,7 +18,7 @@ public class Qna implements Serializable {
 	private String content;
 	private String response;
 
-	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
+	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
 	private Date createdDate;
 
 	//  private int viewCount;

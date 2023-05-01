@@ -27,13 +27,15 @@ select {
 
 .login,
 .logout,
-.sign-up {
+.sign-up,
+.userID {
   display: none;
 }
 
 #login,
 #logout,
-#sign-up {
+#sign-up,
+#userID {
   font-weight: 700;
   font-size: 20px;
 }

@@ -28,7 +28,7 @@
       title,
       content,
       response,
-      DATE_FORMAT(created_date, '%Y-%m-%d %H:%i:%s') as created_date
+      DATE_FORMAT(created_date, '%Y-%m-%d') as created_date
 
     from 
       hms_qna
