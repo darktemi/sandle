@@ -22,12 +22,12 @@ select {
   font-weight: 900;
   font-size: 60px;
   padding-left: 10px;
+  position: absolute;
 }
 
 .login,
 .logout,
-.sign-up,
-.profilePhoto {
+.sign-up {
   /* display: none; */
 }
 
@@ -38,22 +38,18 @@ select {
   font-size: 20px;
 }
 
-#profilePhoto {
+#u-photo-icon {
   float: right;
   margin-top: 40px;
   margin-right: 180px;
   margin-left: 500px;
 }
 
-#profilePhoto:hover > a,
-#profilePhoto.active > a,
-#profilePhoto.current > a {
+#u-photo-icon:hover > a,
+#u-photo-icon.active > a,
+#u-photo-icon.current > a {
   background: none !important;
   color: #28544b !important;
-}
-
-#u-photo-icon {
-  float: right;
 }
 
 #u-photo,
@@ -70,8 +66,9 @@ select {
 /* Nav */
 
 #nav {
-  display: inline-block;
-  width: 85%;
+  margin-left: 260px;
+  padding-top: 25px;
+  width: 86% auto;
 }
 
 #nav > ul {
@@ -80,7 +77,8 @@ select {
   display: inline-block;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-  width: 98%;
+  width: 99%;
+  padding-inline-start: 0 !important;
 }
 
 #nav > ul > li {
@@ -120,14 +118,14 @@ select {
   border-radius: 5px;
   background-color: #fff;
   background-color: fff(34, 30, 31, 0.98);
-  padding: 1.2em 0.5em 1em 1em;
+  padding: 0.2em 0.5em 1em 0.5em;
   color: #28544b;
   font-size: 20px;
   font-weight: 1000;
-  min-width: 15em;
+  min-width: 8em;
   min-height: 10em;
   box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.5);
-  text-align: left;
+  text-align: center;
   margin-top: -1.25em;
   margin-left: -1px;
   list-style: none;
@@ -245,7 +243,6 @@ select {
 
 .about_top {
   position: relative;
-  width: 100vw;
   height: calc(100vh - 64px);
   text-align: center;
   display: flex;
@@ -270,13 +267,14 @@ select {
 .top_image {
   position: absolute;
   object-fit: cover;
-  width: 100%;
+  width: 1280px;
   height: 100%;
   bottom: 0;
   right: 0px;
+  margin-left: 0 !important;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1280px) {
   .top_image {
     width: 100%;
   }
@@ -914,7 +912,6 @@ h1 {
 }
 
 .styles_container__DxySU {
-  width: 100vw;
   height: 100vh;
   max-height: 880px;
   position: relative;

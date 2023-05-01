@@ -22,76 +22,75 @@
   <body>
     <!-- Header  -->
     <div class="content_navi">
-      <div id="header-title">
-        <a href="/sandle/index.html">SANDLE</a>
+      <a href="/sandle/index.html" id="header-title">SANDLE</a>
+      <nav id="nav">
+        <ul>
+          <li>
+            <a href="/sandle/index.html">산들 소개</a>
+          </li>
+          <li class="current">
+            <a href="/sandle/mountain_info/mountain_info.html"
+              >전국 등산로 정보</a
+            >
+          </li>
+          <li>
+            <a href="#">산악 소식</a>
+            <ul>
+              <p>산악 소식</p>
+              <hr />
+              <li><a href="/sandle/notice/view.html">공지 사항</a></li>
+              <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+              <li>
+                <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">커뮤니티</a>
+            <ul>
+              <p>커뮤니티</p>
+              <hr />
+              <li>
+                <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+              </li>
+              <li>
+                <a href="/sandle/userPage/userPage.html">마이페이지</a>
+              </li>
+              <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+            </ul>
+          </li>
 
-        <div id="nav">
-          <ul>
-            <li class="current">
-              <a href="/sandle/index.html">산들 소개</a>
-            </li>
-            <li>
-              <a href="/sandle/mountain_info/mountain_info.html"
-                >전국 등산로 정보</a
-              >
-            </li>
-            <li>
-              <a href="#">산악 소식</a>
-              <ul>
-                <ol>
-                  산악 소식
-                </ol>
-                <li><a href="/sandle/notice/view.html">공지 사항</a></li>
-                <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
-                <li>
-                  <a href="/sandle/festival/festival.html">지역 행사 정보</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">커뮤니티</a>
-              <ul>
-                <ol>
-                  커뮤니티
-                </ol>
-                <li>
-                  <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
-                </li>
-                <li>
-                  <a href="/sandle/userPage/userPage.html" id="my-page"
-                    >마이페이지</a
+          <!-- 상단 프로필 사진 -->
+
+          <li id="u-photo-icon">
+            <a href="/sandle/userPage/userPage.html" id="my-page">
+              <span id="userEmail"></span>
+              <img id="u-photo" />
+            </a>
+
+            <!-- 프로필 사진 hover -->
+            <ul>
+              <li>
+                <div id="login" class="login">
+                  <a href="/sandle/auth/login_form.html">LOGIN</a>
+                </div>
+              </li>
+              <li>
+                <div id="logout" class="logout">
+                  <a href="sandle/auth/logout" onclick="logout(); return false;"
+                    >LOGOUT</a
                   >
-                </li>
-                <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
-              </ul>
-            </li>
-
-            <li id="profilePhoto" class="profilePhoto">
-              <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-                <img id="u-photo" class="edit" />
-                <span id="userEmail"></span>
-              </a>
-              <ul>
-                <li>
-                  <div id="login" class="login">
-                    <a href="/sandle/auth/login_form.html">LOGIN</a>
-                  </div>
-                </li>
-                <li>
-                  <div id="logout" class="logout">
-                    <a href="sandle/auth/logout" onclick="logout(); return false;">LOGOUT</a>
-                  </div>
-                </li>
-                <li>
-                  <div id="sign-up" class="sign-up">
-                    <a href="/sandle/member/member.html">SIGN UP</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+                </div>
+              </li>
+              <li>
+                <div id="sign-up" class="sign-up">
+                  <a href="/sandle/member/member.html">SIGN UP</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
 
     <!-- container -->
@@ -2538,288 +2537,128 @@
           <div id="tabs-1">
             <!-- 전국 -->
             <div id="height_list">
-              <button
-                onclick="getRegion(event)"
-                regionId="1"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="1" title="">
                 서울특별시
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="2"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="2" title="">
                 인천광역시
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="3"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="3" title="">
                 대전광역시
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="4"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="4" title="">
                 대구광역시
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="5"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="5" title="">
                 광주광역시
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="6"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="6" title="">
                 울산광역시
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="7"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="7" title="">
                 부산광역시
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="8"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="8" title="">
                 경기도
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="9"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="9" title="">
                 강원도
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="10"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="10" title="">
                 충청북도
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="11"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="11" title="">
                 충청남도
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="12"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="12" title="">
                 전라북도
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="13"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="13" title="">
                 전라남도
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="14"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="14" title="">
                 경상북도
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="15"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="15" title="">
                 경상남도
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="16"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="16" title="">
                 세종특별자치시
               </button>
-              <button
-                onclick="getRegion(event)"
-                regionId="17"
-                title=""
-              >
+              <button onclick="getRegion(event)" regionId="17" title="">
                 제주특별자치도
               </button>
             </div>
 
             <!-- 서울 -->
             <div id="height_list_seoul">
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="강남구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="강남구">
                 강남구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="강동구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="강동구">
                 강동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="강북구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="강북구">
                 강북구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="강서구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="강서구">
                 강서구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="관악구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="관악구">
                 관악구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="광진구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="광진구">
                 광진구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="구로구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="구로구">
                 구로구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="금천구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="금천구">
                 금천구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="노원구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="노원구">
                 노원구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="도봉구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="도봉구">
                 도봉구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="동대문구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="동대문구">
                 동대문구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="동작구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="동작구">
                 동작구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="마포구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="마포구">
                 마포구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="서대문구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="서대문구">
                 서대문구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="서초구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="서초구">
                 서초구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="성동구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="성동구">
                 성동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="성북구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="성북구">
                 성북구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="송파구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="송파구">
                 송파구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="양천구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="양천구">
                 양천구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="영등포구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="영등포구">
                 영등포구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="용산구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="용산구">
                 용산구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="은평구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="은평구">
                 은평구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="종로구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="종로구">
                 종로구
               </button>
               <button
@@ -2830,1562 +2669,706 @@
               >
                 중구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="1"
-                title="중랑구"
-              >
+              <button onclick="getAddress(event)" regionId="1" title="중랑구">
                 중랑구
               </button>
             </div>
 
             <!-- 인천 -->
             <div id="height_list_incheon">
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="강화군"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="강화군">
                 강화군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="계양구"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="계양구">
                 계양구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="남구"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="남구">
                 남구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="남동구"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="남동구">
                 남동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="동구"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="동구">
                 동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="부평구"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="부평구">
                 부평구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="서구"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="서구">
                 서구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="연수구"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="연수구">
                 연수구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="옹진군"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="옹진군">
                 옹진군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="2"
-                title="중구"
-              >
+              <button onclick="getAddress(event)" regionId="2" title="중구">
                 중구
               </button>
             </div>
 
             <!-- 대전 -->
             <div id="height_list_daejeon">
-              <button
-                onclick="getAddress(event)"
-                regionId="3"
-                title="대덕구"
-              >
+              <button onclick="getAddress(event)" regionId="3" title="대덕구">
                 대덕구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="3"
-                title="동구"
-              >
+              <button onclick="getAddress(event)" regionId="3" title="동구">
                 동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="3"
-                title="서구"
-              >
+              <button onclick="getAddress(event)" regionId="3" title="서구">
                 서구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="3"
-                title="유성구"
-              >
+              <button onclick="getAddress(event)" regionId="3" title="유성구">
                 유성구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="3"
-                title="중구"
-              >
+              <button onclick="getAddress(event)" regionId="3" title="중구">
                 중구
               </button>
             </div>
 
             <!-- 대구 -->
             <div id="height_list_daegu">
-              <button
-                onclick="getAddress(event)"
-                regionId="4"
-                title="남구"
-              >
+              <button onclick="getAddress(event)" regionId="4" title="남구">
                 남구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="4"
-                title="달서구"
-              >
+              <button onclick="getAddress(event)" regionId="4" title="달서구">
                 달서구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="4"
-                title="달성군"
-              >
+              <button onclick="getAddress(event)" regionId="4" title="달성군">
                 달성군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="4"
-                title="동구"
-              >
+              <button onclick="getAddress(event)" regionId="4" title="동구">
                 동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="4"
-                title="북구"
-              >
+              <button onclick="getAddress(event)" regionId="4" title="북구">
                 북구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="4"
-                title="서구"
-              >
+              <button onclick="getAddress(event)" regionId="4" title="서구">
                 서구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="4"
-                title="수성구"
-              >
+              <button onclick="getAddress(event)" regionId="4" title="수성구">
                 수성구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="4"
-                title="중구"
-              >
+              <button onclick="getAddress(event)" regionId="4" title="중구">
                 중구
               </button>
             </div>
 
             <!-- 광주 -->
             <div id="height_list_gwangju">
-              <button
-                onclick="getAddress(event)"
-                regionId="5"
-                title="광산구"
-              >
+              <button onclick="getAddress(event)" regionId="5" title="광산구">
                 광산구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="5"
-                title="남구"
-              >
+              <button onclick="getAddress(event)" regionId="5" title="남구">
                 남구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="5"
-                title="동구"
-              >
+              <button onclick="getAddress(event)" regionId="5" title="동구">
                 동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="5"
-                title="북구"
-              >
+              <button onclick="getAddress(event)" regionId="5" title="북구">
                 북구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="5"
-                title="서구"
-              >
+              <button onclick="getAddress(event)" regionId="5" title="서구">
                 서구
               </button>
             </div>
 
             <!-- 울산 -->
             <div id="height_list_ulsan">
-              <button
-                onclick="getAddress(event)"
-                regionId="6"
-                title="남구"
-              >
+              <button onclick="getAddress(event)" regionId="6" title="남구">
                 남구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="6"
-                title="동구"
-              >
+              <button onclick="getAddress(event)" regionId="6" title="동구">
                 동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="6"
-                title="북구"
-              >
+              <button onclick="getAddress(event)" regionId="6" title="북구">
                 북구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="6"
-                title="중구"
-              >
+              <button onclick="getAddress(event)" regionId="6" title="중구">
                 중구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="6"
-                title="울주군"
-              >
+              <button onclick="getAddress(event)" regionId="6" title="울주군">
                 울주군
               </button>
             </div>
 
             <!-- 부산 -->
             <div id="height_list_busan">
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="강서구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="강서구">
                 강서구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="금정구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="금정구">
                 금정구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="기장군"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="기장군">
                 기장군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="남구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="남구">
                 남구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="동구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="동구">
                 동구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="동래구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="동래구">
                 동래구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="부산진구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="부산진구">
                 부산진구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="북구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="북구">
                 북구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="사하구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="사하구">
                 사하구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="사상구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="사상구">
                 사상구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="서구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="서구">
                 서구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="수영구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="수영구">
                 수영구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="연제구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="연제구">
                 연제구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="영도구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="영도구">
                 영도구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="중구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="중구">
                 중구
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="7"
-                title="해운대구"
-              >
+              <button onclick="getAddress(event)" regionId="7" title="해운대구">
                 해운대구
               </button>
             </div>
 
             <!-- 경기 -->
             <div id="height_list_gyeonggi">
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="가평군"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="가평군">
                 가평군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="고양시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="고양시">
                 고양시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="과천시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="과천시">
                 과천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="광명시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="광명시">
                 광명시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="광주시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="광주시">
                 광주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="구리시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="구리시">
                 구리시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="군포시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="군포시">
                 군포시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="김포시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="김포시">
                 김포시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="남양주시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="남양주시">
                 남양주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="동두천시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="동두천시">
                 동두천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="부천시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="부천시">
                 부천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="성남시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="성남시">
                 성남시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="수원시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="수원시">
                 수원시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="시흥시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="시흥시">
                 시흥시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="안산시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="안산시">
                 안산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="안성시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="안성시">
                 안성시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="안양시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="안양시">
                 안양시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="양주시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="양주시">
                 양주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="양평군"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="양평군">
                 양평군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="여주시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="여주시">
                 여주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="연천군"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="연천군">
                 연천군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="오산시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="오산시">
                 오산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="용인시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="용인시">
                 용인시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="의왕시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="의왕시">
                 의왕시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="의정부시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="의정부시">
                 의정부시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="이천시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="이천시">
                 이천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="파주시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="파주시">
                 파주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="평택시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="평택시">
                 평택시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="포천시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="포천시">
                 포천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="하남시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="하남시">
                 하남시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="8"
-                title="화성시"
-              >
+              <button onclick="getAddress(event)" regionId="8" title="화성시">
                 화성시
               </button>
             </div>
 
             <!-- 강원 -->
             <div id="height_list_gangwon">
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="강릉시"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="강릉시">
                 강릉시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="고성군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="고성군">
                 고성군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="동해시"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="동해시">
                 동해시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="삼척시"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="삼척시">
                 삼척시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="속초시"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="속초시">
                 속초시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="양구군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="양구군">
                 양구군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="양양군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="양양군">
                 양양군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="영월군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="영월군">
                 영월군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="원주시"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="원주시">
                 원주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="인제군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="인제군">
                 인제군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="정선군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="정선군">
                 정선군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="철원군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="철원군">
                 철원군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="춘천시"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="춘천시">
                 춘천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="태백시"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="태백시">
                 태백시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="평창군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="평창군">
                 평창군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="화천군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="화천군">
                 화천군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="홍천군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="홍천군">
                 홍천군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="9"
-                title="횡성군"
-              >
+              <button onclick="getAddress(event)" regionId="9" title="횡성군">
                 횡성군
               </button>
             </div>
 
             <!-- 충북 -->
             <div id="height_list_chungbuk">
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="괴산군"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="괴산군">
                 괴산군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="단양군"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="단양군">
                 단양군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="보은군"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="보은군">
                 보은군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="영동군"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="영동군">
                 영동군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="옥천군"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="옥천군">
                 옥천군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="음성군"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="음성군">
                 음성군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="제천시"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="제천시">
                 제천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="증평군"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="증평군">
                 증평군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="진천군"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="진천군">
                 진천군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="청주시"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="청주시">
                 청주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="10"
-                title="충주시"
-              >
+              <button onclick="getAddress(event)" regionId="10" title="충주시">
                 충주시
               </button>
             </div>
 
             <!-- 충남 -->
             <div id="height_list_chungnam">
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="계룡시"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="계룡시">
                 계룡시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="공주시"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="공주시">
                 공주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="금산군"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="금산군">
                 금산군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="논산시"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="논산시">
                 논산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="당진시"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="당진시">
                 당진시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="보령시"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="보령시">
                 보령시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="부여군"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="부여군">
                 부여군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="서산시"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="서산시">
                 서산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="서천군"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="서천군">
                 서천군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="아산시"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="아산시">
                 아산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="예산군"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="예산군">
                 예산군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="천안시"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="천안시">
                 천안시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="청양군"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="청양군">
                 청양군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="태안군"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="태안군">
                 태안군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="11"
-                title="홍성군"
-              >
+              <button onclick="getAddress(event)" regionId="11" title="홍성군">
                 홍성군
               </button>
             </div>
 
             <!-- 전북 -->
             <div id="height_list_jeonbuk">
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="고창군"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="고창군">
                 고창군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="군산시"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="군산시">
                 군산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="김제시"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="김제시">
                 김제시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="남원시"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="남원시">
                 남원시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="무주군"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="무주군">
                 무주군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="부안군"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="부안군">
                 부안군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="순창군"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="순창군">
                 순창군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="완주군"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="완주군">
                 완주군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="익산시"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="익산시">
                 익산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="임실군"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="임실군">
                 임실군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="장수군"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="장수군">
                 장수군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="전주시"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="전주시">
                 전주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="정읍시"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="정읍시">
                 정읍시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="12"
-                title="진안군"
-              >
+              <button onclick="getAddress(event)" regionId="12" title="진안군">
                 진안군
               </button>
             </div>
 
             <!-- 전남 -->
             <div id="height_list_jeonnam">
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="강진군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="강진군">
                 강진군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="고흥군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="고흥군">
                 고흥군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="곡성군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="곡성군">
                 곡성군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="광양시"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="광양시">
                 광양시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="구례군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="구례군">
                 구례군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="나주시"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="나주시">
                 나주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="담양군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="담양군">
                 담양군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="목포시"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="목포시">
                 목포시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="무안군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="무안군">
                 무안군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="보성군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="보성군">
                 보성군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="순천시"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="순천시">
                 순천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="신안군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="신안군">
                 신안군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="여수시"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="여수시">
                 여수시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="영광군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="영광군">
                 영광군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="영암군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="영암군">
                 영암군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="완도군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="완도군">
                 완도군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="장성군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="장성군">
                 장성군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="장흥군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="장흥군">
                 장흥군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="진도군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="진도군">
                 진도군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="함평군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="함평군">
                 함평군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="화순군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="화순군">
                 화순군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="13"
-                title="해남군"
-              >
+              <button onclick="getAddress(event)" regionId="13" title="해남군">
                 해남군
               </button>
             </div>
 
             <!-- 경북 -->
             <div id="height_list_gyeongbuk">
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="경산시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="경산시">
                 경산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="경주시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="경주시">
                 경주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="고령군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="고령군">
                 고령군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="구미시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="구미시">
                 구미시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="군위군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="군위군">
                 군위군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="김천시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="김천시">
                 김천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="독도"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="독도">
                 독도
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="문경시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="문경시">
                 문경시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="봉화군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="봉화군">
                 봉화군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="상주시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="상주시">
                 상주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="성주군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="성주군">
                 성주군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="안동시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="안동시">
                 안동시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="영덕군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="영덕군">
                 영덕군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="영양군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="영양군">
                 영양군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="영주시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="영주시">
                 영주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="영천시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="영천시">
                 영천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="예천군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="예천군">
                 예천군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="울릉도"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="울릉도">
                 울릉도
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="울진군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="울진군">
                 울진군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="의성군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="의성군">
                 의성군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="청도군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="청도군">
                 청도군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="청송군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="청송군">
                 청송군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="칠곡군"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="칠곡군">
                 칠곡군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="14"
-                title="포항시"
-              >
+              <button onclick="getAddress(event)" regionId="14" title="포항시">
                 포항시
               </button>
             </div>
 
             <!-- 경남 -->
             <div id="height_list_gyeongnam">
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="거제시"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="거제시">
                 거제시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="거창군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="거창군">
                 거창군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="고성군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="고성군">
                 고성군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="김해시"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="김해시">
                 김해시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="남해군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="남해군">
                 남해군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="밀양시"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="밀양시">
                 밀양시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="사천시"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="사천시">
                 사천시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="산청군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="산청군">
                 산청군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="양산시"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="양산시">
                 양산시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="의령군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="의령군">
                 의령군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="진주시"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="진주시">
                 진주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="창녕군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="창녕군">
                 창녕군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="창원시"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="창원시">
                 창원시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="통영시"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="통영시">
                 통영시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="하동군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="하동군">
                 하동군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="함안군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="함안군">
                 함안군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="함양군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="함양군">
                 함양군
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="15"
-                title="합천군"
-              >
+              <button onclick="getAddress(event)" regionId="15" title="합천군">
                 합천군
               </button>
             </div>
 
             <!-- 세종 -->
             <div id="height_list_sejong">
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="금남면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="금남면">
                 금남면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="도담동"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="도담동">
                 도담동
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="부강면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="부강면">
                 부강면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="소정면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="소정면">
                 소정면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="아름동"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="아름동">
                 아름동
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="연기면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="연기면">
                 연기면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="연동면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="연동면">
                 연동면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="연서면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="연서면">
                 연서면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="장군면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="장군면">
                 장군면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="전동면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="전동면">
                 전동면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="전의면"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="전의면">
                 전의면
               </button>
               <button
@@ -4395,127 +3378,59 @@
               >
                 조치원읍
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="종촌동"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="종촌동">
                 종촌동
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="16"
-                title="한솥동"
-              >
+              <button onclick="getAddress(event)" regionId="16" title="한솥동">
                 한솥동
               </button>
             </div>
 
             <!-- 제주 -->
             <div id="height_list_jeju">
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="추자도"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="추자도">
                 추자도
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="비양도"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="비양도">
                 비양도
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="차귀도"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="차귀도">
                 차귀도
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="가좌도"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="가좌도">
                 가좌도
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="마라도"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="마라도">
                 마라도
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="우도"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="우도">
                 우도
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="한경면"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="한경면">
                 한경면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="한림읍"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="한림읍">
                 한림읍
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="애월읍"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="애월읍">
                 애월읍
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="제주시"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="제주시">
                 제주시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="조천읍"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="조천읍">
                 조천읍
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="구좌읍"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="구좌읍">
                 구좌읍
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="성산읍"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="성산읍">
                 성산읍
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="표선면"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="표선면">
                 표선면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="남원읍"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="남원읍">
                 남원읍
               </button>
               <button
@@ -4525,25 +3440,13 @@
               >
                 서귀포시
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="중문"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="중문">
                 중문
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="안덕면"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="안덕면">
                 안덕면
               </button>
-              <button
-                onclick="getAddress(event)"
-                regionId="17"
-                title="대정읍"
-              >
+              <button onclick="getAddress(event)" regionId="17" title="대정읍">
                 대정읍
               </button>
             </div>
