@@ -15,7 +15,7 @@ const loadData = () => {
     .then((result) => {
       if (result.status == "failure") {
         alert("회원을 조회할 수 없습니다.");
-        location.href = "/sandle/auth/login_form.html";
+        location.href = "../auth/login_form.html";
       }
       // console.log(result.data);
       const images = result.data.reverse();

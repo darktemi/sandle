@@ -298,7 +298,7 @@
         console.log(result);
         if (result.status == "failure") {
         alert("회원을 조회할 수 없습니다.");
-        location.href = "/sandle/auth/login_form.html";
+        location.href = "../auth/login_form.html";
         }
 
         let member = result.data;
@@ -333,7 +333,7 @@
         console.log(result);
         if (result.status == "success") {
             alert("게시 완료!");
-            location.href = "/sandle/qna/list.html";
+            location.href = "../qna/list.html";
         } else {
             alert("게시글 등록중 오류!");
             console.log(result.data);

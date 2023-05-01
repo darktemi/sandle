@@ -6,7 +6,7 @@ fetch("../users/view")
     console.log(result);
     if (result.status == "failure") {
       alert("회원을 조회할 수 없습니다.");
-      location.href = "/sandle/auth/login_form.html";
+      location.href = "../auth/login_form.html";
     }
 
     let member = result.data;
