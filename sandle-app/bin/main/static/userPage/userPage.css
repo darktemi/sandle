@@ -14,8 +14,7 @@ body > hr {
   border-radius: 10px;
   box-shadow: 1px 1px gray;
   cursor: pointer;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 15px 0 15px 0;
 }
 
 .change-profile-photo-btn:hover {
@@ -34,7 +33,7 @@ body > hr {
 
 .up {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 50px;
   display: inline-block;
   width: 1200px;
   max-height: auto;
@@ -48,13 +47,93 @@ body > hr {
   margin-bottom: 10px;
 }
 
-.user-name {
-  width: auto;
+/* modal */
+/* 모달창 스타일링 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 90px;
+  width: 100%;
+  height: 200%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
+
+.modal-content {
+  position: relative;
+  margin: 3% 34%;
+  border: none;
+  width: 700px;
+  height: 500px;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal-btn {
+  color: #aaa;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.b-no {
+  display: none;
+}
+
+.b-profilePhoto {
+  margin-bottom: 5px;
+}
+
+#profile-photo {
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+#btn-profile {
+  cursor: pointer;
+}
+
+#p-photo {
+  border-radius: 100%;
+}
+
+#selected-image {
+  width: 200px;
+  height: 200px;
+}
+
+
+#member-form {
+  text-align: center;
+}
+
+#member-form > h2 {
+  margin-top: 0 !important;
+  padding-top: 25px;
+  padding-left: 50px;
+}
+
+/* bottom */
 
 #bottom {
   text-align: center;
   font-weight: 700;
+}
+
+.user-name {
+  width: auto;
 }
 
 #user-button {
@@ -78,32 +157,4 @@ body > hr {
   border-bottom: 3px solid #28544b;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 17px;
-}
-
-.b-no {
-  display: none;
-}
-
-#selected-image {
-  width: 200px;
-  height: 200px;
-}
-
-.modal-content {
-  position: relative;
-  margin: 15% 37%;
-  padding: 0;
-  border: none;
-  width: 700px;
-  height: 500px;
-  max-width: 600px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  animation-name: modalopen;
-  animation-duration: 0.5s;
-}
-
-#member-form {
-  text-align: center;
 }
