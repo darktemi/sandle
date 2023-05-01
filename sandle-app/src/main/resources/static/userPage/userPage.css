@@ -1,4 +1,4 @@
-hr {
+body > hr {
   width: 1400px;
   border: 2px solid #28544b;
 }
