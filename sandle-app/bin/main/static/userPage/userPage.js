@@ -12,6 +12,7 @@ document.querySelector(".change-profile-photo-btn").onclick = () => {
       let member = result.data;
       console.log(member);
       document.querySelector("#f-no").value = member.no;
+      document.querySelector("#f-email").value = member.email;
       if (member.profilePhoto != null) {
         document.querySelector(
           "#p-photo"

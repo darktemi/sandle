@@ -88,7 +88,7 @@ body > hr {
   cursor: pointer;
 }
 
-.b-no {
+.b-no, .b-email {
   display: none;
 }
 
@@ -110,10 +110,11 @@ body > hr {
 }
 
 #selected-image {
-  width: 200px;
-  height: 200px;
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
 }
-
 
 #member-form {
   text-align: center;

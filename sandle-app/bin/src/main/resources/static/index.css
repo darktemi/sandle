@@ -130,7 +130,9 @@ select {
 }
 
 #login-hover {
-  min-width: 6em;
+  min-width: 5em;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 
 .dropotron {

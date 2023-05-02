@@ -25,10 +25,7 @@ document.querySelector("#btn-login").onclick = () => {
     .then((result) => {
       if (result.status == "success") {
         console.log(result.status);
-<<<<<<< HEAD
-=======
         alert("로그인 success!");
->>>>>>> 7681bdcea5dbd7f11ce13029c53e677a9c3e27e5
         location.href = "../index.html";
       } else {
         alert("로그인 실패!");

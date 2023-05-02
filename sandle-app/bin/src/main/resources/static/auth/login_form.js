@@ -24,8 +24,8 @@ document.querySelector("#btn-login").onclick = () => {
     })
     .then((result) => {
       if (result.status == "success") {
-        alert("로그인 success!");
         console.log(result.status);
+        alert("로그인 success!");
         location.href = "../index.html";
       } else {
         alert("로그인 실패!");

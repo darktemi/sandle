@@ -71,28 +71,27 @@ public class MemberController {
 			@PathVariable int no,
 			MultipartFile profilePhoto,
 			HttpSession session) {
-		System.out.println(profilePhoto);
 
 		String filename = objectStorageService.uploadFile(bucketName, "profile-photo/", profilePhoto);
-
 		Member loginUser = (Member) session.getAttribute("loginUser");
-
 		Member old = memberService.get(no);
-		if (old.getNickname() != loginUser.getNickname()) {
+
+		if (old.getEmail().equals(loginUser.getEmail()) ) {
+
+			if (filename != null) {
+				loginUser.setProfilePhoto(filename);
+			}
+
+			memberService.updateProfile(loginUser);
+
 			return new RestResult()
-					.setStatus(RestStatus.FAILURE)
-					.setErrorCode(ErrorCode.rest.UNAUTHORIZED)
-					.setData("권한이 없습니다.");
+					.setStatus(RestStatus.SUCCESS);
 		}
-
-		if (filename != null) {
-			loginUser.setProfilePhoto(filename);
-		}
-
-		memberService.updateProfile(loginUser);
 
 		return new RestResult()
-				.setStatus(RestStatus.SUCCESS);
+				.setStatus(RestStatus.FAILURE)
+				.setErrorCode(ErrorCode.rest.UNAUTHORIZED)
+				.setData("권한이 없습니다.");
 	}
 
 	@DeleteMapping("{no}")
