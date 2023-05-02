@@ -26,7 +26,7 @@ document.querySelector("#btn-login").onclick = () => {
       if (result.status == "success") {
         alert("로그인 success!");
         console.log(result.status);
-        location.href = "https://www.naver.com";
+        location.href = "http://223.130.137.201/sandle/index.html";
       } else {
         alert("로그인 실패!");
         document.querySelector('input[name="email"]').value = "";
