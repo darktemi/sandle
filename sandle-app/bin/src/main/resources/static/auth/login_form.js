@@ -15,7 +15,7 @@ document.querySelector("#btn-login").onclick = () => {
   const form = document.querySelector("#login-form");
   const formData = new FormData(form);
 
-  fetch("login", {
+  fetch("../auth/login", {
     method: "post",
     body: formData,
   })
@@ -25,7 +25,8 @@ document.querySelector("#btn-login").onclick = () => {
     .then((result) => {
       if (result.status == "success") {
         alert("로그인 success!");
-        location.href = "/sandle/index.html";
+        console.log(result.status);
+        location.href = "../index.html";
       } else {
         alert("로그인 실패!");
         document.querySelector('input[name="email"]').value = "";
@@ -36,6 +37,7 @@ document.querySelector("#btn-login").onclick = () => {
     .catch((exception) => {
       alert("로그인 오류!");
       console.log(exception);
+      location.reload();
     });
 };
 
@@ -89,7 +91,7 @@ function facebookLogin(accessToken) {
     .then((result) => {
       if (result.status == "success") {
         console.log("페이스북 로그인 성공!");
-        location.href = "/sandle/";
+        location.href = "/sandle/index.html";
       } else {
         alert("페이스북 로그인 실패!");
       }

@@ -50,27 +50,30 @@ const arrowButton = document.querySelector(".arrow_1");
     });
 })(jQuery);
 
-fetch("auth/user")
+fetch("/sandle/auth/user")
   .then((response) => {
     return response.json();
   })
   .then((result) => {
     console.log(result);
     if (result.status === "success") {
-      document.querySelector("#userEmail").innerHTML = result.data.email;
-      document.querySelector(".profilePhoto").classList.remove("profilePhoto");
-      document.querySelector(".logout").classList.remove("logout");
-    } else {
-      document.querySelector(".login").classList.remove("login");
-      document.querySelector(".sign-up").classList.remove("sign-up");
-    }
-    if (result.data.profilePhoto) {
-      document.querySelector(
-        "#u-photo"
-      ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${result.data.profilePhoto}?type=f&w=40&h=40&faceopt=true&ttype=jpg`;
+      if (result.data.profilePhoto) {
+        document.querySelector(
+          "#u-photo"
+        ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${result.data.profilePhoto}?type=f&w=40&h=40&faceopt=true&ttype=jpg`;
+      } else {
+        document.querySelector("#u-photo").src =
+          "/sandle/assets/images/default_logo.jpg";
+      }
+      document.querySelector("#userEmail").innerHTML = result.data.nickname;
+      $(".userID").html(result.data.email);
+      $(".userID").css("display", "block");
+      $(".logout").css("display", "block");
     } else {
       document.querySelector("#u-photo").src =
         "/sandle/assets/images/default_logo.jpg";
+      $(".login").css("display", "block");
+      $(".sign-up").css("display", "block");
     }
   });
 

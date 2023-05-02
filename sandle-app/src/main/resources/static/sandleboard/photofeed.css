@@ -313,7 +313,7 @@
 }
 
 #post-prev-btn {
-  margin-right: 330px;
+  /* margin-right: 330px; */
   margin-top: 2px;
 }
 
@@ -531,6 +531,8 @@
   cursor: pointer;
 }
 
+
+
 #post-tag {
   border: 1px solid black;
   width: 300px;
@@ -683,13 +685,12 @@
   user-select: none;
 }
 
-.prev {
+#prev-btn.prev {
   left: 0;
-  margin-left: 35px;
 }
 
 /* 다음 버튼 스타일 */
-.next {
+#next-btn.next {
   margin-left: 330px;
   border-radius: 3px 0 0 3px;
 }
@@ -735,4 +736,45 @@
   to {
     opacity: 1;
   }
+}
+
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+#post-label {
+  height: 50px;
+}
+
+#plus-minus {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+#post-label {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+
+#post-photo-icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 200px;
+  margin-left: 0.8px;
+} 
+
+#cancel-photo-icon {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 5px;
+  cursor: pointer;
 }

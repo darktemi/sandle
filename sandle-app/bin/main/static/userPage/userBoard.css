@@ -115,6 +115,7 @@
 }
 
 #session2-2 {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,6 +127,10 @@
   padding-left: 30px;
 }
 
+#session2-3-1 {
+  height: 100%;
+}
+
 #session2-4 {
   width: 30px;
   display: flex;
@@ -133,8 +138,7 @@
   align-items: center;
 }
 
-#x-circle,
-#insert-x-circle {
+#x-circle, #insert-x-circle {
   margin-right: 5px;
   margin-top: 2px;
   cursor: pointer;
@@ -142,7 +146,7 @@
 
 #photo {
   /* border: 1px solid black; */
-  position: relative;
+  position:relative;
   height: 520px;
   width: 400px;
   border-radius: 30px;
@@ -154,7 +158,7 @@
 
 #modal-content-creater {
   /* border: 1px solid black; */
-  height: 160px;
+  height: 100%;
   margin-bottom: 10px;
 }
 
@@ -201,23 +205,39 @@
 }
 
 #content {
-  margin-top: 20px;
+  border-radius: 10px;
+  width: 255.6px;
   border: 1px solid black;
-  width: 300px;
-  height: 100px;
-  border-radius: 30px;
-  margin-bottom: 30px;
+  height: 200px;
+  text-align: left;
+  padding-top: -2px;
+  padding-left: 20px;
+  padding-right: 3px;
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  margin-top: 10px;
 }
 
 #tag {
+  width: 255.6px;
+  border: 1px solid black;
   color: black;
   font-size: 13px;
-  height: 28px;
+  height: 50px;
   text-align: left;
-  padding-left: 80px;
+  padding-left: 20px;
   font-weight: 600;
   margin-bottom: 7px;
+  margin-top: 40px;
+  border-radius: 10px;
 }
+
+
+
+
+
 
 #modal-user-image {
   height: 50px;
@@ -260,7 +280,9 @@
 
 #cmt-content {
   padding-left: 50px;
+  
 }
+
 
 #board-plus {
   width: 35px;
@@ -270,6 +292,7 @@
 }
 
 #photo-head {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -302,10 +325,12 @@
   border-bottom: 3px solid black;
 }
 
+
 #post-area {
   display: flex;
   justify-content: center;
 }
+
 
 #post-substance {
   /* border: 1px solid black; */
@@ -314,7 +339,7 @@
   flex-wrap: wrap;
 }
 
-#post-image {
+#post-image{
   /* border: 1px solid black; */
   height: 500px;
   display: flex;
@@ -322,7 +347,7 @@
   align-items: center;
   flex: 1;
 }
-#post-contents {
+#post-contents{
   /* border: 1px solid black; */
   height: 500px;
   flex: 1;
@@ -332,7 +357,7 @@
   align-items: center;
 }
 
-#post-photo {
+#post-photo{
   background-color: #f4f5f5;
   border: 2px solid black;
   width: 370px;
@@ -352,15 +377,16 @@
   cursor: pointer;
 }
 
-#post-tag {
+#post-tag{
   border: 1px solid black;
   width: 300px;
   height: 100px;
   border-radius: 30px;
   margin-bottom: 30px;
+
 }
 
-#post-write {
+#post-write{
   border: 1px solid black;
   width: 300px;
   height: 200px;
@@ -371,19 +397,20 @@
 #btn-post {
   color: white;
   font-size: 18px;
-  background-color: #0062ff;
+  background-color: #0062FF;
   width: 90px;
   height: 40px;
   border-radius: 10px;
   margin-left: 200px;
 }
 
-#post-tag::placeholder,
-#post-write::placeholder {
+#post-tag::placeholder, #post-write::placeholder {
   font-size: 20px;
-  font-weight: bolder;
+  font-weight: bolder;  
   padding-left: 10px;
 }
+
+
 
 #file-input + label {
   cursor: pointer;
@@ -405,6 +432,14 @@
 }
 
 #comment-insert-button {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+#image-delete-button {
   width: 18px;
   height: 18px;
   margin-right: 10px;
@@ -440,10 +475,11 @@
   height: 18px;
 }
 
+
 #edit-photo-icon {
   position: absolute;
   top: 50%;
-  left: 28%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
@@ -451,9 +487,194 @@
   cursor: pointer;
 }
 
+
 /* #photo:hover #edit-photo-icon {
   display: block;
 }
 #edit-photo-icon {
   display: none;
 } */
+
+#photo {
+  /* border: 1px solid black; */
+  height: 520px;
+  width: 400px;
+  border-radius: 30px;
+  margin-bottom: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+/* 이전/다음 버튼 스타일 */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  margin-right: 360px;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+#attach-img {
+  height: 520px;
+  width: 400px;
+  border-radius: 30px;
+
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#insert-img {
+  height: 520px;
+  width: 400px;
+  border-radius: 30px;
+}
+
+
+
+
+
+#edit-board {
+  margin-top: 140px;
+  background-color: #0062ff;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin:  15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#delete-board {
+  margin-top: 140px;
+  background-color: #858585;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin:  15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#edit-board:hover {
+  background-color: #010abd;
+}
+
+#delete-board:hover {
+  background-color: #494949;
+}
+
+
+
+.x-img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+#post-label {
+  height: 50px;
+}
+
+#plus-minus {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+#post-label {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+
+#post-photo-icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 200px;
+  margin-left: 0.8px;
+} 
+
+#cancel-photo-icon {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+
+#image-delete-button{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 20px;
+  left: 350px;
+}

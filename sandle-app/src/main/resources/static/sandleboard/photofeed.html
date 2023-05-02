@@ -19,7 +19,7 @@
       <a href="/sandle/index.html" id="header-title">SANDLE</a>
       <nav id="nav">
         <ul>
-          <li>
+          <li class="current">
             <a href="/sandle/index.html">산들 소개</a>
           </li>
           <li>
@@ -39,7 +39,7 @@
               </li>
             </ul>
           </li>
-          <li class="current">
+          <li>
             <a href="#">커뮤니티</a>
             <ul>
               <p>커뮤니티</p>
@@ -180,12 +180,6 @@
           <div id="post-substance">
             <div id="post-image">
               <div id="post-photo">
-                <label for="file-input" id="post-label">
-                  <img
-                    src="../assets/photofeed_images/post-photo-icon.png"
-                    id="post-photo-icon"
-                  />
-                </label>
                 <input
                   id="file-input"
                   type="file"
@@ -199,7 +193,18 @@
                 <a class="next" id="post-next-btn">&#10095;</a>
               </div>
             </div>
-
+            <div id="plus-minus">
+              <label for="file-input" id="post-label">
+                <img
+                  src="../assets/photofeed_images/post-photo-icon.png"
+                  id="post-photo-icon"
+                />
+              </label>
+              <img
+                src="../assets/photofeed_images/image-cancel.png"
+                id="cancel-photo-icon"
+              />
+            </div>
             <div id="post-contents">
               <input
                 id="post-tag"
@@ -232,7 +237,7 @@
           >
           </div>
           <div id="view-container-{{no}}" class="view-container">
-            <div class="view-title">{{board.tag}}
+            <div class="view-title">
               <div class="view-like">
                 <span class="like-icon" id="view-heart">♥</span>
                 <span class="view-like-count">{{likeCount}}</span>
@@ -250,11 +255,11 @@
       {{/each}}
     </script>
 
-    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
     <script src="/sandle/assets/js/jquery.min.js"></script>
-    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
-    <script src="/sandle/assets/js/breakpoints.min.js"></script>
-    <script src="/sandle/assets/js/util.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
     <script src="/sandle/navLogin.js"></script>
     <script src="boardLike.js"></script>
     <script src="photofeed_insert.js"></script>

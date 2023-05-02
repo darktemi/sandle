@@ -23,7 +23,7 @@ document.querySelector("#btn-insert").onclick = () => {
     .then((result) => {
       if (result.status == "success") {
         alert("가입 완료!");
-        location.href = "/sandle/index.html";
+        location.href = "../index.html";
       } else {
         alert("입력 실패!");
         console.log(result.data);
@@ -36,7 +36,7 @@ document.querySelector("#btn-insert").onclick = () => {
 };
 
 document.querySelector("#btn-cancel").onclick = () => {
-  location.href = "/sandle/index.html";
+  location.href = "../index.html";
 };
 
 /*****************************************************************************주소찾기*********/
