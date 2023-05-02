@@ -34,10 +34,15 @@ select {
 
 #login,
 #logout,
-#sign-up,
-#userID {
+#sign-up {
   font-weight: 700;
   font-size: 20px;
+}
+
+#userID {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 10px 0 15px 0;
 }
 
 #u-photo-icon {
@@ -45,6 +50,7 @@ select {
   margin-top: 40px;
   margin-right: 180px;
   margin-left: 500px;
+  width: 220px;
 }
 
 #u-photo-icon:hover > a,
@@ -59,10 +65,17 @@ select {
   border-radius: 100%;
 }
 
-#userEmail {
-  margin-left: 20px;
-  margin-top: 18px;
-  font-size: 20px;
+#u-photo {
+  float: right;
+}
+
+#nickname-box {
+  text-align: right;
+  float: right;
+  margin-top: 3px;
+  margin-right: 5px;
+  width: auto;
+  font-size: 25px;
 }
 
 /* Nav */
@@ -114,6 +127,10 @@ select {
 
 #navPanel {
   display: none;
+}
+
+#login-hover {
+  min-width: 6em;
 }
 
 .dropotron {

@@ -1,11 +1,12 @@
 .news {
   margin: 20px auto;
   margin-bottom: 20px;
-  border-bottom: 1px solid #28544B;
+  border-bottom: 1px solid #28544b;
   padding-bottom: 20px;
   width: 55%;
   min-height: 80px;
 }
+
 .news .title {
   font-size: 18px;
   font-weight: bold;
@@ -13,34 +14,37 @@
   text-decoration: none;
   text-align: left;
 }
+
 .news .content {
   margin-top: 10px;
   font-size: 14px;
   color: #666;
   text-align: left;
 }
+
 .news img {
   width: 132px;
   height: 90px;
-  float: right; 
+  float: right;
   margin-left: 20px;
 }
-.title:hover{
+
+.title:hover {
   text-decoration: underline;
 }
 
-hr {
+body > hr {
   width: 55%;
   margin-bottom: 50px;
 }
 
-.keyword{
+.keyword {
   margin-left: 23%;
   margin-top: 60px;
   margin-bottom: 5px;
   max-height: 20px;
 }
-.keyword span{
+.keyword span {
   font-size: 16px;
   margin-left: 20px;
 }

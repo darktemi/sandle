@@ -132,31 +132,28 @@
           </li>
 
           <!-- 상단 프로필 사진 -->
-
           <li id="u-photo-icon">
-            <a href="/sandle/userPage/userPage.html" id="my-page">
-              <span id="userEmail"></span>
+            <a href="/sandle/userPage/userPage.html">
               <img id="u-photo" />
+              <div id="nickname-box">
+                <span id="userEmail"></span>
+              </div>
             </a>
 
             <!-- 프로필 사진 hover -->
-            <ul>
-              <li>
-                <div id="login" class="login">
-                  <a href="/sandle/auth/login_form.html">LOGIN</a>
-                </div>
+            <ul id="login-hover">
+              <span id="userID" class="userID"></span>
+              <hr />
+              <li id="sign-up" class="sign-up">
+                <a href="/sandle/member/member.html">SIGN UP</a>
               </li>
-              <li>
-                <div id="logout" class="logout">
-                  <a href="sandle/auth/logout" onclick="logout(); return false;"
-                    >LOGOUT</a
-                  >
-                </div>
+              <li id="login" class="login">
+                <a href="/sandle/auth/login_form.html">LOGIN</a>
               </li>
-              <li>
-                <div id="sign-up" class="sign-up">
-                  <a href="/sandle/member/member.html">SIGN UP</a>
-                </div>
+              <li id="logout" class="logout">
+                <a href="sandle/auth/logout" onclick="logout(); return false;"
+                  >LOGOUT</a
+                >
               </li>
             </ul>
           </li>

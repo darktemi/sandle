@@ -67,7 +67,9 @@ fetch("../auth/user")
         document.querySelector("#u-photo").src =
           "/sandle/assets/images/default_logo.jpg";
       }
-      document.querySelector("#userEmail").innerHTML = member.email;
+      document.querySelector("#userEmail").innerHTML = member.nickname;
+      $(".userID").html(result.data.email);
+      $(".userID").css("display", "block");
       $(".logout").css("display", "block");
     } else {
       document.querySelector("#u-photo").src =
@@ -85,11 +87,6 @@ fetch("../auth/user")
       ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${member.profilePhoto}?type=f&w=300&h=300&faceopt=true&ttype=jpg`;
     }
 
-    /* 문의글 관리자 답변 */
-    if (member.email == 'darktemi90@nate.com') {
-      document.getElementById("qna-response").removeAttribute("readonly");
-    }
-
     /* 마이페이지 */
     if (member.name && document.querySelector("#f-name")) {
       document.querySelector("#f-name").innerHTML = member.name;
@@ -100,9 +97,18 @@ fetch("../auth/user")
 
     /* 관리자 공지사항 등록 */
     if (
-      document.getElementById("userEmail").textContent == "darktemi90@nate.com"
+      document.getElementById("userID").textContent == "darktemi90@nate.com" &&
+      document.querySelector(".user2")
     ) {
       document.querySelector(".user2").style.display = "inline-block";
+    }
+
+    /* 문의글 관리자 답변 */
+    if (
+      member.email == "darktemi90@nate.com" &&
+      document.getElementById("qna-response")
+    ) {
+      document.getElementById("qna-response").removeAttribute("readonly");
     }
   });
 
@@ -117,45 +123,4 @@ function logout() {
     .catch((exception) => {
       console.log(exception);
     });
-}
-
-// 카카오 로그인
-
-Kakao.init("51570d908ff0ab2abce71614674d7123"); //발급받은 키 중 javascript키를 사용해준다.
-console.log(Kakao.isInitialized()); // sdk초기화여부판단
-//카카오로그인
-function kakaoLogin() {
-  Kakao.Auth.login({
-    success: function (response) {
-      Kakao.API.request({
-        url: "/v2/user/me",
-        success: function (response) {
-          console.log(response);
-
-          // location.href = "/sandle/index.html";
-        },
-        fail: function (error) {
-          console.log(error);
-        },
-      });
-    },
-    fail: function (error) {
-      console.log(error);
-    },
-  });
-}
-//카카오로그아웃
-function kakaoLogout() {
-  if (Kakao.Auth.getAccessToken()) {
-    Kakao.API.request({
-      url: "/v1/user/unlink",
-      success: function (response) {
-        console.log(response);
-      },
-      fail: function (error) {
-        console.log(error);
-      },
-    });
-    Kakao.Auth.setAccessToken(undefined);
-  }
 }

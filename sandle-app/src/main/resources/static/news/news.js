@@ -92,21 +92,7 @@ axios
   </head>
 
   <body>
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, user-scalable=no"
-        />
-        <title>SANDLE - 산들산들</title>
-        <link rel="stylesheet" href="/sandle/index.css" />
-        <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
-      </head>
-
-      <body>
-      <!-- Header  -->
+    <!-- Header  -->
       <div class="content_navi">
         <a href="/sandle/index.html" id="header-title">SANDLE</a>
         <nav id="nav">
@@ -147,34 +133,31 @@ axios
             </li>
   
             <!-- 상단 프로필 사진 -->
-  
-            <li id="u-photo-icon">
-              <a href="/sandle/userPage/userPage.html" id="my-page">
+          <li id="u-photo-icon">
+            <a href="/sandle/userPage/userPage.html">
+              <img id="u-photo" />
+              <div id="nickname-box">
                 <span id="userEmail"></span>
-                <img id="u-photo" />
-              </a>
-  
-              <!-- 프로필 사진 hover -->
-              <ul>
-                <li>
-                  <div id="login" class="login">
-                    <a href="/sandle/auth/login_form.html">LOGIN</a>
-                  </div>
-                </li>
-                <li>
-                  <div id="logout" class="logout">
-                    <a href="sandle/auth/logout" onclick="logout(); return false;"
-                      >LOGOUT</a
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div id="sign-up" class="sign-up">
-                    <a href="/sandle/member/member.html">SIGN UP</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
+              </div>
+            </a>
+
+            <!-- 프로필 사진 hover -->
+            <ul id="login-hover">
+              <span id="userID" class="userID"></span>
+              <hr />
+              <li id="sign-up" class="sign-up">
+                <a href="/sandle/member/member.html">SIGN UP</a>
+              </li>
+              <li id="login" class="login">
+                <a href="/sandle/auth/login_form.html">LOGIN</a>
+              </li>
+              <li id="logout" class="logout">
+                <a href="sandle/auth/logout" onclick="logout(); return false;"
+                  >LOGOUT</a
+                >
+              </li>
+            </ul>
+          </li>
           </ul>
         </nav>
       </div>
@@ -215,8 +198,6 @@ axios
         <script src="/sandle/assets/js/breakpoints.min.js"></script>
         <script src="/sandle/assets/js/util.js"></script>
         <script src="/sandle/navLogin.js"></script>
-      </body>
-    </html>
   </body>
 </html>
 `;

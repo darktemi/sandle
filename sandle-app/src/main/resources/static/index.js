@@ -65,13 +65,13 @@ fetch("/sandle/auth/user")
         document.querySelector("#u-photo").src =
           "/sandle/assets/images/default_logo.jpg";
       }
-      document.querySelector("#userEmail").innerHTML = result.data.email;
-      $("#userID").html(result.data.email);
+      document.querySelector("#userEmail").innerHTML = result.data.nickname;
+      $(".userID").html(result.data.email);
       $(".userID").css("display", "block");
       $(".logout").css("display", "block");
     } else {
       document.querySelector("#u-photo").src =
-      "/sandle/assets/images/default_logo.jpg";
+        "/sandle/assets/images/default_logo.jpg";
       $(".login").css("display", "block");
       $(".sign-up").css("display", "block");
     }
