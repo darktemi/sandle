@@ -39,7 +39,7 @@ public class QnaController {
 	@Autowired private QnaService qnaService;
 	@Autowired private ObjectStorageService objectStorageService;
 	private String bucketName = "sandle-images";
-	String admin = "darktemi90@nate.com";
+	String admin = "admin@naver.com";
 
 	@PostMapping
 	public Object insert(

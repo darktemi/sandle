@@ -44,12 +44,4 @@ public class MountainInfoController {
 				.setStatus(RestStatus.SUCCESS)
 				.setData(mountainInfoService.get(regionId, title));
 	}
-
-	@GetMapping("height/{height}")
-	public Object viewHeight(@PathVariable int height) {
-		return new RestResult()
-				.setStatus(RestStatus.SUCCESS)
-				.setData(mountainInfoService.get(height));
-	}
-
 }

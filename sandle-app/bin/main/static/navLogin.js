@@ -97,7 +97,7 @@ fetch("../auth/user")
 
     /* 관리자 공지사항 등록 */
     if (
-      document.getElementById("userID").textContent == "darktemi90@nate.com" &&
+      document.getElementById("userID").textContent == "admin@naver.com" &&
       document.querySelector(".user2")
     ) {
       document.querySelector(".user2").style.display = "inline-block";
@@ -105,7 +105,7 @@ fetch("../auth/user")
 
     /* 문의글 관리자 답변 */
     if (
-      member.email == "darktemi90@nate.com" &&
+      member.email == "admin@naver.com" &&
       document.getElementById("qna-response")
     ) {
       document.getElementById("qna-response").removeAttribute("readonly");

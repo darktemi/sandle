@@ -20,13 +20,13 @@ public class DefaultMountainInfoService implements MountainInfoService {
 	}
 
 	@Override
-	public List<MountainInfo> get(int keyword) {
-		return mountainInfoDao.findByRegion(keyword);
+	public List<MountainInfo> get(int regionId) {
+		return mountainInfoDao.findByRegionId(regionId);
 	}
 
 	@Override
 	public List<MountainInfo> get(int regionId, String title) {
-		return mountainInfoDao.findByRegionAndAddress(regionId, title);
+		return mountainInfoDao.findByRegionIdAndAddress(regionId, title);
 	}
 
 }
