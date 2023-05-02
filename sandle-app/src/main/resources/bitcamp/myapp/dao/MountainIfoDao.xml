@@ -63,7 +63,7 @@
       m.mountain_info_id asc
   </select>
   
-  <select id="findByRegionId" parameterType="int" resultMap="mountainInfoMap">
+  <select id="findByRegion" parameterType="int" resultMap="mountainInfoMap">
     <include refid="select"/>
     where m.region_id = #{regionId}
       and c.course_info_id = 1
@@ -75,6 +75,14 @@
       and m.address like concat('%', #{title}, '%') 
       and c.course_info_id
   </select>
+  
+  <select id="findByHeight" parameterType="int" resultMap="mountainInfoMap">
+    <include refid="select"/>
+    WHERE 
+		  m.height BETWEEN 100 AND 200
+		  AND c.course_info_id = 1;
+  </select>
+  
 </mapper>
 
 
