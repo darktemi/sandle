@@ -24,9 +24,9 @@ document.querySelector("#btn-login").onclick = () => {
     })
     .then((result) => {
       if (result.status == "success") {
-        alert("로그인 success!");
         console.log(result.status);
-        location.href = "http://223.130.137.201/sandle/index.html";
+        alert("로그인 success!");
+        location.href = "../index.html";
       } else {
         alert("로그인 실패!");
         document.querySelector('input[name="email"]').value = "";
